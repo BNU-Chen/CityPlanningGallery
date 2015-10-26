@@ -13,12 +13,12 @@ using DevExpress.XtraEditors;
 
 namespace CityPlanningGallery
 {
-    public partial class frmGuihuaGallery : Form
+    public partial class frmMapTitleGallery : Form
     {
         private string dataPath = "";
         private MainForm parentForm = null;
 
-        public frmGuihuaGallery(Form _frm)
+        public frmMapTitleGallery(Form _frm)
         {
             InitializeComponent();
             parentForm = (MainForm)_frm;

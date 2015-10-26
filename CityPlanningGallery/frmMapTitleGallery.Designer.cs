@@ -1,6 +1,6 @@
 ﻿namespace CityPlanningGallery
 {
-    partial class frmGuihuaGallery
+    partial class frmMapTitleGallery
     {
         /// <summary>
         /// Required designer variable.

@@ -15,12 +15,12 @@ namespace CityPlanningGallery
     public partial class frmMapView : Form
     {
         private MainForm rootForm = null;
-        private frmGuihuaGallery galleryForm = null;
+        private frmMapTitleGallery galleryForm = null;
         public frmMapView(MainForm _rootForm, Form _frmGallery)
         {
             InitializeComponent();
             rootForm = _rootForm;
-            galleryForm = (frmGuihuaGallery)_frmGallery;
+            galleryForm = (frmMapTitleGallery)_frmGallery;
             galleryForm.Visible = false;
         }
 
