@@ -117,38 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="zoomIn_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zoomIn_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="axLicenseControl1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAKgAAAAIB
+        AAAAAQAAAAAAAAAAAAAAABUAAAABAAAAAgAAAAEAAAAKAAAAAAAAAAAL
+</value>
   </data>
-  <data name="zoomOut_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zoomOut_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home_fenxi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home_fenxi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="主页" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\主页.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home_xianzhuang" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home_xianzhuang.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CityPlanningLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CityPlanningLogo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home_guihua" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home_guihua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="return_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\return_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fullExtent_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fullExtent_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="toolStrip_MapTool.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>169, 17</value>
+  </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="axMapControl1.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAFwYAAAIB
+        AAAAAQAAAAAAAAAAAAAAAAIGAAALAAAAAgAAAAEAAAAKAAAAAAAAAACYQwAAFjcAAAAAAQAAAAEAAAAA
+        AAAAAAAAAAAAAAANAAAAAAAAAAAAAAAAAAAAAAAAAAD//3aqveY1TdARmL4AgF987SEAAAAAMwAIAAAA
+        TQBhAHAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////+Du0aWEpXSEaL2CAAJtvIrAQAAAAYA
+        AQAAAAAAAAAUAAAAPABEAGUAZgBhAHUAbAB0AD4AAAD/////AAAAAAAAAAAAAAAAAAAAAAAAAwAAAAEA
+        AAABAAAAcjmPzr7p0RGiMggACbbyKwIAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAA
+        AAAAAAAAAACAeqim0R2yEb9RCAAgIvVzAwAAAAcAvwAAAEdFT0dDU1siR0NTX05vcnRoX0FtZXJpY2Fu
+        XzE5MjciLERBVFVNWyJEX05vcnRoX0FtZXJpY2FuXzE5MjciLFNQSEVST0lEWyJDbGFya2VfMTg2NiIs
+        NjM3ODIwNi40LDI5NC45Nzg2OTgyXV0sUFJJTUVNWyJHcmVlbndpY2giLDAuMF0sVU5JVFsiRGVncmVl
+        IiwwLjAxNzQ1MzI5MjUxOTk0MzNdLEFVVEhPUklUWVsiRVBTRyIsNDI2N11dAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAIBmwAAAAAAAgGZAAQAAAAAAAAB5wAAAAAAAAHnA/////2TNzUEAAAAAAGr4wAAAAAAAiMNA
+        AAAAAABq+MAAAAAAAIjDQNHctZx8SkM+/Knx0k1iUD/8qfHSTWJQPwIAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQI9AAAAAAABAj0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAQC81HI4p0xGfTwDAT2vGGQQAAAABAAYhCRSOmOO/BiEJFI6Y
+        4z8AAAAAAADgPwAAAAAAAAhA//8AAAAIAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAAAAAAAAAAAAAACAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAABWPcfgiGyMSbd8eGBuaIyXBQAAAAIA
+        AACWxOl+I9HQEYODCAAJuZbMBgAAAAEAAQAA4BxYrARGTEAJF2hRkDlTQIKiuNSeBlFAAQAAAAAAAAAA
+        AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAIAAAAAAAAAAAACAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA
+        AAD//woAAAAAAAAAAECPQAAAAAAAiMNAAAAAAABw10AAAAAAAGr4QAAAAACAhA5BAAAAAICEHkEAAAAA
+        YOMmQQAAAACAhC5BAAAAAGDjRkEAAAAA0BJjQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////
+        AgAAAAAA//8KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        //8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAD0AQAAAAAAAAAA/////ws=
+</value>
   </data>
 </root>

@@ -73,6 +73,36 @@ namespace CityPlanningGallery.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap fullExtent_32 {
+            get {
+                object obj = ResourceManager.GetObject("fullExtent_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap home_black {
+            get {
+                object obj = ResourceManager.GetObject("home_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap home_fenxi {
             get {
                 object obj = ResourceManager.GetObject("home_fenxi", resourceCulture);
@@ -96,6 +126,36 @@ namespace CityPlanningGallery.Properties {
         internal static System.Drawing.Bitmap home_xianzhuang {
             get {
                 object obj = ResourceManager.GetObject("home_xianzhuang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap return_black {
+            get {
+                object obj = ResourceManager.GetObject("return_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap zoomIn_32 {
+            get {
+                object obj = ResourceManager.GetObject("zoomIn_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap zoomOut_32 {
+            get {
+                object obj = ResourceManager.GetObject("zoomOut_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

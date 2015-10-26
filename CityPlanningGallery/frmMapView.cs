@@ -8,27 +8,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using DevExpress.XtraEditors;
+using System.IO;
 
 namespace CityPlanningGallery
 {
-    public partial class MainForm : Form
+    public partial class frmMapView : Form
     {
-        public MainForm()
+        private MainForm rootForm = null;
+        private frmMapTitleGallery galleryForm = null;
+        public frmMapView(MainForm _rootForm, Form _frmGallery)
         {
             InitializeComponent();
+            rootForm = _rootForm;
+            galleryForm = (frmMapTitleGallery)_frmGallery;
+            galleryForm.Visible = false;
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        #region //封装字段
+        private string mapPath = "";
+
+        public string MapPath
         {
-            //启动界面
-            frmStart fs = new frmStart(this);
-            fs.ShowDialog();
+            get { return mapPath; }
+            set
+            {
+                mapPath = value;
+                if (!File.Exists(mapPath))
+                {
+                    return;
+                }
+                string title = Path.GetFileNameWithoutExtension(mapPath);
+                this.lbl_MapTitle.Text = title;
+
+                this.axMapControl1.LoadMxFile(mapPath);
+                this.axMapControl1.Refresh();
+            }
         }
 
-        #region //关闭窗体
+        #endregion
+
+
+        #region //关闭按钮
         private void lbl_Close_Click(object sender, EventArgs e)
         {
+            galleryForm.Visible = true;
             this.Close();
         }
 
@@ -40,46 +63,6 @@ namespace CityPlanningGallery
         private void lbl_Close_MouseLeave(object sender, EventArgs e)
         {
             this.lbl_Close.BackColor = Color.White;
-        }
-        #endregion
-
-        #region //按钮
-        private void btn_Xianzhuang_Click(object sender, EventArgs e)
-        {
-            frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
-            frmGallery.DataPath = Config.PlanningMapXianzhuangFolder;
-            frmGallery.Show();
-        }
-
-        private void btn_Guihua_Click(object sender, EventArgs e)
-        {
-            frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
-            frmGallery.DataPath = Config.PlanningMapGuihuaFolder;
-            frmGallery.Show();
-        }
-
-        private void btn_Fenxi_Click(object sender, EventArgs e)
-        {
-            frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
-            frmGallery.DataPath = Config.PlanningMapFenxiFolder;
-            frmGallery.Show();
-        }
-        private void btn_Xianzhuang_MouseEnter(object sender, EventArgs e)
-        {
-            SimpleButton sb = (SimpleButton)sender;
-            if (sb != null)
-            {
-                sb.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            }
-        }
-
-        private void btn_Xianzhuang_MouseLeave(object sender, EventArgs e)
-        {
-            SimpleButton sb = (SimpleButton)sender;
-            if (sb != null)
-            {
-                sb.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            }
         }
         #endregion
 
@@ -114,5 +97,6 @@ namespace CityPlanningGallery
             }
         }
         #endregion
+
     }
 }

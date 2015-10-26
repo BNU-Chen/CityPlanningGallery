@@ -37,6 +37,38 @@
     <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.3DAnalyst, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.AxControls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Controls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.GlobeCore, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Output, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Version, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,11 +82,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="frmGuihuaGallery.cs">
+    <Compile Include="frmMapTitleGallery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGuihuaGallery.Designer.cs">
-      <DependentUpon>frmGuihuaGallery.cs</DependentUpon>
+    <Compile Include="frmMapTitleGallery.Designer.cs">
+      <DependentUpon>frmMapTitleGallery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMapView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMapView.Designer.cs">
+      <DependentUpon>frmMapView.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStart.cs">
       <SubType>Form</SubType>
@@ -77,8 +115,11 @@
     <Compile Include="ucGalleryItem.Designer.cs">
       <DependentUpon>ucGalleryItem.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmGuihuaGallery.resx">
-      <DependentUpon>frmGuihuaGallery.cs</DependentUpon>
+    <EmbeddedResource Include="frmMapTitleGallery.resx">
+      <DependentUpon>frmMapTitleGallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMapView.resx">
+      <DependentUpon>frmMapView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStart.resx">
       <DependentUpon>frmStart.cs</DependentUpon>
@@ -126,6 +167,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CityPlanningLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomIn_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomOut_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullExtent_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
