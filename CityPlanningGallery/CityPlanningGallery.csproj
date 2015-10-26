@@ -71,6 +71,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucGalleryItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGalleryItem.Designer.cs">
+      <DependentUpon>ucGalleryItem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmGuihuaGallery.resx">
       <DependentUpon>frmGuihuaGallery.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +96,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucGalleryItem.resx">
+      <DependentUpon>ucGalleryItem.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
