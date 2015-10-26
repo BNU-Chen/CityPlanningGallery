@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
-using DevExpress.XtraEditors;
 
 namespace CityPlanningGallery
 {
     public partial class frmGuihuaGallery : Form
     {
         private string dataPath = "";
-        private MainForm parentForm = null;
+        private Form parentForm = null;
 
         public frmGuihuaGallery(Form _frm)
         {
             InitializeComponent();
-            parentForm = (MainForm)_frm;
+            parentForm = _frm;
             parentForm.Visible = false;
         }
 
@@ -42,8 +41,6 @@ namespace CityPlanningGallery
             }
         }
 
-
-        #region //GalleryItem
         private void SetFlowLayout(string path)
         {
             DirectoryInfo di = new DirectoryInfo(path);
@@ -67,10 +64,10 @@ namespace CityPlanningGallery
                         ucGalleryItem gi = new ucGalleryItem();
                         gi.Title = title;
                         gi.HoverImagePath = hoverImgPath;
-                        gi.MxdPath = file.FullName;
+                        gi.MxdPath = path;
                         gi.BackColorPanel.MouseClick += BackColorPanel_MouseClick;
                         gi.BackColorPanel.MouseEnter += BackColorPanel_MouseEnter;
-                        gi.BackColorPanel.MouseLeave += BackColorPanel_MouseLeave;
+                        gi.BackColorPanel.MouseMove += BackColorPanel_MouseMove;
 
                         this.flowLayoutPanel_Guihua.Controls.Add(gi);
                     }
@@ -79,51 +76,21 @@ namespace CityPlanningGallery
             catch { }
         }
 
-        void BackColorPanel_MouseClick(object sender, MouseEventArgs e)
+        void BackColorPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (sender is DevExpress.XtraEditors.PanelControl)
-            {
-                PanelControl panel = (PanelControl)sender;
-                Control ctrl = panel.Parent;
-                if (ctrl is ucGalleryItem)
-                {
-                    ucGalleryItem ucgi = (ucGalleryItem)ctrl;
-                    frmMapView frmMap = new frmMapView(parentForm,this);
-                    frmMap.MapPath = ucgi.MxdPath;
-                    frmMap.Show();
-                }
-            }
-
+            
         }
+
         void BackColorPanel_MouseEnter(object sender, EventArgs e)
         {
             
-            if (sender is DevExpress.XtraEditors.PanelControl)
-            {
-                PanelControl panel = (PanelControl)sender;
-                Control ctrl = panel.Parent;
-                if (ctrl is ucGalleryItem)
-                {
-                    ucGalleryItem ucgi = (ucGalleryItem)ctrl;
-                    if (!File.Exists(ucgi.HoverImagePath))
-                    {
-                        return;
-                    }
-                    Image img = Image.FromFile(ucgi.HoverImagePath);
-                    this.pic_PreView.BackgroundImage = img;
-                    this.lbl_PreViewMapTitle.Text = ucgi.Title;
-                }
-            }
         }
-        void BackColorPanel_MouseLeave(object sender, EventArgs e)
+
+        void BackColorPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            if (sender is DevExpress.XtraEditors.PanelControl)
-            {
-                this.pic_PreView.BackgroundImage = null;
-                this.lbl_PreViewMapTitle.Text = "";
-            }
+            
         }
-        #endregion
+
 
         #region //关闭按钮
         private void lbl_Close_Click(object sender, EventArgs e)

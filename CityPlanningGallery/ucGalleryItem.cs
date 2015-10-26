@@ -8,10 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using DevExpress.XtraEditors;
+
 namespace CityPlanningGallery
 {
     public partial class ucGalleryItem : UserControl
     {
+        private string mxdPath = "";
+        public string MxdPath
+        {
+            get { return mxdPath; }
+            set { mxdPath = value; }
+        }
+
+        private string hoverImagePath = "";
+
+        public string HoverImagePath
+        {
+            get { return hoverImagePath; }
+            set { hoverImagePath = value; }
+        }
         public string Title
         {
             get
@@ -24,9 +40,24 @@ namespace CityPlanningGallery
             }
         }
 
+        public DevExpress.XtraEditors.PanelControl BackColorPanel
+        {
+            get { return this.panel_BackColor; }
+        }
+
         public ucGalleryItem()
         {
             InitializeComponent();
+        }
+
+        private void panel_BackColor_MouseEnter(object sender, EventArgs e)
+        {
+            this.panel_BackColor.BackColor = Color.DarkOliveGreen;
+        }
+
+        private void panel_BackColor_MouseLeave(object sender, EventArgs e)
+        {
+            this.panel_BackColor.BackColor = Color.Olive;
         }
     }
 }
