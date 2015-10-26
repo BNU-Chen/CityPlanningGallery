@@ -38,7 +38,7 @@
             // 
             this.flowLayoutPanel_Guihua.Location = new System.Drawing.Point(64, 54);
             this.flowLayoutPanel_Guihua.Name = "flowLayoutPanel_Guihua";
-            this.flowLayoutPanel_Guihua.Size = new System.Drawing.Size(319, 486);
+            this.flowLayoutPanel_Guihua.Size = new System.Drawing.Size(320, 486);
             this.flowLayoutPanel_Guihua.TabIndex = 0;
             // 
             // pictureBox1

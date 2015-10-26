@@ -86,17 +86,17 @@ namespace CityPlanningGallery
         }
         //图例-------------------
         //规划
-        public static string PlanninThumbGuihuaFolder
+        public static string PlanningLegendGuihuaFolder
         {
             get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + KeyMapGuihuaName + "\\" + KeyLegendName; }
         }
         //现状
-        public static string PlanninThumbXianzhuangFolder
+        public static string PlanningLegendXianzhuangFolder
         {
             get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + KeyMapXianzhuangName + "\\" + KeyLegendName; }
         }
         //分析
-        public static string PlanninThumbFenxiFolder
+        public static string PlanningLegendFenxiFolder
         {
             get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + KeyMapFenxiName + "\\" + KeyLegendName; }
         }
