@@ -16,7 +16,8 @@ namespace CityPlanningGallery
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);
+            Application.Run(new MainForm());
         }
     }
 }
