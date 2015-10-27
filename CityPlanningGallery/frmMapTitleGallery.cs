@@ -72,6 +72,10 @@ namespace CityPlanningGallery
                         gi.BackColorPanel.MouseEnter += BackColorPanel_MouseEnter;
                         gi.BackColorPanel.MouseLeave += BackColorPanel_MouseLeave;
 
+                        gi.TitleLabel.MouseClick += BackColorPanel_MouseClick;
+                        gi.TitleLabel.MouseEnter += BackColorPanel_MouseEnter;
+                        gi.TitleLabel.MouseLeave += TitleLabel_MouseLeave;
+
                         this.flowLayoutPanel_Guihua.Controls.Add(gi);
                     }
                 }
@@ -79,44 +83,92 @@ namespace CityPlanningGallery
             catch { }
         }
 
+        void TitleLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        void TitleLabel_MouseLeave(object sender, EventArgs e)
+        {
+        }
+
+        void TitleLabel_MouseEnter(object sender, EventArgs e)
+        {
+        }
+
         void BackColorPanel_MouseClick(object sender, MouseEventArgs e)
         {
+            ucGalleryItem ucgi = null;
             if (sender is DevExpress.XtraEditors.PanelControl)
             {
                 PanelControl panel = (PanelControl)sender;
                 Control ctrl = panel.Parent;
                 if (ctrl is ucGalleryItem)
                 {
-                    ucGalleryItem ucgi = (ucGalleryItem)ctrl;
-                    frmMapView frmMap = new frmMapView(parentForm,this);
-                    frmMap.MapPath = ucgi.MxdPath;
-                    frmMap.Show();
+                    ucgi = (ucGalleryItem)ctrl;                    
                 }
             }
-
+            else if(sender is DevExpress.XtraEditors.LabelControl)
+            {
+                LabelControl label = (LabelControl)sender;
+                Control ctrlPanel = label.Parent;
+                if (ctrlPanel is DevExpress.XtraEditors.PanelControl)
+                {
+                    PanelControl panel = (PanelControl)ctrlPanel;
+                    Control ctrl = panel.Parent;
+                    if (ctrl is ucGalleryItem)
+                    {
+                        ucgi = (ucGalleryItem)ctrl;
+                    }
+                }
+            }
+            if (ucgi != null)
+            {
+                frmMapView frmMap = new frmMapView(parentForm, this);
+                frmMap.MapPath = ucgi.MxdPath;
+                frmMap.Show();
+            }
         }
         void BackColorPanel_MouseEnter(object sender, EventArgs e)
         {
-            
+            ucGalleryItem ucgi = null;
             if (sender is DevExpress.XtraEditors.PanelControl)
             {
                 PanelControl panel = (PanelControl)sender;
                 Control ctrl = panel.Parent;
                 if (ctrl is ucGalleryItem)
                 {
-                    ucGalleryItem ucgi = (ucGalleryItem)ctrl;
-                    if (!File.Exists(ucgi.HoverImagePath))
-                    {
-                        return;
-                    }
-                    Image img = Image.FromFile(ucgi.HoverImagePath);
-                    this.pic_PreView.BackgroundImage = img;
-                    this.lbl_PreViewMapTitle.Text = ucgi.Title;
+                    ucgi = (ucGalleryItem)ctrl;
                 }
+            }
+            else if (sender is DevExpress.XtraEditors.LabelControl)
+            {
+                LabelControl label = (LabelControl)sender;
+                Control ctrlPanel = label.Parent;
+                if (ctrlPanel is DevExpress.XtraEditors.PanelControl)
+                {
+                    PanelControl panel = (PanelControl)ctrlPanel;
+                    Control ctrl = panel.Parent;
+                    if (ctrl is ucGalleryItem)
+                    {
+                        ucgi = (ucGalleryItem)ctrl;
+                    }
+                }
+            }
+
+            if (ucgi != null)
+            {
+                if (!File.Exists(ucgi.HoverImagePath))
+                {
+                    return;
+                }
+                Image img = Image.FromFile(ucgi.HoverImagePath);
+                this.pic_PreView.BackgroundImage = img;
+                this.lbl_PreViewMapTitle.Text = ucgi.Title;
             }
         }
         void BackColorPanel_MouseLeave(object sender, EventArgs e)
-        {
+        {            
             if (sender is DevExpress.XtraEditors.PanelControl)
             {
                 this.pic_PreView.BackgroundImage = null;
