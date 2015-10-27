@@ -45,10 +45,16 @@ namespace CityPlanningGallery
             get { return this.panel_BackColor; }
         }
 
+        public DevExpress.XtraEditors.LabelControl TitleLabel
+        {
+            get { return this.lbl_Title; }
+        }
+
         public ucGalleryItem()
         {
             InitializeComponent();
         }
+
 
         private void panel_BackColor_MouseEnter(object sender, EventArgs e)
         {

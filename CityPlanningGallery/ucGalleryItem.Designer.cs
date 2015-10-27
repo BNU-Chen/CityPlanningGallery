@@ -56,6 +56,8 @@
             this.lbl_Title.Size = new System.Drawing.Size(26, 19);
             this.lbl_Title.TabIndex = 1;
             this.lbl_Title.Text = "asdf";
+            this.lbl_Title.MouseEnter += new System.EventHandler(this.panel_BackColor_MouseEnter);
+            this.lbl_Title.MouseLeave += new System.EventHandler(this.panel_BackColor_MouseLeave);
             // 
             // ucGalleryItem
             // 
