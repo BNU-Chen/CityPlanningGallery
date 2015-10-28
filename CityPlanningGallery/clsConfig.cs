@@ -9,7 +9,7 @@ using System.IO;
 
 namespace CityPlanningGallery
 {
-    public class Config
+    public class clsConfig
     {
         private static string iniFilePath = Application.StartupPath + "\\setting.ini";
 
@@ -28,46 +28,46 @@ namespace CityPlanningGallery
 
         public static string IniFilePath
         {
-            get { return Config.iniFilePath; }
-            set { Config.iniFilePath = value; }
+            get { return clsConfig.iniFilePath; }
+            set { clsConfig.iniFilePath = value; }
         }
         //根目录
         public static string RootDataPath
         {
-            get { return INIFile.IniReadValue(DataSection, KeyRootDataPath); }
+            get { return clsINIFile.IniReadValue(DataSection, KeyRootDataPath); }
         }
 
         //规划文档目录
         public static string PlanningDocFolder
         {
-            get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningDocFolderName); }
+            get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningDocFolderName); }
         }
         //规划图集目录
         public static string PlanningImageFolder
         {
-            get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningImageFolderName); }
+            get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningImageFolderName); }
         }
         //规划地图目录
         public static string PlanningMapFolder
         {
-            get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName); }
+            get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningMapFolderName); }
         }
 
         //地图-------------------
         //规划
         public static string PlanningMapGuihuaFolder
         {
-            get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + INIFile.IniReadValue(DataSection, KeyMapGuihuaName); }
+            get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + clsINIFile.IniReadValue(DataSection, KeyMapGuihuaName); }
         }
         //现状
         public static string PlanningMapXianzhuangFolder
         {
-            get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + INIFile.IniReadValue(DataSection, KeyMapXianzhuangName); }
+            get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + clsINIFile.IniReadValue(DataSection, KeyMapXianzhuangName); }
         }
         //分析
         public static string PlanningMapFenxiFolder
         {
-            get { return RootDataPath + "\\" + INIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + INIFile.IniReadValue(DataSection, KeyMapFenxiName); }
+            get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + clsINIFile.IniReadValue(DataSection, KeyMapFenxiName); }
         }
         //缩略图-------------------
         //规划
@@ -76,7 +76,7 @@ namespace CityPlanningGallery
             string thumbPath = "";
             if (Directory.Exists(path))
             {
-                thumbPath = path + "\\" + INIFile.IniReadValue(DataSection, KeyThumbName);
+                thumbPath = path + "\\" + clsINIFile.IniReadValue(DataSection, KeyThumbName);
             }
             return thumbPath;
         }
@@ -87,7 +87,7 @@ namespace CityPlanningGallery
             string LegendPath = "";
             if (Directory.Exists(path))
             {
-                LegendPath = path + "\\" + INIFile.IniReadValue(DataSection, KeyLegendName);
+                LegendPath = path + "\\" + clsINIFile.IniReadValue(DataSection, KeyLegendName);
             }
             return LegendPath;
         }

@@ -47,21 +47,21 @@ namespace CityPlanningGallery
         private void btn_Xianzhuang_Click(object sender, EventArgs e)
         {
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
-            frmGallery.DataPath = Config.PlanningMapXianzhuangFolder;
+            frmGallery.DataPath = clsConfig.PlanningMapXianzhuangFolder;
             frmGallery.Show();
         }
 
         private void btn_Guihua_Click(object sender, EventArgs e)
         {
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
-            frmGallery.DataPath = Config.PlanningMapGuihuaFolder;
+            frmGallery.DataPath = clsConfig.PlanningMapGuihuaFolder;
             frmGallery.Show();
         }
 
         private void btn_Fenxi_Click(object sender, EventArgs e)
         {
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
-            frmGallery.DataPath = Config.PlanningMapFenxiFolder;
+            frmGallery.DataPath = clsConfig.PlanningMapFenxiFolder;
             frmGallery.Show();
         }
         private void btn_Xianzhuang_MouseEnter(object sender, EventArgs e)

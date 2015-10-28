@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
+using ESRI.ArcGIS.Controls;
 
 namespace CityPlanningGallery
 {
@@ -37,11 +38,25 @@ namespace CityPlanningGallery
                 {
                     return;
                 }
+                //设置地图标题
                 string title = Path.GetFileNameWithoutExtension(mapPath);
                 this.lbl_MapTitle.Text = title;
-
+                //加载地图
                 this.axMapControl1.LoadMxFile(mapPath);
                 this.axMapControl1.Refresh();
+                //加载图例
+                string mapFolder = Path.GetDirectoryName(mapPath);
+                string legendPath = clsConfig.GetLegendFolder(mapFolder) + "\\" + title;
+                if (Directory.Exists(legendPath))
+                {
+                    this.ucLegend1.MapControl = this.axMapControl1;
+                    this.ucLegend1.Visible = true;
+                    this.ucLegend1.LegendFolderPath = legendPath;
+                }
+                else
+                {
+                    this.ucLegend1.Visible = false;
+                }
             }
         }
 
@@ -66,7 +81,7 @@ namespace CityPlanningGallery
         }
         #endregion
 
-        #region //窗体移动
+        #region //窗体移动与放大
         Point mouseOff;//鼠标移动位置变量
         bool leftFlag;//标签是否为左键
 
@@ -96,7 +111,66 @@ namespace CityPlanningGallery
                 leftFlag = false;//释放鼠标后标注为false;
             }
         }
+
+        private void frmMapView_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
         #endregion
+
+
+        #region //MapControl事件
+        private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (e.button == 4)
+            {
+                axMapControl1.ActiveView.ScreenDisplay.PanStart(axMapControl1.ActiveView.ScreenDisplay.DisplayTransformation.ToMapPoint(e.x, e.y));
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerPan;
+            }
+        }
+
+        private void axMapControl1_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
+        {
+            if (e.button == 4 && axMapControl1.ActiveView != null)
+            {
+                axMapControl1.ActiveView.ScreenDisplay.PanMoveTo(axMapControl1.ActiveView.ScreenDisplay.DisplayTransformation.ToMapPoint(e.x, e.y));
+            }
+        }
+
+        private void axMapControl1_OnMouseUp(object sender, IMapControlEvents2_OnMouseUpEvent e)
+        {
+            if (e.button == 4 && axMapControl1.ActiveView != null)   //中键
+            {
+                axMapControl1.MousePointer = esriControlsMousePointer.esriPointerArrow;
+                axMapControl1.ActiveView.ScreenDisplay.PanStop();
+                axMapControl1.ActiveView.Refresh();
+            }
+        }
+        #endregion
+
+        private void toolStrip_MapTool_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string name = e.ClickedItem.Name;
+            switch (name)
+            {
+                case "tsbtn_ZoomIn":
+                    clsGISTools.ZoomInFix(this.axMapControl1);
+                    break;
+                case "tsbtn_ZoomOut":
+                    clsGISTools.ZoomOutFix(this.axMapControl1);
+                    break;
+                case "tsbtn_FullExtent":
+                    clsGISTools.FullExtend(this.axMapControl1);
+                    break;
+            }
+        }
 
     }
 }
