@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CityPlanningGallery
 {
-    public class INIFile
+    public class clsINIFile
     {
 
         [DllImport("kernel32")]
@@ -24,7 +24,7 @@ namespace CityPlanningGallery
         /// INIFile Constructor.
         /// </summary>
         /// <PARAM name="INIPath"></PARAM>
-        public INIFile()
+        public clsINIFile()
         {
 
         }
@@ -39,7 +39,7 @@ namespace CityPlanningGallery
         /// Value Name
         public static void IniWriteValue(string Section, string Key, string Value)
         {
-            WritePrivateProfileString(Section, Key, Value, Config.IniFilePath);
+            WritePrivateProfileString(Section, Key, Value, clsConfig.IniFilePath);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace CityPlanningGallery
         public static string IniReadValue(string Section, string Key)
         {
             StringBuilder temp = new StringBuilder(255);
-            int i = GetPrivateProfileString(Section, Key, "", temp, 255, Config.IniFilePath);
+            int i = GetPrivateProfileString(Section, Key, "", temp, 255, clsConfig.IniFilePath);
             return temp.ToString();
 
         }

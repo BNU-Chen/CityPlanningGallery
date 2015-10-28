@@ -62,7 +62,7 @@ namespace CityPlanningGallery
                             continue;
                         }
                         string title = Path.GetFileNameWithoutExtension(file.FullName);
-                        string hoverImgPath = Config.GetThumbFolder(dataPath) + "\\" + title + ".jpg";
+                        string hoverImgPath = clsConfig.GetThumbFolder(dataPath) + "\\" + title + ".jpg";
 
                         ucGalleryItem gi = new ucGalleryItem();
                         gi.Title = title;
