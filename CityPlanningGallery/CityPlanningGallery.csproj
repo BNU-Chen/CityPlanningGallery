@@ -101,12 +101,13 @@
   <ItemGroup>
     <Compile Include="clsGISTools.cs" />
     <Compile Include="clsConfig.cs" />
+    <Compile Include="clsSQLServerConnection.cs" />
     <Compile Include="frmDocViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDocViewer.Designer.cs">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="frmAtalsBrowse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,8 +179,8 @@
     </Compile>
     <EmbeddedResource Include="frmDocViewer.resx">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
-	</EmbeddedResource>
-	<EmbeddedResource Include="frmAtalsBrowse.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAtalsBrowse.resx">
       <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAtlasContents.resx">

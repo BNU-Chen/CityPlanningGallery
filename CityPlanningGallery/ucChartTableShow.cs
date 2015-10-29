@@ -34,6 +34,10 @@ namespace CityPlanningGallery
             }
             get { return this.dataSource; }
         }
+        public ucChartTableShow()
+        {
+            InitializeComponent();
+        }
 
         public ucChartTableShow(DataTable dt, ViewType vt)
         {
