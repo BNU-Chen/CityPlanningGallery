@@ -28,17 +28,18 @@ namespace CityPlanningGallery
             set
             {
                 docPath = value;
-                if(File.Exists(docPath))
+                if (File.Exists(docPath))
+                {
                     this.ucDocumentReader1.SearchFromDocument("", docPath);
+                    this.labelControl1.Text = Path.GetFileNameWithoutExtension(docPath).ToString();
+                }
+
             }
             get
             {
                 return docPath;
             }
         }
-
-
-
         #region //关闭 及 返回 按钮
         private void btn_Return_Click(object sender, EventArgs e)
         {
