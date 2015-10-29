@@ -106,18 +106,6 @@
     </Compile>
     <Compile Include="frmDocViewer.Designer.cs">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
-	</Compile>
-    <Compile Include="frmAtalsBrowse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAtalsBrowse.Designer.cs">
-      <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAtlasContents.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAtlasContents.Designer.cs">
-      <DependentUpon>frmAtlasContents.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMapTitleGallery.cs">
       <SubType>Form</SubType>
@@ -172,12 +160,6 @@
     </Compile>
     <EmbeddedResource Include="frmDocViewer.resx">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
-	</EmbeddedResource>
-	<EmbeddedResource Include="frmAtalsBrowse.resx">
-      <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAtlasContents.resx">
-      <DependentUpon>frmAtlasContents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMapTitleGallery.resx">
       <DependentUpon>frmMapTitleGallery.cs</DependentUpon>
@@ -301,6 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trans-plan-lg-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desc-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

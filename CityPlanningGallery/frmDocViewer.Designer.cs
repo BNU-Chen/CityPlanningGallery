@@ -1,6 +1,6 @@
 ﻿namespace CityPlanningGallery
 {
-    partial class frmAtlasContents
+    partial class frmDocViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,50 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel_Status = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel_Planning = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel_Analysis = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.btn_Return = new System.Windows.Forms.PictureBox();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.ucDocumentReader1 = new CityPlanningGallery.ucDocumentReader();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).BeginInit();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel_Status
-            // 
-            this.flowLayoutPanel_Status.AutoScroll = true;
-            this.flowLayoutPanel_Status.Location = new System.Drawing.Point(25, 90);
-            this.flowLayoutPanel_Status.Name = "flowLayoutPanel_Status";
-            this.flowLayoutPanel_Status.Size = new System.Drawing.Size(300, 500);
-            this.flowLayoutPanel_Status.TabIndex = 5;
-            this.flowLayoutPanel_Status.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
-            this.flowLayoutPanel_Status.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
-            // 
-            // flowLayoutPanel_Planning
-            // 
-            this.flowLayoutPanel_Planning.AutoScroll = true;
-            this.flowLayoutPanel_Planning.Location = new System.Drawing.Point(350, 90);
-            this.flowLayoutPanel_Planning.Name = "flowLayoutPanel_Planning";
-            this.flowLayoutPanel_Planning.Size = new System.Drawing.Size(300, 500);
-            this.flowLayoutPanel_Planning.TabIndex = 6;
-            this.flowLayoutPanel_Planning.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
-            this.flowLayoutPanel_Planning.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
-            // 
-            // flowLayoutPanel_Analysis
-            // 
-            this.flowLayoutPanel_Analysis.AutoScroll = true;
-            this.flowLayoutPanel_Analysis.Location = new System.Drawing.Point(675, 90);
-            this.flowLayoutPanel_Analysis.Name = "flowLayoutPanel_Analysis";
-            this.flowLayoutPanel_Analysis.Size = new System.Drawing.Size(300, 500);
-            this.flowLayoutPanel_Analysis.TabIndex = 7;
-            this.flowLayoutPanel_Analysis.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
-            this.flowLayoutPanel_Analysis.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
             // 
             // btn_Close
             // 
             this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Close.Location = new System.Drawing.Point(958, 12);
+            this.btn_Close.Location = new System.Drawing.Point(815, 16);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(30, 30);
             this.btn_Close.TabIndex = 6;
@@ -84,7 +53,7 @@
             // 
             this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_left;
             this.btn_Return.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Return.Location = new System.Drawing.Point(922, 12);
+            this.btn_Return.Location = new System.Drawing.Point(768, 16);
             this.btn_Return.Name = "btn_Return";
             this.btn_Return.Size = new System.Drawing.Size(30, 30);
             this.btn_Return.TabIndex = 7;
@@ -93,34 +62,54 @@
             this.btn_Return.MouseEnter += new System.EventHandler(this.btn_Return_MouseEnter);
             this.btn_Return.MouseLeave += new System.EventHandler(this.btn_Return_MouseLeave);
             // 
-            // frmAtlasContents
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("汉仪菱心体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Location = new System.Drawing.Point(26, 29);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(220, 19);
+            this.labelControl1.TabIndex = 8;
+            this.labelControl1.Text = "沈阳经济区国土规划文本";
+            // 
+            // ucDocumentReader1
+            // 
+            this.ucDocumentReader1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucDocumentReader1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucDocumentReader1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucDocumentReader1.Location = new System.Drawing.Point(26, 54);
+            this.ucDocumentReader1.Name = "ucDocumentReader1";
+            this.ucDocumentReader1.Searchkeyword = "";
+            this.ucDocumentReader1.Size = new System.Drawing.Size(819, 555);
+            this.ucDocumentReader1.TabIndex = 0;
+            // 
+            // frmDocViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 640);
+            this.ClientSize = new System.Drawing.Size(869, 633);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btn_Close);
-            this.Controls.Add(this.flowLayoutPanel_Analysis);
             this.Controls.Add(this.btn_Return);
-            this.Controls.Add(this.flowLayoutPanel_Planning);
-            this.Controls.Add(this.flowLayoutPanel_Status);
+            this.Controls.Add(this.ucDocumentReader1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmAtlasContents";
+            this.Name = "frmDocViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAtlasContents";
-            this.Load += new System.EventHandler(this.frmAtlasContents_Load);
+            this.Text = "规划文档";
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Status;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Planning;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Analysis;
+        private ucDocumentReader ucDocumentReader1;
         private System.Windows.Forms.PictureBox btn_Close;
         private System.Windows.Forms.PictureBox btn_Return;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }
