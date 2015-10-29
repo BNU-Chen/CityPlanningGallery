@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMapView));
             this.lbl_Close = new DevExpress.XtraEditors.LabelControl();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_BackColor = new System.Windows.Forms.Panel();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.toolStrip_MapTool = new System.Windows.Forms.ToolStrip();
             this.tsbtn_ZoomIn = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_ZoomOut = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_FullExtent = new System.Windows.Forms.ToolStripButton();
             this.panel_Right = new System.Windows.Forms.Panel();
-            this.lbl_MapTitle = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_Home = new System.Windows.Forms.ToolStripButton();
             this.btn_Return = new System.Windows.Forms.ToolStripButton();
             this.btn_Close = new System.Windows.Forms.ToolStripButton();
+            this.lbl_MapTitle = new DevExpress.XtraEditors.LabelControl();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.ucLegend1 = new CityPlanningGallery.ucLegend();
-            this.panel1.SuspendLayout();
+            this.panel_BackColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             this.toolStrip_MapTool.SuspendLayout();
             this.panel_Right.SuspendLayout();
@@ -65,22 +65,22 @@
             this.lbl_Close.MouseEnter += new System.EventHandler(this.lbl_Close_MouseEnter);
             this.lbl_Close.MouseLeave += new System.EventHandler(this.lbl_Close_MouseLeave);
             // 
-            // panel1
+            // panel_BackColor
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel_BackColor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.DarkKhaki;
-            this.panel1.Controls.Add(this.ucLegend1);
-            this.panel1.Controls.Add(this.axLicenseControl1);
-            this.panel1.Controls.Add(this.toolStrip_MapTool);
-            this.panel1.Controls.Add(this.panel_Right);
-            this.panel1.Controls.Add(this.lbl_MapTitle);
-            this.panel1.Controls.Add(this.axMapControl1);
-            this.panel1.Location = new System.Drawing.Point(12, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(960, 615);
-            this.panel1.TabIndex = 5;
+            this.panel_BackColor.BackColor = System.Drawing.Color.DarkKhaki;
+            this.panel_BackColor.Controls.Add(this.ucLegend1);
+            this.panel_BackColor.Controls.Add(this.axLicenseControl1);
+            this.panel_BackColor.Controls.Add(this.toolStrip_MapTool);
+            this.panel_BackColor.Controls.Add(this.panel_Right);
+            this.panel_BackColor.Controls.Add(this.lbl_MapTitle);
+            this.panel_BackColor.Controls.Add(this.axMapControl1);
+            this.panel_BackColor.Location = new System.Drawing.Point(12, 35);
+            this.panel_BackColor.Name = "panel_BackColor";
+            this.panel_BackColor.Size = new System.Drawing.Size(960, 615);
+            this.panel_BackColor.TabIndex = 5;
             // 
             // axLicenseControl1
             // 
@@ -102,9 +102,9 @@
             this.tsbtn_ZoomOut,
             this.tsbtn_FullExtent});
             this.toolStrip_MapTool.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip_MapTool.Location = new System.Drawing.Point(500, 19);
+            this.toolStrip_MapTool.Location = new System.Drawing.Point(531, 19);
             this.toolStrip_MapTool.Name = "toolStrip_MapTool";
-            this.toolStrip_MapTool.Size = new System.Drawing.Size(151, 39);
+            this.toolStrip_MapTool.Size = new System.Drawing.Size(120, 39);
             this.toolStrip_MapTool.TabIndex = 5;
             this.toolStrip_MapTool.Text = "toolStrip1";
             this.toolStrip_MapTool.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_MapTool_ItemClicked);
@@ -147,16 +147,6 @@
             this.panel_Right.Size = new System.Drawing.Size(253, 533);
             this.panel_Right.TabIndex = 2;
             // 
-            // lbl_MapTitle
-            // 
-            this.lbl_MapTitle.Appearance.Font = new System.Drawing.Font("汉仪菱心体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_MapTitle.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbl_MapTitle.Location = new System.Drawing.Point(28, 31);
-            this.lbl_MapTitle.Name = "lbl_MapTitle";
-            this.lbl_MapTitle.Size = new System.Drawing.Size(160, 19);
-            this.lbl_MapTitle.TabIndex = 1;
-            this.lbl_MapTitle.Text = "4 生态保护红线图";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.White;
@@ -195,6 +185,16 @@
             this.btn_Close.Size = new System.Drawing.Size(76, 44);
             this.btn_Close.Text = "关闭";
             // 
+            // lbl_MapTitle
+            // 
+            this.lbl_MapTitle.Appearance.Font = new System.Drawing.Font("汉仪菱心体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_MapTitle.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbl_MapTitle.Location = new System.Drawing.Point(28, 31);
+            this.lbl_MapTitle.Name = "lbl_MapTitle";
+            this.lbl_MapTitle.Size = new System.Drawing.Size(160, 19);
+            this.lbl_MapTitle.TabIndex = 1;
+            this.lbl_MapTitle.Text = "4 生态保护红线图";
+            // 
             // axMapControl1
             // 
             this.axMapControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -212,9 +212,10 @@
             // ucLegend1
             // 
             this.ucLegend1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucLegend1.Location = new System.Drawing.Point(442, 354);
+            this.ucLegend1.Location = new System.Drawing.Point(478, 350);
+            this.ucLegend1.MapControl = null;
             this.ucLegend1.Name = "ucLegend1";
-            this.ucLegend1.Size = new System.Drawing.Size(240, 240);
+            this.ucLegend1.Size = new System.Drawing.Size(200, 240);
             this.ucLegend1.TabIndex = 7;
             // 
             // frmMapView
@@ -223,7 +224,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 662);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_BackColor);
             this.Controls.Add(this.lbl_Close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMapView";
@@ -233,8 +234,8 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_BackColor.ResumeLayout(false);
+            this.panel_BackColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             this.toolStrip_MapTool.ResumeLayout(false);
             this.toolStrip_MapTool.PerformLayout();
@@ -251,7 +252,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl lbl_Close;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_BackColor;
         private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
         private DevExpress.XtraEditors.LabelControl lbl_MapTitle;
         private System.Windows.Forms.Panel panel_Right;

@@ -67,6 +67,9 @@
             this.Controls.Add(this.panel_BackColor);
             this.Name = "ucGalleryItem";
             this.Size = new System.Drawing.Size(300, 41);
+            this.Click += new System.EventHandler(this.ucGalleryItem_Click);
+            this.MouseEnter += new System.EventHandler(this.ucGalleryItem_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.ucGalleryItem_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.panel_BackColor)).EndInit();
             this.panel_BackColor.ResumeLayout(false);
             this.panel_BackColor.PerformLayout();
