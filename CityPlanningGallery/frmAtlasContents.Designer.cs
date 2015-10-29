@@ -107,7 +107,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAtlasContents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAtlasContents";
+            this.Text = "规划图集";
             this.Load += new System.EventHandler(this.frmAtlasContents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).EndInit();
