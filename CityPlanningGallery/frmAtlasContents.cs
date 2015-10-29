@@ -82,7 +82,9 @@ namespace CityPlanningGallery
 
         void gi_Click(ucGalleryItem ucgi)
         {
-
+            frmAtalsBrowse frmBrowse = new frmAtalsBrowse(this);
+            frmBrowse.ImageFilePath = ucgi.Tag.ToString();
+            frmBrowse.Show();
         }
 
         void gi_MouseEnter(ucGalleryItem ucgi)
@@ -161,12 +163,5 @@ namespace CityPlanningGallery
             parentForm.Close();
         }
         #endregion
-        //private void btn_Atlas_Click(object sender, EventArgs e)
-        //{
-        //    frmAtlasContents frmContents = new frmAtlasContents(this);
-        //    frmContents.SetFlowLayouts(clsConfig.PlanningImageFolder + "\\现状图",
-        //        clsConfig.PlanningImageFolder + "\\规划图", clsConfig.PlanningImageFolder + "\\分析图", ".jpg");
-        //    frmContents.Show();
-        //}
     }
 }
