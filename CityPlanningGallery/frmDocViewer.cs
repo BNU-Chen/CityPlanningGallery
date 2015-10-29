@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace CityPlanningGallery
 {
     public partial class frmDocViewer : Form
     {
         private frmMapTitleGallery frmMapGallery = null;
+
         public frmDocViewer(frmMapTitleGallery _frmMapGallery)
         {
             InitializeComponent();
@@ -25,7 +28,8 @@ namespace CityPlanningGallery
             set
             {
                 docPath = value;
-                
+                if(File.Exists(docPath))
+                    this.ucDocumentReader1.SearchFromDocument("", docPath);
             }
             get
             {
