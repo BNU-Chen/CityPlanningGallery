@@ -68,6 +68,7 @@ namespace CityPlanningGallery
             this.Clear();
             this.icbeChartType.SelectedIndex = getIndexByViewType(vt);
             this.getDataFieldFromDataTable(this.dataSource);
+            this.chartControl.Legend.Visible = false;
             this.checkedDataFields.CheckAll();
             try
             {
@@ -91,7 +92,7 @@ namespace CityPlanningGallery
                     this.checkPercentShow.Visible = true;
                 else
                     this.checkPercentShow.Visible = false;
-                this.chartControl.Legend.Visible = true;
+                this.chartControl.Legend.Visible = false;
                 XYDiagram diagram = (XYDiagram)(this.chartControl).Diagram;
                 diagram.AxisX.GridLines.Visible = false;
                 diagram.AxisY.GridLines.Visible = false;
