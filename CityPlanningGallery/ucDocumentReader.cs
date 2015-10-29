@@ -49,8 +49,40 @@ namespace CityPlanningGallery
             InitializeComponent();
             this.rec_DocumentDisplay.Options.HorizontalRuler.Visibility = RichEditRulerVisibility.Hidden;
             this.rec_DocumentDisplay.Options.VerticalRuler.Visibility = RichEditRulerVisibility.Hidden;
-            this.MouseWheel += new MouseEventHandler(flowLayoutPanel1_MouseWheel);
+            this.flowLayoutPanel.MouseEnter += flowLayoutPanel_MouseEnter;
+            this.panelControl1.MouseEnter += panelControl1_MouseEnter;
+            this.rec_DocumentDisplay.MouseEnter += rec_DocumentDisplay_MouseEnter;
             this.imageFlag = true;
+        }
+
+        void flowLayoutPanel_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                this.flowLayoutPanel.Focus();
+            }
+            catch
+            { }
+        }
+
+        void panelControl1_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                this.flowLayoutPanel.Focus();
+            }
+            catch
+            { }
+        }
+
+        void rec_DocumentDisplay_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                this.rec_DocumentDisplay.Focus();
+            }
+            catch
+            { }
         }
 
         #region //控件响应事件
@@ -194,7 +226,7 @@ namespace CityPlanningGallery
                 for (int i = 0; i < paragraphCollection.Count; i++)
                 {
                     RichTextBox roRTB = new RichTextBox();
-
+                    roRTB.ReadOnly = true;
                     roRTB.MouseClick += new MouseEventHandler(this.flowLayoutPanel_MouseClick);
                     roRTB.MouseWheel += new MouseEventHandler(flowLayoutPanel1_MouseWheel);
                     roRTB.ContentsResized += roRTB_ContentsResized;

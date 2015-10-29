@@ -48,7 +48,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(200, 600);
+            this.panelControl1.Size = new System.Drawing.Size(199, 600);
             this.panelControl1.TabIndex = 0;
             // 
             // btn_Search
@@ -91,23 +91,25 @@
             // 
             // flowLayoutPanel
             // 
+            this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(1, 59);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(3, 59);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(198, 539);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(192, 536);
             this.flowLayoutPanel.TabIndex = 2;
             this.flowLayoutPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.flowLayoutPanel_MouseClick);
             // 
             // rec_DocumentDisplay
             // 
             this.rec_DocumentDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rec_DocumentDisplay.Location = new System.Drawing.Point(200, 0);
+            this.rec_DocumentDisplay.Location = new System.Drawing.Point(199, 0);
             this.rec_DocumentDisplay.Name = "rec_DocumentDisplay";
             this.rec_DocumentDisplay.Options.Fields.UseCurrentCultureDateTimeFormat = false;
             this.rec_DocumentDisplay.Options.MailMerge.KeepLastParagraph = false;
-            this.rec_DocumentDisplay.Size = new System.Drawing.Size(700, 600);
+            this.rec_DocumentDisplay.Size = new System.Drawing.Size(801, 600);
             this.rec_DocumentDisplay.TabIndex = 5;
             // 
             // ucDocumentReader
@@ -121,7 +123,7 @@
             this.Controls.Add(this.lblSearchResultInfo);
             this.Controls.Add(this.panelControl1);
             this.Name = "ucDocumentReader";
-            this.Size = new System.Drawing.Size(900, 600);
+            this.Size = new System.Drawing.Size(1000, 600);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
