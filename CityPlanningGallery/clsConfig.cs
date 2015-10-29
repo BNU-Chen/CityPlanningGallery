@@ -26,6 +26,11 @@ namespace CityPlanningGallery
         private static string KeyThumbName = "ThumbName";
         private static string KeyLegendName = "LegendName";
 
+        //规划文档
+        private static string KeyPlanningDoc = "PlanningDocName";
+        private static string KeyPlanningDesc = "PlanningDescName";
+        private static string KeyPlanningThematic = "PlanningThematicDocFolder";
+
         public static string IniFilePath
         {
             get { return clsConfig.iniFilePath; }
@@ -90,6 +95,22 @@ namespace CityPlanningGallery
                 LegendPath = path + "\\" + clsINIFile.IniReadValue(DataSection, KeyLegendName);
             }
             return LegendPath;
+        }
+
+        //规划文档----------------------------------------
+        //规划文档
+        public static string PlanningDoc
+        {
+            get { return PlanningDocFolder + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningDoc); }
+        }
+        //规划说明
+        public static string PlanningDesc
+        {
+            get { return PlanningDocFolder + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningDesc); }
+        }
+        public static string ThematicDocsFolder
+        {
+            get { return PlanningDocFolder + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningThematic); }
         }
 
     }

@@ -42,6 +42,13 @@ namespace CityPlanningGallery
             }
         }
 
+        public bool IsShowPlanningDocs
+        {
+            set
+            {
+                this.panel_PlanningDocs.Visible = value;
+            }
+        }
 
         #region //GalleryItem
         private void SetFlowLayout(string path)
@@ -178,5 +185,30 @@ namespace CityPlanningGallery
             parentForm.Close();
         }
         #endregion
+
+        private void pictureBox_Doc_Click(object sender, EventArgs e)
+        {
+            string planningDoc = clsConfig.PlanningDoc;
+            frmDocViewer frmDoc = new frmDocViewer(this);
+            frmDoc.DocPath = planningDoc;
+            frmDoc.Show();
+
+        }
+
+        private void pictureBox_Desc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox_Thematic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox_Images_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

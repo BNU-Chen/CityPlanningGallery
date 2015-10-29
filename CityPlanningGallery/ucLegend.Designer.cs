@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbtn_AutoPlay = new System.Windows.Forms.ToolStripButton();
-            this.tsbtn_AllLayer = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel_Legend = new System.Windows.Forms.FlowLayoutPanel();
+            this.tsbtn_AutoPlay = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_AllLayer = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,25 +50,9 @@
             this.tsbtn_AllLayer});
             this.toolStrip1.Location = new System.Drawing.Point(0, 213);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(240, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(200, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbtn_AutoPlay
-            // 
-            this.tsbtn_AutoPlay.Image = global::CityPlanningGallery.Properties.Resources.Pulse_icon;
-            this.tsbtn_AutoPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_AutoPlay.Name = "tsbtn_AutoPlay";
-            this.tsbtn_AutoPlay.Size = new System.Drawing.Size(80, 24);
-            this.tsbtn_AutoPlay.Text = "自动查看";
-            // 
-            // tsbtn_AllLayer
-            // 
-            this.tsbtn_AllLayer.Image = global::CityPlanningGallery.Properties.Resources.select_all;
-            this.tsbtn_AllLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_AllLayer.Name = "tsbtn_AllLayer";
-            this.tsbtn_AllLayer.Size = new System.Drawing.Size(80, 24);
-            this.tsbtn_AllLayer.Text = "地图全图";
             // 
             // panel1
             // 
@@ -77,13 +61,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(240, 27);
+            this.panel1.Size = new System.Drawing.Size(200, 27);
             this.panel1.TabIndex = 1;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl1.Location = new System.Drawing.Point(112, 3);
+            this.labelControl1.Location = new System.Drawing.Point(83, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(28, 20);
             this.labelControl1.TabIndex = 0;
@@ -95,7 +79,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 186);
+            this.panel2.Size = new System.Drawing.Size(200, 186);
             this.panel2.TabIndex = 2;
             // 
             // flowLayoutPanel_Legend
@@ -104,8 +88,26 @@
             this.flowLayoutPanel_Legend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Legend.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel_Legend.Name = "flowLayoutPanel_Legend";
-            this.flowLayoutPanel_Legend.Size = new System.Drawing.Size(240, 186);
+            this.flowLayoutPanel_Legend.Size = new System.Drawing.Size(200, 186);
             this.flowLayoutPanel_Legend.TabIndex = 0;
+            // 
+            // tsbtn_AutoPlay
+            // 
+            this.tsbtn_AutoPlay.Image = global::CityPlanningGallery.Properties.Resources.Pulse_icon;
+            this.tsbtn_AutoPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_AutoPlay.Name = "tsbtn_AutoPlay";
+            this.tsbtn_AutoPlay.Size = new System.Drawing.Size(80, 24);
+            this.tsbtn_AutoPlay.Text = "动态浏览";
+            this.tsbtn_AutoPlay.Click += new System.EventHandler(this.tsbtn_AutoPlay_Click);
+            // 
+            // tsbtn_AllLayer
+            // 
+            this.tsbtn_AllLayer.Image = global::CityPlanningGallery.Properties.Resources.select_all;
+            this.tsbtn_AllLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_AllLayer.Name = "tsbtn_AllLayer";
+            this.tsbtn_AllLayer.Size = new System.Drawing.Size(80, 24);
+            this.tsbtn_AllLayer.Text = "整体浏览";
+            this.tsbtn_AllLayer.Click += new System.EventHandler(this.tsbtn_AllLayer_Click);
             // 
             // ucLegend
             // 
@@ -115,7 +117,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ucLegend";
-            this.Size = new System.Drawing.Size(240, 240);
+            this.Size = new System.Drawing.Size(200, 240);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
