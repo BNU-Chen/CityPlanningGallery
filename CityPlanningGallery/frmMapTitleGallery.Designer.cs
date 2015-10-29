@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel_Guihua = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel_GalleryItem = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_PreViewMapTitle = new DevExpress.XtraEditors.LabelControl();
             this.pic_PreView = new System.Windows.Forms.PictureBox();
             this.lbl_Close = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PreView)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel_Guihua
+            // flowLayoutPanel_GalleryItem
             // 
-            this.flowLayoutPanel_Guihua.AutoScroll = true;
-            this.flowLayoutPanel_Guihua.Location = new System.Drawing.Point(64, 54);
-            this.flowLayoutPanel_Guihua.Name = "flowLayoutPanel_Guihua";
-            this.flowLayoutPanel_Guihua.Size = new System.Drawing.Size(340, 486);
-            this.flowLayoutPanel_Guihua.TabIndex = 0;
+            this.flowLayoutPanel_GalleryItem.AutoScroll = true;
+            this.flowLayoutPanel_GalleryItem.Location = new System.Drawing.Point(64, 54);
+            this.flowLayoutPanel_GalleryItem.Name = "flowLayoutPanel_GalleryItem";
+            this.flowLayoutPanel_GalleryItem.Size = new System.Drawing.Size(340, 486);
+            this.flowLayoutPanel_GalleryItem.TabIndex = 0;
             // 
             // lbl_PreViewMapTitle
             // 
@@ -74,7 +74,7 @@
             this.lbl_Close.MouseEnter += new System.EventHandler(this.lbl_Close_MouseEnter);
             this.lbl_Close.MouseLeave += new System.EventHandler(this.lbl_Close_MouseLeave);
             // 
-            // frmGuihuaGallery
+            // frmMapTitleGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,9 +83,9 @@
             this.Controls.Add(this.lbl_Close);
             this.Controls.Add(this.lbl_PreViewMapTitle);
             this.Controls.Add(this.pic_PreView);
-            this.Controls.Add(this.flowLayoutPanel_Guihua);
+            this.Controls.Add(this.flowLayoutPanel_GalleryItem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmGuihuaGallery";
+            this.Name = "frmMapTitleGallery";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGuihuaGallery";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
@@ -99,7 +99,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Guihua;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_GalleryItem;
         private System.Windows.Forms.PictureBox pic_PreView;
         private DevExpress.XtraEditors.LabelControl lbl_PreViewMapTitle;
         private DevExpress.XtraEditors.LabelControl lbl_Close;

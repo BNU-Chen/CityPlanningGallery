@@ -36,7 +36,7 @@
             // 
             // panel_BackColor
             // 
-            this.panel_BackColor.Appearance.BackColor = System.Drawing.Color.Olive;
+            this.panel_BackColor.Appearance.BackColor = System.Drawing.Color.Silver;
             this.panel_BackColor.Appearance.Options.UseBackColor = true;
             this.panel_BackColor.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panel_BackColor.Controls.Add(this.lbl_Title);

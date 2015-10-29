@@ -40,8 +40,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CityPlanningGallery.Properties.Resources.CityPlanningLogo;
-            this.ClientSize = new System.Drawing.Size(631, 445);
+            this.BackgroundImage = global::CityPlanningGallery.Properties.Resources.封面;
+            this.ClientSize = new System.Drawing.Size(631, 508);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
