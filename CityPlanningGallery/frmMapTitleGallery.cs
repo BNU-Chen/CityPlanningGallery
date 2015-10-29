@@ -187,16 +187,17 @@ namespace CityPlanningGallery
 
         private void pictureBox_Doc_Click(object sender, EventArgs e)
         {
-            string planningDoc = clsConfig.PlanningDoc;
             frmDocViewer frmDoc = new frmDocViewer(this);
-            frmDoc.DocPath = planningDoc;
+            frmDoc.DocPath = clsConfig.PlanningDoc;
             frmDoc.Show();
 
         }
 
         private void pictureBox_Desc_Click(object sender, EventArgs e)
         {
-
+            frmDocViewer frmDoc = new frmDocViewer(this);
+            frmDoc.DocPath = clsConfig.PlanningDesc;
+            frmDoc.Show();
         }
 
         private void pictureBox_Thematic_Click(object sender, EventArgs e)
