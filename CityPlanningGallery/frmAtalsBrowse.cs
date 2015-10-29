@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.IO;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.Utils;
 
 namespace CityPlanningGallery
 {
@@ -22,6 +23,34 @@ namespace CityPlanningGallery
             InitializeComponent();
             parentForm = _frm;
             parentForm.Visible = false;
+
+            this.pe_AtlasShower.Properties.ShowZoomSubMenu = DefaultBoolean.True;
+            this.pe_AtlasShower.Properties.ShowScrollBars = true;
+            this.pe_AtlasShower.Properties.AllowScrollViaMouseDrag = true;
+            this.pe_AtlasShower.MouseWheel += pe_AtlasShower_MouseWheel;
+            this.pe_AtlasShower.MouseEnter += pe_AtlasShower_MouseEnter;
+        }
+
+        void pe_AtlasShower_MouseEnter(object sender, EventArgs e)
+        {
+            this.pe_AtlasShower.Focus();
+        }
+
+        void pe_AtlasShower_MouseWheel(object sender, MouseEventArgs e)
+        {
+            this.pe_AtlasShower.Properties.SizeMode = PictureSizeMode.Clip;
+            int scalePercent = this.pe_AtlasShower.Properties.ZoomPercent;
+            int step = 20;
+            if (e.Delta > 0)
+            {
+                this.pe_AtlasShower.Properties.ZoomPercent = scalePercent + step;
+                this.Refresh();
+            }
+            else
+            {
+                this.pe_AtlasShower.Properties.ZoomPercent = scalePercent - step;
+                this.Refresh();
+            }
         }
 
         public string ImageFilePath
@@ -31,7 +60,9 @@ namespace CityPlanningGallery
                 string filePath = value;
                 if (File.Exists(filePath))
                     this.pe_AtlasShower.Image = Image.FromFile(filePath);
+                //this.pe_AtlasShower.Properties.ZoomPercent = 50;
                 this.pe_AtlasShower.Properties.SizeMode = PictureSizeMode.Zoom;
+                this.Refresh();
             }
         }
 
@@ -60,6 +91,11 @@ namespace CityPlanningGallery
             parentForm.Close();
         }
         #endregion
+
+        private void frmAtalsBrowse_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
 
     }
 }
