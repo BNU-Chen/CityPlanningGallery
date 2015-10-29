@@ -224,7 +224,7 @@ namespace CityPlanningGallery
                 return;
             }
             IEnvelope env = new EnvelopeClass() as IEnvelope;
-            env.PutCoords(21156119.5385824, 4351043.1259153, 21912540.059758, 4866733.37736962);
+            env.PutCoords(21256119.5385824, 4381043.1259153, 21812540.059758, 4846733.37736962);
             axMapControl.ActiveView.Extent = env;
             axMapControl.Refresh();
 

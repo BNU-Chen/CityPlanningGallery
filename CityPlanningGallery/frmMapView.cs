@@ -21,8 +21,7 @@ namespace CityPlanningGallery
         private frmMapTitleGallery galleryForm = null;
 
         private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
-
-
+        
         public frmMapView(MainForm _rootForm, Form _frmGallery)
         {
             InitializeComponent();
@@ -32,6 +31,10 @@ namespace CityPlanningGallery
 
             this.ucLegend1.AutoPlayeButton.Click += AutoPlayeButton_Click;
             clsGISTools.FullExtend(this.axMapControl1);
+        }
+        private void frmMapView_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;            
         }
 
         #region //自动加载图例图层按钮
@@ -103,27 +106,37 @@ namespace CityPlanningGallery
                 {
                     this.ucLegend1.Visible = false;
                 }
+                //加载缩略图
+                string picPath = clsConfig.GetThumbFolder(mapFolder) + "\\" + title + ".jpg";
+                if (File.Exists(picPath))
+                {
+                    this.panel_LeftTop.BackgroundImage = Image.FromFile(picPath);
+                }
             }
         }
 
         #endregion
         
         #region //关闭按钮
-        private void lbl_Close_Click(object sender, EventArgs e)
+
+        private void btn_Home_Click(object sender, EventArgs e)
         {
-            galleryForm.Visible = true;
             this.Close();
+            galleryForm.Close();
+            rootForm.Visible = true;
         }
 
-        private void lbl_Close_MouseEnter(object sender, EventArgs e)
+        private void btn_Return_Click(object sender, EventArgs e)
         {
-            this.lbl_Close.BackColor = Color.LightGray;
+            this.Close();
+            galleryForm.Visible = true;
         }
 
-        private void lbl_Close_MouseLeave(object sender, EventArgs e)
+        private void btn_Close_Click(object sender, EventArgs e)
         {
-            this.lbl_Close.BackColor = Color.White;
+            Application.Exit();
         }
+
         #endregion
 
         #region //窗体移动与放大
@@ -198,6 +211,11 @@ namespace CityPlanningGallery
                 axMapControl1.ActiveView.Refresh();
             }
         }
+        private void axMapControl1_Resize(object sender, EventArgs e)
+        {
+            clsGISTools.FullExtend(this.axMapControl1);
+        }
+
         #endregion
 
         #region //地图工具按钮事件
@@ -218,6 +236,8 @@ namespace CityPlanningGallery
             }
         }
         #endregion
+
+
 
     }
 }
