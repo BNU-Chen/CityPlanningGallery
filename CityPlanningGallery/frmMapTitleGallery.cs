@@ -121,7 +121,6 @@ namespace CityPlanningGallery
 
         #endregion
 
-
         #region //窗体移动
         Point mouseOff;//鼠标移动位置变量
         bool leftFlag;//标签是否为左键
@@ -180,5 +179,12 @@ namespace CityPlanningGallery
         }
         #endregion
 
+        private void btn_Atlas_Click(object sender, EventArgs e)
+        {
+            frmAtlasContents frmContents = new frmAtlasContents(this);
+            frmContents.SetFlowLayouts(clsConfig.PlanningImageFolder + "\\现状图", 
+                clsConfig.PlanningImageFolder + "\\规划图", clsConfig.PlanningImageFolder + "\\分析图", ".jpg");
+            frmContents.Show();
+        }
     }
 }

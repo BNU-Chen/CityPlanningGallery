@@ -33,6 +33,7 @@
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.btn_Return = new System.Windows.Forms.PictureBox();
             this.pic_PreView = new System.Windows.Forms.PictureBox();
+            this.btn_Atlas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PreView)).BeginInit();
@@ -90,12 +91,23 @@
             this.pic_PreView.TabIndex = 1;
             this.pic_PreView.TabStop = false;
             // 
+            // btn_Atlas
+            // 
+            this.btn_Atlas.Location = new System.Drawing.Point(682, 516);
+            this.btn_Atlas.Name = "btn_Atlas";
+            this.btn_Atlas.Size = new System.Drawing.Size(75, 23);
+            this.btn_Atlas.TabIndex = 6;
+            this.btn_Atlas.Text = "图集";
+            this.btn_Atlas.UseVisualStyleBackColor = true;
+            this.btn_Atlas.Click += new System.EventHandler(this.btn_Atlas_Click);
+            // 
             // frmMapTitleGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 600);
+            this.Controls.Add(this.btn_Atlas);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Return);
             this.Controls.Add(this.lbl_PreViewMapTitle);
@@ -123,5 +135,6 @@
         private DevExpress.XtraEditors.LabelControl lbl_PreViewMapTitle;
         private System.Windows.Forms.PictureBox btn_Return;
         private System.Windows.Forms.PictureBox btn_Close;
+        private System.Windows.Forms.Button btn_Atlas;
     }
 }

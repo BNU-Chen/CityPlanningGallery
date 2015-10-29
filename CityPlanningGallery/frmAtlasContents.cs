@@ -10,18 +10,30 @@ using System.Windows.Forms;
 
 using System.IO;
 using DevExpress.XtraEditors;
+using DevExpress.Utils;
 
 namespace CityPlanningGallery
 {
     public partial class frmAtlasContents : Form
     {
-        private MainForm parentForm = null;
+        private frmMapTitleGallery parentForm = null;
+        SuperToolTip sToolTip;
 
-        public frmAtlasContents(MainForm _frm)
+        public frmAtlasContents(frmMapTitleGallery _frm)
         {
             InitializeComponent();
+            this.flowLayoutPanel_Status.VerticalScroll.Visible = false;
+            this.flowLayoutPanel_Planning.VerticalScroll.Visible = false;
+            this.flowLayoutPanel_Analysis.VerticalScroll.Visible = false;
             parentForm = _frm;
             parentForm.Visible = false;
+        }
+
+        private void frmAtlasContents_Load(object sender, EventArgs e)
+        {
+            this.flowLayoutPanel_Status.MouseWheel += FlowLayoutPanel_MouseWheel;
+            this.flowLayoutPanel_Planning.MouseWheel += FlowLayoutPanel_MouseWheel;
+            this.flowLayoutPanel_Analysis.MouseWheel += FlowLayoutPanel_MouseWheel;
         }
 
         public void SetFlowLayouts(string statusFloderPath, string planningFloderPath, string analysisFloderPath, string fileExtension)
@@ -34,6 +46,7 @@ namespace CityPlanningGallery
             SetFlowLayout(analysisFloderPath, this.flowLayoutPanel_Analysis, fileExtension);
         }
 
+        #region //为FlowLayoutPanel控件加载ucGalleryItem
         private void SetFlowLayout(string path, FlowLayoutPanel flowLayoutPanel, string fileExtension)
         {
             DirectoryInfo di = new DirectoryInfo(path);
@@ -54,9 +67,11 @@ namespace CityPlanningGallery
                         ucGalleryItem gi = new ucGalleryItem();
                         gi.Tag = file.FullName;
                         gi.Title = title;
-
-                        //滚动事件
-                        ReturnucGalleryItemMouseWheelEnterToFlowLayout(gi, flowLayoutPanel);
+                        gi.Size = new Size(250, 41);
+                        
+                        gi.delegateClick += new delegateClick(gi_Click);
+                        gi.delegateMouseEnter += new delegateMouseEnter(gi_MouseEnter);
+                        gi.delegateMouseLeave += new delegateMouseLeave(gi_MouseLeave);
 
                         flowLayoutPanel.Controls.Add(gi);
                     }
@@ -65,49 +80,58 @@ namespace CityPlanningGallery
             catch { }
         }
 
-        #region//ucGalleryItem鼠标滚动事件转移至FlowLayoutPanel
-        private void ReturnucGalleryItemMouseWheelEnterToFlowLayout(ucGalleryItem gi, FlowLayoutPanel flowLayoutPanel)
+        void gi_Click(ucGalleryItem ucgi)
         {
-            string flowLayouyPanelName = flowLayoutPanel.Name;
-            switch (flowLayouyPanelName)
-            {
-                case "flowLayoutPanel_Status":
-                    gi.MouseWheel += FlowLayoutPanel_Status_MouseWheel;
-                    break;
-                case "flowLayoutPanel_Planning":
-                    gi.MouseWheel += FlowLayoutPanel_Planning_MouseWheel;
-                    break;
-                case "flowLayoutPanel_Analysis":
-                    gi.MouseWheel += FlowLayoutPanel_Analysis_MouseWheel;
-                    break;
-            }
+
         }
-        //现状FlowLayoutPanel鼠标滚动事件
-        private void FlowLayoutPanel_Status_MouseWheel(object sender, MouseEventArgs e)
+
+        void gi_MouseEnter(ucGalleryItem ucgi)
+        {
+            this.sToolTip = new SuperToolTip();
+            Image img = Image.FromFile(ucgi.Tag.ToString());
+            SuperToolTipSetupArgs args = new SuperToolTipSetupArgs();
+            args.Contents.Image = img;
+            this.sToolTip.Setup(args);
+            ucgi.TitleLabel.SuperTip = this.sToolTip;
+        }
+
+        void gi_MouseLeave(ucGalleryItem ucgi)
+        {
+            ucgi.TitleLabel.SuperTip = null;
+        }
+        #endregion
+
+        #region//FlowLayoutPanel鼠标事件
+        //FlowLayoutPanel鼠标滚动事件
+        private void FlowLayoutPanel_MouseWheel(object sender, MouseEventArgs e)
         {
             try
             {
-                this.flowLayoutPanel_Status.Focus();
+                if (sender is FlowLayoutPanel)
+                {
+                    FlowLayoutPanel flow = (FlowLayoutPanel)sender;
+                    flow.Focus();
+                }
             }
             catch { }
         }
-        //规划FlowLayoutPanel鼠标滚动事件
-        private void FlowLayoutPanel_Planning_MouseWheel(object sender, MouseEventArgs e)
+        //FlowLayoutPanel（3个）鼠标进入事件
+        private void flowLayoutPanel_MouseEnter(object sender, EventArgs e)
         {
             try
             {
-                this.flowLayoutPanel_Planning.Focus();
+                if (sender is FlowLayoutPanel)
+                {
+                    FlowLayoutPanel flow = (FlowLayoutPanel)sender;
+                    flow.Focus();
+                }
             }
             catch { }
         }
-        //分析FlowLayoutPanel鼠标滚动事件
-        private void FlowLayoutPanel_Analysis_MouseWheel(object sender, MouseEventArgs e)
+        //FlowLayoutPanel（3个）鼠标移出事件
+        private void flowLayoutPanel_MouseLeave(object sender, EventArgs e)
         {
-            try
-            {
-                this.flowLayoutPanel_Analysis.Focus();
-            }
-            catch { }
+
         }
         #endregion
 
@@ -128,5 +152,7 @@ namespace CityPlanningGallery
             this.lbl_Close.BackColor = Color.White;
         }
         #endregion
+
+        
     }
 }
