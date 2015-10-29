@@ -99,7 +99,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
+    <Compile Include="clsGISTools.cs" />
+    <Compile Include="clsConfig.cs" />
     <Compile Include="frmMapTitleGallery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,7 +119,7 @@
     <Compile Include="frmStart.Designer.cs">
       <DependentUpon>frmStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="INIFile.cs" />
+    <Compile Include="clsINIFile.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +145,12 @@
     </Compile>
     <Compile Include="ucGalleryItem.Designer.cs">
       <DependentUpon>ucGalleryItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLegend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLegend.Designer.cs">
+      <DependentUpon>ucLegend.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmMapTitleGallery.resx">
       <DependentUpon>frmMapTitleGallery.cs</DependentUpon>
@@ -176,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucGalleryItem.resx">
       <DependentUpon>ucGalleryItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLegend.resx">
+      <DependentUpon>ucLegend.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -228,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pulse_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select_all.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
