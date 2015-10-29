@@ -42,7 +42,7 @@ namespace CityPlanningGallery
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         #endregion
 

@@ -181,8 +181,7 @@ namespace CityPlanningGallery
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            this.Close();
-            parentForm.Close();
+            Application.Exit();
         }
         #endregion
 
