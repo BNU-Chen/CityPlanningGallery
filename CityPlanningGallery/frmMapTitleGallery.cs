@@ -128,7 +128,6 @@ namespace CityPlanningGallery
 
         #endregion
 
-
         #region //窗体移动
         Point mouseOff;//鼠标移动位置变量
         bool leftFlag;//标签是否为左键
