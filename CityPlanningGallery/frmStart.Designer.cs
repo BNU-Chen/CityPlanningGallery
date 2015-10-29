@@ -45,7 +45,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmStart";
+            this.Text = "启动";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStart_FormClosed);
             this.Load += new System.EventHandler(this.frmStart_Load);
             this.Shown += new System.EventHandler(this.frmStart_Shown);

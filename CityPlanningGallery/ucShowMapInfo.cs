@@ -17,6 +17,17 @@ namespace CityPlanningGallery
             InitializeComponent();
         }
 
+        #region //封装字段
+        public string MapDescStr
+        {
+            set
+            {
+                
+            }
+        }
+        #endregion
+
+        #region //按钮点击事件
         private void btn_MapDesc_Click(object sender, EventArgs e)
         {
             this.panel_MapChart.Visible = false;
@@ -27,10 +38,9 @@ namespace CityPlanningGallery
             this.panel_btn_FeatureInfo.Dock = DockStyle.Bottom;
             this.panel_btn_MapChart.Dock = DockStyle.Bottom;
 
-            this.panel_btn_MapDesc.TabIndex = 2;
-            this.panel_btn_MapChart.TabIndex = 4;
-            this.panel_btn_FeatureInfo.TabIndex = 3;
-            
+            this.panel_btn_FeatureInfo.SendToBack();
+            this.panel_MapChart.BringToFront();
+                        
             this.panel_MapDesc.Dock = DockStyle.Fill;
         }
 
@@ -43,11 +53,7 @@ namespace CityPlanningGallery
             this.panel_btn_MapDesc.Dock = DockStyle.Top;
             this.panel_btn_MapChart.Dock = DockStyle.Top;
             this.panel_btn_FeatureInfo.Dock = DockStyle.Bottom;
-
-            this.panel_btn_MapDesc.TabIndex = 2;
-            this.panel_btn_MapChart.TabIndex = 4;
-            this.panel_btn_FeatureInfo.TabIndex = 3;
-
+            
             this.panel_MapChart.Dock = DockStyle.Fill;
         }
 
@@ -61,11 +67,11 @@ namespace CityPlanningGallery
             this.panel_btn_MapChart.Dock = DockStyle.Top;
             this.panel_btn_FeatureInfo.Dock = DockStyle.Top;
 
-            this.panel_btn_MapDesc.TabIndex = 2;
-            this.panel_btn_MapChart.TabIndex = 3;
-            this.panel_btn_FeatureInfo.TabIndex = 4;
-
+            this.panel_MapChart.SendToBack();
+            this.panel_btn_FeatureInfo.BringToFront();
+            
             this.panel_FeatureInfo.Dock = DockStyle.Fill;
         }
+        #endregion
     }
 }
