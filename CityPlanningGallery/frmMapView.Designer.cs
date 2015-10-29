@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMapView));
             this.panel_BackColor = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_Home = new System.Windows.Forms.ToolStripButton();
-            this.btn_Return = new System.Windows.Forms.ToolStripButton();
-            this.btn_Close = new System.Windows.Forms.ToolStripButton();
-            this.ucLegend1 = new CityPlanningGallery.ucLegend();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.toolStrip_MapTool = new System.Windows.Forms.ToolStrip();
-            this.tsbtn_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsbtn_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsbtn_FullExtent = new System.Windows.Forms.ToolStripButton();
             this.panel_Right = new System.Windows.Forms.Panel();
             this.panel_LeftFull = new System.Windows.Forms.Panel();
-            this.ucShowMapInfo1 = new CityPlanningGallery.ucShowMapInfo();
             this.panel_LeftTop = new System.Windows.Forms.Panel();
             this.lbl_MapTitle = new DevExpress.XtraEditors.LabelControl();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
+            this.ucLegend1 = new CityPlanningGallery.ucLegend();
+            this.ucShowMapInfo1 = new CityPlanningGallery.ucShowMapInfo();
+            this.btn_Home = new System.Windows.Forms.ToolStripButton();
+            this.btn_Return = new System.Windows.Forms.ToolStripButton();
+            this.btn_Close = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_ZoomIn = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_ZoomOut = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_FullExtent = new System.Windows.Forms.ToolStripButton();
             this.panel_BackColor.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
@@ -83,48 +83,11 @@
             this.btn_Home,
             this.btn_Return,
             this.btn_Close});
-            this.toolStrip1.Location = new System.Drawing.Point(714, 15);
+            this.toolStrip1.Location = new System.Drawing.Point(711, 15);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(228, 43);
+            this.toolStrip1.Size = new System.Drawing.Size(231, 43);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btn_Home
-            // 
-            this.btn_Home.Image = global::CityPlanningGallery.Properties.Resources.home_black;
-            this.btn_Home.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(72, 40);
-            this.btn_Home.Text = "主页";
-            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
-            // 
-            // btn_Return
-            // 
-            this.btn_Return.Image = global::CityPlanningGallery.Properties.Resources.return_black;
-            this.btn_Return.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Return.Name = "btn_Return";
-            this.btn_Return.Size = new System.Drawing.Size(72, 40);
-            this.btn_Return.Text = "返回";
-            this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.Image = global::CityPlanningGallery.Properties.Resources.close;
-            this.btn_Close.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(72, 40);
-            this.btn_Close.Text = "关闭";
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
-            // 
-            // ucLegend1
-            // 
-            this.ucLegend1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucLegend1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ucLegend1.Location = new System.Drawing.Point(478, 392);
-            this.ucLegend1.MapControl = null;
-            this.ucLegend1.Name = "ucLegend1";
-            this.ucLegend1.Size = new System.Drawing.Size(200, 240);
-            this.ucLegend1.TabIndex = 7;
             // 
             // axLicenseControl1
             // 
@@ -153,6 +116,106 @@
             this.toolStrip_MapTool.Text = "toolStrip1";
             this.toolStrip_MapTool.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_MapTool_ItemClicked);
             // 
+            // panel_Right
+            // 
+            this.panel_Right.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_Right.BackColor = System.Drawing.Color.White;
+            this.panel_Right.Controls.Add(this.panel_LeftFull);
+            this.panel_Right.Controls.Add(this.panel_LeftTop);
+            this.panel_Right.Location = new System.Drawing.Point(657, 61);
+            this.panel_Right.Name = "panel_Right";
+            this.panel_Right.Size = new System.Drawing.Size(285, 575);
+            this.panel_Right.TabIndex = 2;
+            // 
+            // panel_LeftFull
+            // 
+            this.panel_LeftFull.Controls.Add(this.ucShowMapInfo1);
+            this.panel_LeftFull.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_LeftFull.Location = new System.Drawing.Point(0, 173);
+            this.panel_LeftFull.Name = "panel_LeftFull";
+            this.panel_LeftFull.Size = new System.Drawing.Size(285, 402);
+            this.panel_LeftFull.TabIndex = 8;
+            // 
+            // panel_LeftTop
+            // 
+            this.panel_LeftTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel_LeftTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_LeftTop.Location = new System.Drawing.Point(0, 0);
+            this.panel_LeftTop.Name = "panel_LeftTop";
+            this.panel_LeftTop.Size = new System.Drawing.Size(285, 173);
+            this.panel_LeftTop.TabIndex = 7;
+            // 
+            // lbl_MapTitle
+            // 
+            this.lbl_MapTitle.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_MapTitle.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lbl_MapTitle.Location = new System.Drawing.Point(28, 31);
+            this.lbl_MapTitle.Name = "lbl_MapTitle";
+            this.lbl_MapTitle.Size = new System.Drawing.Size(148, 24);
+            this.lbl_MapTitle.TabIndex = 1;
+            this.lbl_MapTitle.Text = "4 生态保护红线图";
+            // 
+            // axMapControl1
+            // 
+            this.axMapControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.axMapControl1.Location = new System.Drawing.Point(28, 61);
+            this.axMapControl1.Name = "axMapControl1";
+            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
+            this.axMapControl1.Size = new System.Drawing.Size(623, 575);
+            this.axMapControl1.TabIndex = 0;
+            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
+            this.axMapControl1.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.axMapControl1_OnMouseUp);
+            this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
+            this.axMapControl1.Resize += new System.EventHandler(this.axMapControl1_Resize);
+            // 
+            // ucLegend1
+            // 
+            this.ucLegend1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucLegend1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ucLegend1.Location = new System.Drawing.Point(446, 388);
+            this.ucLegend1.MapControl = null;
+            this.ucLegend1.Name = "ucLegend1";
+            this.ucLegend1.Size = new System.Drawing.Size(200, 240);
+            this.ucLegend1.TabIndex = 7;
+            // 
+            // ucShowMapInfo1
+            // 
+            this.ucShowMapInfo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucShowMapInfo1.Location = new System.Drawing.Point(0, 0);
+            this.ucShowMapInfo1.Name = "ucShowMapInfo1";
+            this.ucShowMapInfo1.Size = new System.Drawing.Size(285, 402);
+            this.ucShowMapInfo1.TabIndex = 0;
+            // 
+            // btn_Home
+            // 
+            this.btn_Home.Image = global::CityPlanningGallery.Properties.Resources.home_black;
+            this.btn_Home.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.Size = new System.Drawing.Size(73, 40);
+            this.btn_Home.Text = "主页";
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
+            // 
+            // btn_Return
+            // 
+            this.btn_Return.Image = global::CityPlanningGallery.Properties.Resources.return_black;
+            this.btn_Return.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Return.Name = "btn_Return";
+            this.btn_Return.Size = new System.Drawing.Size(73, 40);
+            this.btn_Return.Text = "返回";
+            this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);
+            // 
+            // btn_Close
+            // 
+            this.btn_Close.Image = global::CityPlanningGallery.Properties.Resources.close;
+            this.btn_Close.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(73, 40);
+            this.btn_Close.Text = "关闭";
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
+            // 
             // tsbtn_ZoomIn
             // 
             this.tsbtn_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -179,69 +242,6 @@
             this.tsbtn_FullExtent.Name = "tsbtn_FullExtent";
             this.tsbtn_FullExtent.Size = new System.Drawing.Size(36, 36);
             this.tsbtn_FullExtent.Text = "全图";
-            // 
-            // panel_Right
-            // 
-            this.panel_Right.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Right.BackColor = System.Drawing.Color.White;
-            this.panel_Right.Controls.Add(this.panel_LeftFull);
-            this.panel_Right.Controls.Add(this.panel_LeftTop);
-            this.panel_Right.Location = new System.Drawing.Point(688, 61);
-            this.panel_Right.Name = "panel_Right";
-            this.panel_Right.Size = new System.Drawing.Size(253, 575);
-            this.panel_Right.TabIndex = 2;
-            // 
-            // panel_LeftFull
-            // 
-            this.panel_LeftFull.Controls.Add(this.ucShowMapInfo1);
-            this.panel_LeftFull.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_LeftFull.Location = new System.Drawing.Point(0, 173);
-            this.panel_LeftFull.Name = "panel_LeftFull";
-            this.panel_LeftFull.Size = new System.Drawing.Size(253, 402);
-            this.panel_LeftFull.TabIndex = 8;
-            // 
-            // ucShowMapInfo1
-            // 
-            this.ucShowMapInfo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucShowMapInfo1.Location = new System.Drawing.Point(0, 0);
-            this.ucShowMapInfo1.Name = "ucShowMapInfo1";
-            this.ucShowMapInfo1.Size = new System.Drawing.Size(253, 402);
-            this.ucShowMapInfo1.TabIndex = 0;
-            // 
-            // panel_LeftTop
-            // 
-            this.panel_LeftTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel_LeftTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_LeftTop.Location = new System.Drawing.Point(0, 0);
-            this.panel_LeftTop.Name = "panel_LeftTop";
-            this.panel_LeftTop.Size = new System.Drawing.Size(253, 173);
-            this.panel_LeftTop.TabIndex = 7;
-            // 
-            // lbl_MapTitle
-            // 
-            this.lbl_MapTitle.Appearance.Font = new System.Drawing.Font("汉仪菱心体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_MapTitle.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lbl_MapTitle.Location = new System.Drawing.Point(28, 31);
-            this.lbl_MapTitle.Name = "lbl_MapTitle";
-            this.lbl_MapTitle.Size = new System.Drawing.Size(160, 19);
-            this.lbl_MapTitle.TabIndex = 1;
-            this.lbl_MapTitle.Text = "4 生态保护红线图";
-            // 
-            // axMapControl1
-            // 
-            this.axMapControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.axMapControl1.Location = new System.Drawing.Point(28, 61);
-            this.axMapControl1.Name = "axMapControl1";
-            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(654, 575);
-            this.axMapControl1.TabIndex = 0;
-            this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
-            this.axMapControl1.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.axMapControl1_OnMouseUp);
-            this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
-            this.axMapControl1.Resize += new System.EventHandler(this.axMapControl1_Resize);
             // 
             // frmMapView
             // 

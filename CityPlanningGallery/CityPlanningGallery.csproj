@@ -159,6 +159,18 @@
     <Compile Include="ucDocumentReader.Designer.cs">
       <DependentUpon>ucDocumentReader.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucFeatureFieldItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFeatureFieldItem.Designer.cs">
+      <DependentUpon>ucFeatureFieldItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucFeatureFieldItemLong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFeatureFieldItemLong.Designer.cs">
+      <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGalleryItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +226,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucDocumentReader.resx">
       <DependentUpon>ucDocumentReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFeatureFieldItem.resx">
+      <DependentUpon>ucFeatureFieldItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFeatureFieldItemLong.resx">
+      <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGalleryItem.resx">
       <DependentUpon>ucGalleryItem.cs</DependentUpon>
