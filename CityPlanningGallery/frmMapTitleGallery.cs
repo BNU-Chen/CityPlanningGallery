@@ -67,18 +67,15 @@ namespace CityPlanningGallery
                         ucGalleryItem gi = new ucGalleryItem();
                         gi.Title = title;
                         gi.HoverImagePath = hoverImgPath;
-                        gi.MxdPath = file.FullName;
-                        gi.BackColorPanel.MouseClick += BackColorPanel_MouseClick;
-                        gi.BackColorPanel.MouseEnter += BackColorPanel_MouseEnter;
-                        gi.BackColorPanel.MouseLeave += BackColorPanel_MouseLeave;
+                        gi.DataPath = file.FullName;
 
-                        gi.TitleLabel.MouseClick += BackColorPanel_MouseClick;
-                        gi.TitleLabel.MouseEnter += BackColorPanel_MouseEnter;
-                        gi.TitleLabel.MouseLeave += TitleLabel_MouseLeave;
+                        gi.delegateClick += new delegateClick(gi_Click);
+                        gi.delegateMouseEnter += new delegateMouseEnter(gi_MouseEnter);
+                        gi.delegateMouseLeave += new delegateMouseLeave(gi_MouseLeave);
                         //滚动事件
                         gi.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
-                        gi.BackColorPanel.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
-                        gi.TitleLabel.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
+                        //gi.BackColorPanel.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
+                        //gi.TitleLabel.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
                         this.flowLayoutPanel_GalleryItem.Controls.Add(gi);
                     }
                 }
@@ -86,88 +83,15 @@ namespace CityPlanningGallery
             catch { }
         }
 
-        void FlowLayoutMouseWheel_MouseWheel(object sender, MouseEventArgs e)
+        void gi_Click(ucGalleryItem ucgi)
         {
-            try
-            {
-                this.flowLayoutPanel_GalleryItem.Focus();
-            }
-            catch { }
+            frmMapView frmMap = new frmMapView(parentForm, this);
+            frmMap.MapPath = ucgi.DataPath;
+            frmMap.Show();
         }
 
-        void TitleLabel_MouseClick(object sender, MouseEventArgs e)
+        void gi_MouseEnter(ucGalleryItem ucgi)
         {
-
-        }
-
-        void TitleLabel_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        void TitleLabel_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        void BackColorPanel_MouseClick(object sender, MouseEventArgs e)
-        {
-            ucGalleryItem ucgi = null;
-            if (sender is DevExpress.XtraEditors.PanelControl)
-            {
-                PanelControl panel = (PanelControl)sender;
-                Control ctrl = panel.Parent;
-                if (ctrl is ucGalleryItem)
-                {
-                    ucgi = (ucGalleryItem)ctrl;                    
-                }
-            }
-            else if(sender is DevExpress.XtraEditors.LabelControl)
-            {
-                LabelControl label = (LabelControl)sender;
-                Control ctrlPanel = label.Parent;
-                if (ctrlPanel is DevExpress.XtraEditors.PanelControl)
-                {
-                    PanelControl panel = (PanelControl)ctrlPanel;
-                    Control ctrl = panel.Parent;
-                    if (ctrl is ucGalleryItem)
-                    {
-                        ucgi = (ucGalleryItem)ctrl;
-                    }
-                }
-            }
-            if (ucgi != null)
-            {
-                frmMapView frmMap = new frmMapView(parentForm, this);
-                frmMap.MapPath = ucgi.MxdPath;
-                frmMap.Show();
-            }
-        }
-        void BackColorPanel_MouseEnter(object sender, EventArgs e)
-        {
-            ucGalleryItem ucgi = null;
-            if (sender is DevExpress.XtraEditors.PanelControl)
-            {
-                PanelControl panel = (PanelControl)sender;
-                Control ctrl = panel.Parent;
-                if (ctrl is ucGalleryItem)
-                {
-                    ucgi = (ucGalleryItem)ctrl;
-                }
-            }
-            else if (sender is DevExpress.XtraEditors.LabelControl)
-            {
-                LabelControl label = (LabelControl)sender;
-                Control ctrlPanel = label.Parent;
-                if (ctrlPanel is DevExpress.XtraEditors.PanelControl)
-                {
-                    PanelControl panel = (PanelControl)ctrlPanel;
-                    Control ctrl = panel.Parent;
-                    if (ctrl is ucGalleryItem)
-                    {
-                        ucgi = (ucGalleryItem)ctrl;
-                    }
-                }
-            }
-
             if (ucgi != null)
             {
                 if (!File.Exists(ucgi.HoverImagePath))
@@ -179,33 +103,24 @@ namespace CityPlanningGallery
                 this.lbl_PreViewMapTitle.Text = ucgi.Title;
             }
         }
-        void BackColorPanel_MouseLeave(object sender, EventArgs e)
-        {            
-            if (sender is DevExpress.XtraEditors.PanelControl)
+
+        void gi_MouseLeave(ucGalleryItem ucgi)
+        {
+            this.pic_PreView.BackgroundImage = null;
+            this.lbl_PreViewMapTitle.Text = "";
+        }
+
+        void FlowLayoutMouseWheel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            try
             {
-                this.pic_PreView.BackgroundImage = null;
-                this.lbl_PreViewMapTitle.Text = "";
+                this.flowLayoutPanel_GalleryItem.Focus();
             }
+            catch { }
         }
+
         #endregion
 
-        #region //关闭按钮
-        private void lbl_Close_Click(object sender, EventArgs e)
-        {
-            parentForm.Visible = true;
-            this.Close();
-        }
-
-        private void lbl_Close_MouseEnter(object sender, EventArgs e)
-        {
-            this.lbl_Close.BackColor = Color.LightGray;
-        }
-
-        private void lbl_Close_MouseLeave(object sender, EventArgs e)
-        {
-            this.lbl_Close.BackColor = Color.White;
-        }
-        #endregion
 
         #region //窗体移动
         Point mouseOff;//鼠标移动位置变量
@@ -236,6 +151,32 @@ namespace CityPlanningGallery
             {
                 leftFlag = false;//释放鼠标后标注为false;
             }
+        }
+        #endregion
+
+        #region //关闭 及 返回 按钮
+        private void btn_Return_Click(object sender, EventArgs e)
+        {
+            parentForm.Visible = true;
+            this.Close();
+        }
+
+        private void btn_Return_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            pic.BackColor = Color.LightGray;
+        }
+
+        private void btn_Return_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            pic.BackColor = Color.White;
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parentForm.Close();
         }
         #endregion
 

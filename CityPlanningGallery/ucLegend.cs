@@ -51,9 +51,10 @@ namespace CityPlanningGallery
             {
                 return;
             }
-
+            
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
+            
             try
             {
                 for (int i = 0; i < files.Length; i++)
@@ -82,13 +83,22 @@ namespace CityPlanningGallery
                         Image img = new Bitmap(file.FullName);
                         PictureBox pic = new PictureBox();
                         pic.BackgroundImage = img;
-                        pic.Size = new Size(230, img.Height);
+                        pic.Size = new Size(230, 25);
+                        pic.BackgroundImageLayout = ImageLayout.Zoom;
                         pic.Click += pic_Click;
                         pic.MouseEnter += pic_MouseEnter;
                         pic.MouseLeave += pic_MouseLeave;
                         pic.Tag = layerIndex;
                         this.flowLayoutPanel_Legend.Controls.Add(pic);
                     }
+                }
+                int flowHeight = this.flowLayoutPanel_Legend.Controls.Count * (25 + 5);
+                //this.flowLayoutPanel_Legend.Size = new Size(this.flowLayoutPanel_Legend.Size.Width, flowHeight);
+                this.Height = 57 + flowHeight;
+                Control ctrlParent = this.Parent;
+                if (ctrlParent is Panel)
+                {
+                    this.Location = new Point(this.Location.X, ctrlParent.Height - 25 - this.Height);
                 }
             }
             catch { }

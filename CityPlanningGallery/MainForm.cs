@@ -27,19 +27,22 @@ namespace CityPlanningGallery
         }
 
         #region //关闭窗体
-        private void lbl_Close_Click(object sender, EventArgs e)
+
+        private void btn_Return_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            pic.BackColor = Color.LightGray;
+        }
+
+        private void btn_Return_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            pic.BackColor = Color.White;
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void lbl_Close_MouseEnter(object sender, EventArgs e)
-        {
-            this.lbl_Close.BackColor = Color.LightGray;
-        }
-
-        private void lbl_Close_MouseLeave(object sender, EventArgs e)
-        {
-            this.lbl_Close.BackColor = Color.White;
         }
         #endregion
 

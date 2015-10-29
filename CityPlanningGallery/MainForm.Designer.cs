@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.btn_Xianzhuang = new DevExpress.XtraEditors.SimpleButton();
-            this.lbl_Close = new DevExpress.XtraEditors.LabelControl();
             this.btn_Guihua = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Fenxi = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.btn_Close = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Xianzhuang
@@ -51,18 +52,6 @@
             this.btn_Xianzhuang.Click += new System.EventHandler(this.btn_Xianzhuang_Click);
             this.btn_Xianzhuang.MouseEnter += new System.EventHandler(this.btn_Xianzhuang_MouseEnter);
             this.btn_Xianzhuang.MouseLeave += new System.EventHandler(this.btn_Xianzhuang_MouseLeave);
-            // 
-            // lbl_Close
-            // 
-            this.lbl_Close.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Close.Location = new System.Drawing.Point(786, 28);
-            this.lbl_Close.Name = "lbl_Close";
-            this.lbl_Close.Size = new System.Drawing.Size(22, 19);
-            this.lbl_Close.TabIndex = 1;
-            this.lbl_Close.Text = " × ";
-            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
-            this.lbl_Close.MouseEnter += new System.EventHandler(this.lbl_Close_MouseEnter);
-            this.lbl_Close.MouseLeave += new System.EventHandler(this.lbl_Close_MouseLeave);
             // 
             // btn_Guihua
             // 
@@ -123,6 +112,19 @@
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "分析";
             // 
+            // btn_Close
+            // 
+            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
+            this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Close.Location = new System.Drawing.Point(777, 25);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.btn_Close.TabIndex = 7;
+            this.btn_Close.TabStop = false;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
+            this.btn_Close.MouseEnter += new System.EventHandler(this.btn_Return_MouseEnter);
+            this.btn_Close.MouseLeave += new System.EventHandler(this.btn_Return_MouseLeave);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -131,10 +133,10 @@
             this.BackgroundImage = global::CityPlanningGallery.Properties.Resources.主页;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(837, 564);
+            this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.lbl_Close);
             this.Controls.Add(this.btn_Fenxi);
             this.Controls.Add(this.btn_Guihua);
             this.Controls.Add(this.btn_Xianzhuang);
@@ -146,6 +148,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,12 +157,12 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btn_Xianzhuang;
-        private DevExpress.XtraEditors.LabelControl lbl_Close;
         private DevExpress.XtraEditors.SimpleButton btn_Guihua;
         private DevExpress.XtraEditors.SimpleButton btn_Fenxi;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.PictureBox btn_Close;
     }
 }
 
