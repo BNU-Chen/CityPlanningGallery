@@ -101,6 +101,12 @@
   <ItemGroup>
     <Compile Include="clsGISTools.cs" />
     <Compile Include="clsConfig.cs" />
+    <Compile Include="frmAtalsBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAtalsBrowse.Designer.cs">
+      <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAtlasContents.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <Compile Include="ucLegend.Designer.cs">
       <DependentUpon>ucLegend.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAtalsBrowse.resx">
+      <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAtlasContents.resx">
       <DependentUpon>frmAtlasContents.cs</DependentUpon>
     </EmbeddedResource>
