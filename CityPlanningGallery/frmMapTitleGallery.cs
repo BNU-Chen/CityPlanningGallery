@@ -202,7 +202,9 @@ namespace CityPlanningGallery
 
         private void pictureBox_Thematic_Click(object sender, EventArgs e)
         {
-
+            frmThematicDocContents frmDocContents = new frmThematicDocContents(this);
+            frmDocContents.SetFlowLayout(clsConfig.ThematicDocsFolder);
+            frmDocContents.Show();
         }
 
         private void pictureBox_Images_Click(object sender, EventArgs e)
