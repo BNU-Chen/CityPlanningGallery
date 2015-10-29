@@ -31,10 +31,10 @@
             this.flowLayoutPanel_GalleryItem = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_PreViewMapTitle = new DevExpress.XtraEditors.LabelControl();
             this.panel_PlanningDocs = new System.Windows.Forms.Panel();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox_Images = new System.Windows.Forms.PictureBox();
             this.pictureBox_Thematic = new System.Windows.Forms.PictureBox();
             this.pictureBox_Desc = new System.Windows.Forms.PictureBox();
@@ -86,23 +86,14 @@
             this.panel_PlanningDocs.TabIndex = 6;
             this.panel_PlanningDocs.Visible = false;
             // 
-            // labelControl1
+            // labelControl4
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl1.Location = new System.Drawing.Point(43, 111);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(64, 21);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "规划文本";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl2.Location = new System.Drawing.Point(131, 111);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(64, 21);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "规划说明";
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl4.Location = new System.Drawing.Point(307, 111);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(64, 21);
+            this.labelControl4.TabIndex = 1;
+            this.labelControl4.Text = "规划图集";
             // 
             // labelControl3
             // 
@@ -113,14 +104,23 @@
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "专题报告";
             // 
-            // labelControl4
+            // labelControl2
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl4.Location = new System.Drawing.Point(307, 111);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(64, 21);
-            this.labelControl4.TabIndex = 1;
-            this.labelControl4.Text = "规划图集";
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl2.Location = new System.Drawing.Point(131, 111);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(64, 21);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "规划说明";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Location = new System.Drawing.Point(43, 111);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(64, 21);
+            this.labelControl1.TabIndex = 1;
+            this.labelControl1.Text = "规划文本";
             // 
             // pictureBox_Images
             // 
@@ -224,7 +224,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMapTitleGallery";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmGuihuaGallery";
+            this.Text = "规划地图";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);

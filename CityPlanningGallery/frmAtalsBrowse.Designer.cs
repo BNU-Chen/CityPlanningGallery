@@ -67,7 +67,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAtalsBrowse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAtalsBrowse";
+            this.Text = "图集浏览";
             this.Load += new System.EventHandler(this.frmAtalsBrowse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pe_AtlasShower.Properties)).EndInit();
