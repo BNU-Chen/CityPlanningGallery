@@ -84,12 +84,52 @@ namespace CityPlanningGallery
                         pic.BackgroundImage = img;
                         pic.Size = new Size(230, img.Height);
                         pic.Click += pic_Click;
+                        pic.MouseEnter += pic_MouseEnter;
+                        pic.MouseLeave += pic_MouseLeave;
                         pic.Tag = layerIndex;
                         this.flowLayoutPanel_Legend.Controls.Add(pic);
                     }
                 }
             }
             catch { }
+        }
+
+        void pic_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            int layerIndex = Convert.ToInt16(pic.Tag);
+            if (layerIndex < 0)
+            {
+                return;
+            }
+            if (this.axMapControl == null)
+            {
+                return;
+            }
+            //MessageBox.Show("layerIndex:" + layerIndex);
+            int layerCount = this.axMapControl.LayerCount;
+            if (layerIndex >= layerCount)
+            {
+                return;
+            }
+            ILayer layer = this.axMapControl.ActiveView.FocusMap.get_Layer(layerIndex);
+            if (layer.Visible)
+            {
+                pic.BackColor = Color.LightGray;
+            }
+            else
+            {
+                pic.BackColor = Color.White;
+            }
+        }
+
+        void pic_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is PictureBox)
+            {
+                PictureBox pic = (PictureBox)sender;
+                pic.BackColor = Color.Gray;
+            }
         }
 
         void pic_Click(object sender, EventArgs e)
@@ -114,6 +154,14 @@ namespace CityPlanningGallery
                 }
                 ILayer layer = this.axMapControl.ActiveView.FocusMap.get_Layer(layerIndex);
                 layer.Visible = !layer.Visible;
+                if (layer.Visible)
+                {
+                    pic.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    pic.BackColor = Color.White;
+                }
                 this.axMapControl.ActiveView.Refresh();
             }
         }

@@ -75,10 +75,22 @@ namespace CityPlanningGallery
                         gi.TitleLabel.MouseClick += BackColorPanel_MouseClick;
                         gi.TitleLabel.MouseEnter += BackColorPanel_MouseEnter;
                         gi.TitleLabel.MouseLeave += TitleLabel_MouseLeave;
-
-                        this.flowLayoutPanel_Guihua.Controls.Add(gi);
+                        //滚动事件
+                        gi.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
+                        gi.BackColorPanel.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
+                        gi.TitleLabel.MouseWheel += FlowLayoutMouseWheel_MouseWheel;
+                        this.flowLayoutPanel_GalleryItem.Controls.Add(gi);
                     }
                 }
+            }
+            catch { }
+        }
+
+        void FlowLayoutMouseWheel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.flowLayoutPanel_GalleryItem.Focus();
             }
             catch { }
         }
