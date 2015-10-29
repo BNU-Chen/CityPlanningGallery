@@ -14,40 +14,27 @@ using DevExpress.Utils;
 
 namespace CityPlanningGallery
 {
-    public partial class frmAtlasContents : Form
+    public partial class frmThematicDocContents : Form
     {
         private frmMapTitleGallery parentForm = null;
+
         SuperToolTip sToolTip;
 
-        public frmAtlasContents(frmMapTitleGallery _frm)
+        public frmThematicDocContents(frmMapTitleGallery _frm)
         {
             InitializeComponent();
-            this.flowLayoutPanel_Status.VerticalScroll.Visible = false;
-            this.flowLayoutPanel_Planning.VerticalScroll.Visible = false;
-            this.flowLayoutPanel_Analysis.VerticalScroll.Visible = false;
+            this.flowLayoutPanel_ThematicDoc.VerticalScroll.Visible = false;
             parentForm = _frm;
             parentForm.Visible = false;
         }
 
         private void frmAtlasContents_Load(object sender, EventArgs e)
         {
-            this.flowLayoutPanel_Status.MouseWheel += FlowLayoutPanel_MouseWheel;
-            this.flowLayoutPanel_Planning.MouseWheel += FlowLayoutPanel_MouseWheel;
-            this.flowLayoutPanel_Analysis.MouseWheel += FlowLayoutPanel_MouseWheel;
-        }
-
-        public void SetFlowLayouts(string statusFloderPath, string planningFloderPath, string analysisFloderPath, string fileExtension)
-        {
-            this.flowLayoutPanel_Status.Controls.Clear();
-            SetFlowLayout(statusFloderPath, this.flowLayoutPanel_Status, fileExtension);
-            this.flowLayoutPanel_Planning.Controls.Clear();
-            SetFlowLayout(planningFloderPath, this.flowLayoutPanel_Planning, fileExtension);
-            this.flowLayoutPanel_Analysis.Controls.Clear();
-            SetFlowLayout(analysisFloderPath, this.flowLayoutPanel_Analysis, fileExtension);
+            this.flowLayoutPanel_ThematicDoc.MouseWheel += FlowLayoutPanel_MouseWheel;
         }
 
         #region //为FlowLayoutPanel控件加载ucGalleryItem
-        private void SetFlowLayout(string path, FlowLayoutPanel flowLayoutPanel, string fileExtension)
+         public void SetFlowLayout(string path)
         {
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
@@ -60,20 +47,20 @@ namespace CityPlanningGallery
                     {
                         FileInfo file = files[i] as FileInfo;
                         string ext = file.Extension;
-                        if (ext.ToLower() != fileExtension)
+                        if (ext.ToLower() != ".doc" && ext.ToLower() != ".docx")
                             continue;
                         string title = Path.GetFileNameWithoutExtension(file.FullName);
                         
                         ucGalleryItem gi = new ucGalleryItem();
                         gi.Tag = file.FullName;
                         gi.Title = title;
-                        gi.Size = new Size(flowLayoutPanel.Size.Width-25, gi.Size.Height);
+                        gi.Size = new Size(this.flowLayoutPanel_ThematicDoc.Size.Width -20, gi.Size.Height);
                         
                         gi.delegateClick += new delegateClick(gi_Click);
                         gi.delegateMouseEnter += new delegateMouseEnter(gi_MouseEnter);
                         gi.delegateMouseLeave += new delegateMouseLeave(gi_MouseLeave);
 
-                        flowLayoutPanel.Controls.Add(gi);
+                        this.flowLayoutPanel_ThematicDoc.Controls.Add(gi);
                     }
                 }
             }
@@ -82,25 +69,20 @@ namespace CityPlanningGallery
 
         void gi_Click(ucGalleryItem ucgi)
         {
-            frmAtalsBrowse frmBrowse = new frmAtalsBrowse(this);
-            frmBrowse.ImageFilePath = ucgi.Tag.ToString();
-            frmBrowse.Show();
+            frmDocViewer frmDoc = new frmDocViewer(this.parentForm);
+            frmDoc.DocPath = ucgi.Tag.ToString();
+            this.Visible = false;
+            frmDoc.Show();
         }
 
         void gi_MouseEnter(ucGalleryItem ucgi)
         {
-            this.sToolTip = new SuperToolTip();
-            Image img = Image.FromFile(ucgi.Tag.ToString());
-            Image imgs = img.GetThumbnailImage(400, 273, null, IntPtr.Zero);
-            SuperToolTipSetupArgs args = new SuperToolTipSetupArgs();
-            args.Contents.Image = imgs;
-            this.sToolTip.Setup(args);
-            ucgi.TitleLabel.SuperTip = this.sToolTip;
+            
         }
 
         void gi_MouseLeave(ucGalleryItem ucgi)
         {
-            ucgi.TitleLabel.SuperTip = null;
+            
         }
         #endregion
 
