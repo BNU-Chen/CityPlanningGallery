@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMapView));
             this.lbl_Close = new DevExpress.XtraEditors.LabelControl();
             this.panel_BackColor = new System.Windows.Forms.Panel();
+            this.ucLegend1 = new CityPlanningGallery.ucLegend();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.toolStrip_MapTool = new System.Windows.Forms.ToolStrip();
             this.tsbtn_ZoomIn = new System.Windows.Forms.ToolStripButton();
@@ -43,7 +44,6 @@
             this.btn_Close = new System.Windows.Forms.ToolStripButton();
             this.lbl_MapTitle = new DevExpress.XtraEditors.LabelControl();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
-            this.ucLegend1 = new CityPlanningGallery.ucLegend();
             this.panel_BackColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             this.toolStrip_MapTool.SuspendLayout();
@@ -81,6 +81,15 @@
             this.panel_BackColor.Name = "panel_BackColor";
             this.panel_BackColor.Size = new System.Drawing.Size(960, 615);
             this.panel_BackColor.TabIndex = 5;
+            // 
+            // ucLegend1
+            // 
+            this.ucLegend1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucLegend1.Location = new System.Drawing.Point(478, 350);
+            this.ucLegend1.MapControl = null;
+            this.ucLegend1.Name = "ucLegend1";
+            this.ucLegend1.Size = new System.Drawing.Size(200, 240);
+            this.ucLegend1.TabIndex = 7;
             // 
             // axLicenseControl1
             // 
@@ -208,15 +217,6 @@
             this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
             this.axMapControl1.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.axMapControl1_OnMouseUp);
             this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
-            // 
-            // ucLegend1
-            // 
-            this.ucLegend1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucLegend1.Location = new System.Drawing.Point(478, 350);
-            this.ucLegend1.MapControl = null;
-            this.ucLegend1.Name = "ucLegend1";
-            this.ucLegend1.Size = new System.Drawing.Size(200, 240);
-            this.ucLegend1.TabIndex = 7;
             // 
             // frmMapView
             // 

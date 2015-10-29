@@ -88,17 +88,26 @@ namespace CityPlanningGallery
 
         private void ucGalleryItem_Click(object sender, EventArgs e)
         {
-            delegateClick(this);
+            if (delegateClick != null)
+            {
+                delegateClick(this);
+            }
         }
 
         private void ucGalleryItem_MouseEnter(object sender, EventArgs e)
         {
-            delegateMouseEnter(this);
+            if (delegateMouseEnter != null)
+            {
+                delegateMouseEnter(this);
+            }
         }
 
         private void ucGalleryItem_MouseLeave(object sender, EventArgs e)
         {
-            delegateMouseLeave(this);
+            if (delegateMouseLeave != null)
+            {
+                delegateMouseLeave(this);
+            }
         }
 
     }
