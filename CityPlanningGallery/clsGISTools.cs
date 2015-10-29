@@ -223,10 +223,15 @@ namespace CityPlanningGallery
             {
                 return;
             }
-            ICommand pCommand;
-            pCommand = new ESRI.ArcGIS.Controls.ControlsMapFullExtentCommand();
-            pCommand.OnCreate(axMapControl.Object);
-            pCommand.OnClick();
+            IEnvelope env = new EnvelopeClass() as IEnvelope;
+            env.PutCoords(21156119.5385824, 4351043.1259153, 21912540.059758, 4866733.37736962);
+            axMapControl.ActiveView.Extent = env;
+            axMapControl.Refresh();
+
+            //ICommand pCommand;
+            //pCommand = new ESRI.ArcGIS.Controls.ControlsMapFullExtentCommand();
+            //pCommand.OnCreate(axMapControl.Object);
+            //pCommand.OnClick();
         }
         /// <summary>
         /// 选择

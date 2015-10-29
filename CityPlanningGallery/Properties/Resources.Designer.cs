@@ -123,9 +123,39 @@ namespace CityPlanningGallery.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap desc_icon {
+            get {
+                object obj = ResourceManager.GetObject("desc-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap desc_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("desc-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap fullExtent_32 {
             get {
                 object obj = ResourceManager.GetObject("fullExtent_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Help_64 {
+            get {
+                object obj = ResourceManager.GetObject("Help-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +213,16 @@ namespace CityPlanningGallery.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap relationalDatabase_64 {
+            get {
+                object obj = ResourceManager.GetObject("relationalDatabase-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap return_black {
             get {
                 object obj = ResourceManager.GetObject("return_black", resourceCulture);
@@ -216,6 +256,26 @@ namespace CityPlanningGallery.Properties {
         internal static System.Drawing.Bitmap select_all {
             get {
                 object obj = ResourceManager.GetObject("select_all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap trans_plan_lg_icon {
+            get {
+                object obj = ResourceManager.GetObject("trans-plan-lg-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap unCheck_icon {
+            get {
+                object obj = ResourceManager.GetObject("unCheck_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

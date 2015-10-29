@@ -58,6 +58,7 @@ namespace CityPlanningGallery
         {
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
             frmGallery.DataPath = clsConfig.PlanningMapGuihuaFolder;
+            frmGallery.IsShowPlanningDocs = true;
             frmGallery.Show();
         }
 

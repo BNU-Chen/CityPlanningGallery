@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using System.IO;
 using ESRI.ArcGIS.Controls;
+using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.Geometry;
 
 namespace CityPlanningGallery
 {
@@ -17,13 +19,57 @@ namespace CityPlanningGallery
     {
         private MainForm rootForm = null;
         private frmMapTitleGallery galleryForm = null;
+
+        private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
+
+
         public frmMapView(MainForm _rootForm, Form _frmGallery)
         {
             InitializeComponent();
             rootForm = _rootForm;
             galleryForm = (frmMapTitleGallery)_frmGallery;
             galleryForm.Visible = false;
+
+            this.ucLegend1.AutoPlayeButton.Click += AutoPlayeButton_Click;
+            clsGISTools.FullExtend(this.axMapControl1);
         }
+
+        #region //自动加载图例图层按钮
+        void AutoPlayeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ucLegend1.ShowLegendLayers(false);
+
+                if (this.ucLegend1.FlowLayoutLegend.Controls.Count > 0)
+                {
+                    foreach (Control ctrl in this.ucLegend1.FlowLayoutLegend.Controls)
+                    {
+                        if (ctrl is PictureBox)
+                        {
+                            PictureBox pic = (PictureBox)ctrl;
+                            int index = Convert.ToInt16(pic.Tag);
+                            if (index < 0)
+                            {
+                                continue;
+                            }
+                            this.Refresh();
+                            this.axMapControl1.ActiveView.Refresh();
+
+                            System.Threading.Thread.Sleep(AutoPlayInterval);
+
+                            pic.BackColor = Color.LightGray;
+                            ILayer layer = this.axMapControl1.ActiveView.FocusMap.get_Layer(index);
+                            layer.Visible = true;
+                        }
+                    }
+                    this.Refresh();
+                    this.axMapControl1.ActiveView.Refresh();
+                }
+            }
+            catch { }
+        }
+        #endregion
 
         #region //封装字段
         private string mapPath = "";
@@ -39,13 +85,13 @@ namespace CityPlanningGallery
                     return;
                 }
                 //设置地图标题
-                string title = Path.GetFileNameWithoutExtension(mapPath);
+                string title = System.IO.Path.GetFileNameWithoutExtension(mapPath);
                 this.lbl_MapTitle.Text = title;
                 //加载地图
                 this.axMapControl1.LoadMxFile(mapPath);
                 this.axMapControl1.Refresh();
                 //加载图例
-                string mapFolder = Path.GetDirectoryName(mapPath);
+                string mapFolder = System.IO.Path.GetDirectoryName(mapPath);
                 string legendPath = clsConfig.GetLegendFolder(mapFolder) + "\\" + title;
                 if (Directory.Exists(legendPath))
                 {
@@ -61,8 +107,7 @@ namespace CityPlanningGallery
         }
 
         #endregion
-
-
+        
         #region //关闭按钮
         private void lbl_Close_Click(object sender, EventArgs e)
         {
@@ -82,14 +127,14 @@ namespace CityPlanningGallery
         #endregion
 
         #region //窗体移动与放大
-        Point mouseOff;//鼠标移动位置变量
+        System.Drawing.Point mouseOff;//鼠标移动位置变量
         bool leftFlag;//标签是否为左键
 
         private void Form_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                mouseOff = new Point(-e.X, -e.Y); //得到变量的值
+                mouseOff = new System.Drawing.Point(-e.X, -e.Y); //得到变量的值
                 leftFlag = true;                  //点击左键按下时标注为true;
             }
         }
@@ -98,7 +143,7 @@ namespace CityPlanningGallery
         {
             if (leftFlag)
             {
-                Point mouseSet = Control.MousePosition;
+                System.Drawing.Point mouseSet = Control.MousePosition;
                 mouseSet.Offset(mouseOff.X, mouseOff.Y);  //设置移动后的位置
                 this.Location = mouseSet;
             }
@@ -122,10 +167,10 @@ namespace CityPlanningGallery
             {
                 this.WindowState = FormWindowState.Maximized;
             }
+            clsGISTools.FullExtend(this.axMapControl1);
         }
         #endregion
-
-
+        
         #region //MapControl事件
         private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
@@ -155,6 +200,7 @@ namespace CityPlanningGallery
         }
         #endregion
 
+        #region //地图工具按钮事件
         private void toolStrip_MapTool_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             string name = e.ClickedItem.Name;
@@ -171,6 +217,7 @@ namespace CityPlanningGallery
                     break;
             }
         }
+        #endregion
 
     }
 }

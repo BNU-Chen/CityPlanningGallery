@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
+using System.Threading;
+
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Carto;
 
@@ -16,10 +18,13 @@ namespace CityPlanningGallery
 { 
     public partial class ucLegend : UserControl
     {
+        private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
+
         public ucLegend()
         {
             InitializeComponent();
         }
+        #region //封装字段
         private string legendFolderPath = "";
         public string LegendFolderPath
         {
@@ -42,7 +47,30 @@ namespace CityPlanningGallery
             }
         }
 
-        //设置图例
+        public ToolStripButton AutoPlayeButton
+        {
+            get
+            {
+                return this.tsbtn_AutoPlay;
+            }
+        }
+        public ToolStripButton CheckLegendButton
+        {
+            get
+            {
+                return this.tsbtn_AllLayer;
+            }
+        }
+        public FlowLayoutPanel FlowLayoutLegend
+        {
+            get
+            {
+                return this.flowLayoutPanel_Legend;
+            }
+        }
+        #endregion
+
+        #region //设置图例
         private void SetLegend(string path)
         {
             this.flowLayoutPanel_Legend.Controls.Clear();
@@ -79,7 +107,7 @@ namespace CityPlanningGallery
                         {
                             continue;
                         }
-
+                        //添加图例
                         Image img = new Bitmap(file.FullName);
                         PictureBox pic = new PictureBox();
                         pic.BackgroundImage = img;
@@ -89,9 +117,15 @@ namespace CityPlanningGallery
                         pic.MouseEnter += pic_MouseEnter;
                         pic.MouseLeave += pic_MouseLeave;
                         pic.Tag = layerIndex;
+                        pic.Cursor = Cursors.Hand;
+
                         this.flowLayoutPanel_Legend.Controls.Add(pic);
+
+                        ILayer layer = this.axMapControl.ActiveView.FocusMap.get_Layer(layerIndex);
+                        layer.Visible = false;      //隐藏图例的图层
                     }
                 }
+                //计算控件位置
                 int flowHeight = this.flowLayoutPanel_Legend.Controls.Count * (25 + 5);
                 //this.flowLayoutPanel_Legend.Size = new Size(this.flowLayoutPanel_Legend.Size.Width, flowHeight);
                 this.Height = 57 + flowHeight;
@@ -100,10 +134,15 @@ namespace CityPlanningGallery
                 {
                     this.Location = new Point(this.Location.X, ctrlParent.Height - 25 - this.Height);
                 }
+
+                //刷新地图
+                this.axMapControl.ActiveView.Refresh();
             }
             catch { }
         }
+        #endregion
 
+        #region //图例颜色控制
         void pic_MouseLeave(object sender, EventArgs e)
         {
             PictureBox pic = (PictureBox)sender;
@@ -141,7 +180,9 @@ namespace CityPlanningGallery
                 pic.BackColor = Color.Gray;
             }
         }
+        #endregion 
 
+        #region //图例显示控制
         void pic_Click(object sender, EventArgs e)
         {
             if (sender is PictureBox)
@@ -175,5 +216,62 @@ namespace CityPlanningGallery
                 this.axMapControl.ActiveView.Refresh();
             }
         }
+
+        private void tsbtn_AutoPlay_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tsbtn_AllLayer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.tsbtn_AllLayer.Text == "整体浏览")
+                {
+                    this.tsbtn_AllLayer.Text = "局部浏览";
+                    this.tsbtn_AllLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.unCheck_icon);
+                    ShowLegendLayers(true);
+                }
+                else
+                {
+                    this.tsbtn_AllLayer.Text = "整体浏览";
+                    this.tsbtn_AllLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.select_all);
+                    ShowLegendLayers(false);
+                }
+            }
+            catch { }
+        }
+        //是否显示所有图例图层
+        public void ShowLegendLayers(bool layerVisible)
+        {            
+            if (this.flowLayoutPanel_Legend.Controls.Count > 0)
+            {
+                foreach (Control ctrl in this.flowLayoutPanel_Legend.Controls)
+                {
+                    if (ctrl is PictureBox)
+                    {
+                        PictureBox pic = (PictureBox)ctrl;
+                        int index = Convert.ToInt16(pic.Tag);
+                        if (index < 0)
+                        {
+                            continue;
+                        }
+                        if (layerVisible)
+                        {
+                            pic.BackColor = Color.LightGray;
+                        }
+                        else
+                        {
+                            pic.BackColor = Color.White;
+                        }
+                        ILayer layer = this.axMapControl.ActiveView.FocusMap.get_Layer(index);
+                        layer.Visible = layerVisible;
+                    }
+                }
+                this.axMapControl.ActiveView.Refresh();
+            }
+        }
+        #endregion
+
     }
 }
