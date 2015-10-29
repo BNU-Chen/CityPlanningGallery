@@ -30,13 +30,23 @@ namespace CityPlanningGallery
                 this.dataSource = value;
                 SetChartShow(getViewTypByIndex(this.icbeChartType.SelectedIndex));
                 this.spreadsheetControl.ActiveWorksheet.Clear(this.spreadsheetControl.ActiveWorksheet.GetUsedRange());
-                this.spreadsheetControl.ActiveWorksheet.Import(this.dataSource, true, 0, 0);
+                if(this.dataSource!= null)
+                    this.spreadsheetControl.ActiveWorksheet.Import(this.dataSource, true, 0, 0);
             }
             get { return this.dataSource; }
         }
         public ucChartTableShow()
         {
             InitializeComponent();
+        }
+
+        public ucChartTableShow()
+        {
+            InitializeComponent();
+            this.checkPercentShow.Checked = true;
+            Worksheet worksheet = this.spreadsheetControl.ActiveWorksheet;
+            worksheet.ActiveView.ShowHeadings = false;
+            this.spreadsheetControl.Visible = false;
         }
 
         public ucChartTableShow(DataTable dt, ViewType vt)

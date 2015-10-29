@@ -38,9 +38,10 @@
             // 
             // btn_Close
             // 
+            this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Close.Location = new System.Drawing.Point(815, 16);
+            this.btn_Close.Location = new System.Drawing.Point(1046, 18);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(30, 30);
             this.btn_Close.TabIndex = 6;
@@ -51,9 +52,10 @@
             // 
             // btn_Return
             // 
+            this.btn_Return.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_left;
             this.btn_Return.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Return.Location = new System.Drawing.Point(768, 16);
+            this.btn_Return.Location = new System.Drawing.Point(999, 18);
             this.btn_Return.Name = "btn_Return";
             this.btn_Return.Size = new System.Drawing.Size(30, 30);
             this.btn_Return.TabIndex = 7;
@@ -64,10 +66,10 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("汉仪菱心体简", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl1.Location = new System.Drawing.Point(26, 29);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(220, 19);
+            this.labelControl1.Size = new System.Drawing.Size(209, 24);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "沈阳经济区国土规划文本";
             // 
@@ -81,7 +83,7 @@
             this.ucDocumentReader1.Location = new System.Drawing.Point(26, 54);
             this.ucDocumentReader1.Name = "ucDocumentReader1";
             this.ucDocumentReader1.Searchkeyword = "";
-            this.ucDocumentReader1.Size = new System.Drawing.Size(819, 555);
+            this.ucDocumentReader1.Size = new System.Drawing.Size(1050, 555);
             this.ucDocumentReader1.TabIndex = 0;
             // 
             // frmDocViewer
@@ -89,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(869, 633);
+            this.ClientSize = new System.Drawing.Size(1100, 633);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Return);
