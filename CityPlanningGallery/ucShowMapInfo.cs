@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using DevExpress.XtraEditors;
+
 namespace CityPlanningGallery
 {
     public partial class ucShowMapInfo : UserControl
@@ -15,6 +17,7 @@ namespace CityPlanningGallery
         public ucShowMapInfo()
         {
             InitializeComponent();
+            MapDescClick();
         }
 
         #region //封装字段
@@ -22,7 +25,7 @@ namespace CityPlanningGallery
         {
             set
             {
-                this.richEditControl1.Text = value;
+                this.richTextBox1.Text = value;
             }
         }
 
@@ -31,14 +34,46 @@ namespace CityPlanningGallery
             set
             {
                 //设置图表的数据
-
+                this.ucChartTableShow1.DataSource = value;
+                this.ucChartTableShow1.SetChartShow(DevExpress.XtraCharts.ViewType.Pie);
             }
         }
 
+        public FlowLayoutPanel FlowLayoutControl
+        {
+            get { return this.flowLayoutPanel1; }
+        }
+
+        public SimpleButton MapDescButton
+        {
+            get { return this.btn_MapDesc; }
+        }
+        public SimpleButton MapChartButton
+        {
+            get { return this.btn_MapChart; }
+        }
+        public SimpleButton FeatureInfoButton
+        {
+            get { return this.btn_FeatureInfo; }
+        }
         #endregion
 
         #region //按钮点击事件
         private void btn_MapDesc_Click(object sender, EventArgs e)
+        {
+            MapDescClick();
+        }
+
+        private void btn_MapChart_Click(object sender, EventArgs e)
+        {
+            MapChartClick();
+        }
+
+        private void btn_FeatureInfo_Click(object sender, EventArgs e)
+        {
+            FeatureInfo();
+        }
+        public void MapDescClick()
         {
             this.panel_MapChart.Visible = false;
             this.panel_FeatureInfo.Visible = false;
@@ -50,11 +85,10 @@ namespace CityPlanningGallery
 
             this.panel_btn_FeatureInfo.SendToBack();
             this.panel_MapChart.BringToFront();
-                        
+
             this.panel_MapDesc.Dock = DockStyle.Fill;
         }
-
-        private void btn_MapChart_Click(object sender, EventArgs e)
+        public void MapChartClick()
         {
             this.panel_MapDesc.Visible = false;
             this.panel_MapChart.Visible = true;
@@ -63,11 +97,10 @@ namespace CityPlanningGallery
             this.panel_btn_MapDesc.Dock = DockStyle.Top;
             this.panel_btn_MapChart.Dock = DockStyle.Top;
             this.panel_btn_FeatureInfo.Dock = DockStyle.Bottom;
-            
+
             this.panel_MapChart.Dock = DockStyle.Fill;
         }
-
-        private void btn_FeatureInfo_Click(object sender, EventArgs e)
+        public void FeatureInfo()
         {
             this.panel_MapDesc.Visible = false;
             this.panel_MapChart.Visible = false;
@@ -79,9 +112,38 @@ namespace CityPlanningGallery
 
             this.panel_MapChart.SendToBack();
             this.panel_btn_FeatureInfo.BringToFront();
-            
+
             this.panel_FeatureInfo.Dock = DockStyle.Fill;
         }
         #endregion
+
+        public void SetFlowLayoutItems(DataColumnCollection cols, object[] rowValues)
+        {
+            this.flowLayoutPanel1.Controls.Clear();
+            for (int i = 0; i < cols.Count; i++)
+            {
+                string colName = cols[i].Caption;
+                string value = Convert.ToString(rowValues[i]);
+                if (colName.Length == 0)
+                {
+                    continue;
+                }
+                if (colName.Length > 15)
+                {
+                    ucFeatureFieldItemLong ffil = new ucFeatureFieldItemLong();
+                    ffil.Title = colName;
+                    ffil.Value = value;
+                    this.flowLayoutPanel1.Controls.Add(ffil);
+                }
+                else
+                {
+                    ucFeatureFieldItem ffi = new ucFeatureFieldItem();
+                    ffi.Title = colName;
+                    ffi.Value = value;
+                    this.flowLayoutPanel1.Controls.Add(ffi);
+                }
+            }
+            this.flowLayoutPanel1.Refresh();
+        }
     }
 }

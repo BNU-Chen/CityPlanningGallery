@@ -24,6 +24,7 @@ namespace CityPlanningGallery
 
         private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
         private string mapTitle = "";       //地图标题
+        private string mapTitleWithoutIndex = "";   //没有序号的地图标题
 
         //地图对应的数据表
         private DataTable dt = new DataTable();
@@ -42,14 +43,26 @@ namespace CityPlanningGallery
         {
             this.WindowState = FormWindowState.Maximized;            
 
+            
+            this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
+        }
+
+        void MapChartButton_Click(object sender, EventArgs e)
+        {
             //获取表数据
             if (mapTitle != "")
             {
-                SqlConnection conn = clsSQLServerConnection.GetSQLConnection();
-                dt = clsSQLServerConnection.GetDataByTableName(mapTitle);
-
+                string[] names = mapTitle.Split(' ');
+                if (names.Length == 2)
+                {
+                    mapTitleWithoutIndex = names[1];
+                }
+                dt = clsSQLServerConnection.GetDataByTableName(mapTitleWithoutIndex);
+                if (dt.DataSet != null && dt.DataSet.Tables.Count > 0 && dt.DataSet.Tables[0].Rows.Count > 0)
+                {
+                    this.ucShowMapInfo1.ChartDataTable = dt;
+                }
             }
-
         }
 
         #region //自动加载图例图层按钮
@@ -202,7 +215,11 @@ namespace CityPlanningGallery
         #region //MapControl事件
         private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
-            if (e.button == 4)
+            if (e.button == 1)
+            {
+                GetFeatureInfo(e.mapX, e.mapY);
+            }
+            else if (e.button == 4)
             {
                 axMapControl1.ActiveView.ScreenDisplay.PanStart(axMapControl1.ActiveView.ScreenDisplay.DisplayTransformation.ToMapPoint(e.x, e.y));
                 axMapControl1.MousePointer = esriControlsMousePointer.esriPointerPan;
@@ -232,6 +249,29 @@ namespace CityPlanningGallery
         }
 
         #endregion
+
+        //获取要素属性
+        private void GetFeatureInfo(double x, double y)
+        {
+            string cityName = "沈阳市";
+            this.ucShowMapInfo1.FeatureInfo();      //切换到字段属性展示
+            if (dt.DataSet != null && dt.DataSet.Tables.Count > 0 && dt.DataSet.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.DataSet.Tables[0].Rows)
+                {
+                    string areaName = row["区域"].ToString();
+                    if (areaName == cityName)
+                    {
+                        this.ucShowMapInfo1.SetFlowLayoutItems(dt.DataSet.Tables[0].Columns,row.ItemArray);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+        }
+
 
         #region //地图工具按钮事件
         private void toolStrip_MapTool_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
