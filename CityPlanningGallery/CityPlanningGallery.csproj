@@ -106,6 +106,12 @@
     </Compile>
     <Compile Include="frmDocViewer.Designer.cs">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
+	</Compile>
+    <Compile Include="frmAtalsBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAtalsBrowse.Designer.cs">
+      <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAtlasContents.cs">
       <SubType>Form</SubType>
@@ -172,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="frmDocViewer.resx">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Include="frmAtalsBrowse.resx">
+      <DependentUpon>frmAtalsBrowse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAtlasContents.resx">
       <DependentUpon>frmAtlasContents.cs</DependentUpon>

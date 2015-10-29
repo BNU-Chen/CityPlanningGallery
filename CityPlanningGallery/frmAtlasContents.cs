@@ -67,7 +67,7 @@ namespace CityPlanningGallery
                         ucGalleryItem gi = new ucGalleryItem();
                         gi.Tag = file.FullName;
                         gi.Title = title;
-                        gi.Size = new Size(250, 41);
+                        gi.Size = new Size(flowLayoutPanel.Size.Width-10, gi.Size.Height);
                         
                         gi.delegateClick += new delegateClick(gi_Click);
                         gi.delegateMouseEnter += new delegateMouseEnter(gi_MouseEnter);
@@ -82,15 +82,18 @@ namespace CityPlanningGallery
 
         void gi_Click(ucGalleryItem ucgi)
         {
-
+            frmAtalsBrowse frmBrowse = new frmAtalsBrowse(this);
+            frmBrowse.ImageFilePath = ucgi.Tag.ToString();
+            frmBrowse.Show();
         }
 
         void gi_MouseEnter(ucGalleryItem ucgi)
         {
             this.sToolTip = new SuperToolTip();
             Image img = Image.FromFile(ucgi.Tag.ToString());
+            Image imgs = img.GetThumbnailImage(400, 273, null, IntPtr.Zero);
             SuperToolTipSetupArgs args = new SuperToolTipSetupArgs();
-            args.Contents.Image = img;
+            args.Contents.Image = imgs;
             this.sToolTip.Setup(args);
             ucgi.TitleLabel.SuperTip = this.sToolTip;
         }
@@ -135,29 +138,30 @@ namespace CityPlanningGallery
         }
         #endregion
 
-        #region //关闭按钮相关事件
-        private void lbl_Close_Click(object sender, EventArgs e)
+        #region //关闭 及 返回 按钮
+        private void btn_Return_Click(object sender, EventArgs e)
         {
             parentForm.Visible = true;
             this.Close();
         }
 
-        private void lbl_Close_MouseEnter(object sender, EventArgs e)
+        private void btn_Return_MouseEnter(object sender, EventArgs e)
         {
-            this.lbl_Close.BackColor = Color.LightGray;
+            PictureBox pic = (PictureBox)sender;
+            pic.BackColor = Color.LightGray;
         }
 
-        private void lbl_Close_MouseLeave(object sender, EventArgs e)
+        private void btn_Return_MouseLeave(object sender, EventArgs e)
         {
-            this.lbl_Close.BackColor = Color.White;
+            PictureBox pic = (PictureBox)sender;
+            pic.BackColor = Color.White;
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parentForm.Close();
         }
         #endregion
-        //private void btn_Atlas_Click(object sender, EventArgs e)
-        //{
-        //    frmAtlasContents frmContents = new frmAtlasContents(this);
-        //    frmContents.SetFlowLayouts(clsConfig.PlanningImageFolder + "\\现状图",
-        //        clsConfig.PlanningImageFolder + "\\规划图", clsConfig.PlanningImageFolder + "\\分析图", ".jpg");
-        //    frmContents.Show();
-        //}
     }
 }
