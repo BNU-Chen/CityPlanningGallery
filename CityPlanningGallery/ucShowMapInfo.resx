@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richEditControl1.Text" xml:space="preserve">
+    <value>沈阳经济区国土空间幅员辽阔，陆海兼备，国土面积占全省的40.43%，其中陆域占全省的50.74%，近海海域占辽宁省的3.39%；地貌类型复杂，东部山地为辽宁东部生态安全屏障，中部平原为全国重要的农产品主产区，西部丘陵为辽宁西部生态恢复与保育区，山地、平原、丘陵分别约占陆域的1/2、1/3、1/6左右；气候类型多样，东部属中温带大陆性气候，中西部属温带大陆性气候，南部属温带季风气候；植被类型丰富，自西向东依次分布有森林、灌丛、草甸，森林主要分布在东部，中西部主要为农业植被，地带性分异显著。</value>
+  </data>
 </root>

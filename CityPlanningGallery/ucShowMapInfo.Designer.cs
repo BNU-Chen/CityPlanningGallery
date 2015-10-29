@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucShowMapInfo));
             this.panel_FeatureInfo = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_btn_MapDesc = new System.Windows.Forms.Panel();
@@ -36,12 +37,14 @@
             this.btn_FeatureInfo = new DevExpress.XtraEditors.SimpleButton();
             this.panel_MapChart = new System.Windows.Forms.Panel();
             this.panel_MapDesc = new System.Windows.Forms.Panel();
+            this.richEditControl1 = new DevExpress.XtraRichEdit.RichEditControl();
             this.panel_btn_MapChart = new System.Windows.Forms.Panel();
             this.btn_MapChart = new DevExpress.XtraEditors.SimpleButton();
-            this.richEditControl1 = new DevExpress.XtraRichEdit.RichEditControl();
+            this.ucChartTableShow1 = new CityPlanningGallery.ucChartTableShow();
             this.panel_FeatureInfo.SuspendLayout();
             this.panel_btn_MapDesc.SuspendLayout();
             this.panel_btn_FeatureInfo.SuspendLayout();
+            this.panel_MapChart.SuspendLayout();
             this.panel_MapDesc.SuspendLayout();
             this.panel_btn_MapChart.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_FeatureInfo.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panel_FeatureInfo.Controls.Add(this.flowLayoutPanel1);
-            this.panel_FeatureInfo.Location = new System.Drawing.Point(0, 285);
+            this.panel_FeatureInfo.Location = new System.Drawing.Point(0, 322);
             this.panel_FeatureInfo.Name = "panel_FeatureInfo";
             this.panel_FeatureInfo.Size = new System.Drawing.Size(237, 111);
             this.panel_FeatureInfo.TabIndex = 1;
@@ -115,9 +118,10 @@
             this.panel_MapChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_MapChart.BackColor = System.Drawing.Color.White;
-            this.panel_MapChart.Location = new System.Drawing.Point(0, 162);
+            this.panel_MapChart.Controls.Add(this.ucChartTableShow1);
+            this.panel_MapChart.Location = new System.Drawing.Point(0, 179);
             this.panel_MapChart.Name = "panel_MapChart";
-            this.panel_MapChart.Size = new System.Drawing.Size(237, 80);
+            this.panel_MapChart.Size = new System.Drawing.Size(237, 122);
             this.panel_MapChart.TabIndex = 1;
             // 
             // panel_MapDesc
@@ -130,6 +134,19 @@
             this.panel_MapDesc.Name = "panel_MapDesc";
             this.panel_MapDesc.Size = new System.Drawing.Size(237, 80);
             this.panel_MapDesc.TabIndex = 1;
+            // 
+            // richEditControl1
+            // 
+            this.richEditControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.richEditControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richEditControl1.Location = new System.Drawing.Point(0, 0);
+            this.richEditControl1.Name = "richEditControl1";
+            this.richEditControl1.Options.Fields.UseCurrentCultureDateTimeFormat = false;
+            this.richEditControl1.Options.MailMerge.KeepLastParagraph = false;
+            this.richEditControl1.ReadOnly = true;
+            this.richEditControl1.Size = new System.Drawing.Size(237, 80);
+            this.richEditControl1.TabIndex = 0;
+            this.richEditControl1.Text = resources.GetString("richEditControl1.Text");
             // 
             // panel_btn_MapChart
             // 
@@ -153,18 +170,14 @@
             this.btn_MapChart.Text = "统计信息";
             this.btn_MapChart.Click += new System.EventHandler(this.btn_MapChart_Click);
             // 
-            // richEditControl1
+            // ucChartTableShow1
             // 
-            this.richEditControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.richEditControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richEditControl1.Location = new System.Drawing.Point(0, 0);
-            this.richEditControl1.Name = "richEditControl1";
-            this.richEditControl1.Options.Fields.UseCurrentCultureDateTimeFormat = false;
-            this.richEditControl1.Options.MailMerge.KeepLastParagraph = false;
-            this.richEditControl1.ReadOnly = true;
-            this.richEditControl1.Size = new System.Drawing.Size(237, 80);
-            this.richEditControl1.TabIndex = 0;
-            this.richEditControl1.Text = "richEditControl1";
+            this.ucChartTableShow1.DataSource = null;
+            this.ucChartTableShow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucChartTableShow1.Location = new System.Drawing.Point(0, 0);
+            this.ucChartTableShow1.Name = "ucChartTableShow1";
+            this.ucChartTableShow1.Size = new System.Drawing.Size(237, 122);
+            this.ucChartTableShow1.TabIndex = 0;
             // 
             // ucShowMapInfo
             // 
@@ -181,6 +194,7 @@
             this.panel_FeatureInfo.ResumeLayout(false);
             this.panel_btn_MapDesc.ResumeLayout(false);
             this.panel_btn_FeatureInfo.ResumeLayout(false);
+            this.panel_MapChart.ResumeLayout(false);
             this.panel_MapDesc.ResumeLayout(false);
             this.panel_btn_MapChart.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -200,5 +214,6 @@
         private DevExpress.XtraEditors.SimpleButton btn_MapChart;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private DevExpress.XtraRichEdit.RichEditControl richEditControl1;
+        private ucChartTableShow ucChartTableShow1;
     }
 }

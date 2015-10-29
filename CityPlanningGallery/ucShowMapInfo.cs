@@ -22,9 +22,19 @@ namespace CityPlanningGallery
         {
             set
             {
-                
+                this.richEditControl1.Text = value;
             }
         }
+
+        public DataTable ChartDataTable
+        {
+            set
+            {
+                //设置图表的数据
+
+            }
+        }
+
         #endregion
 
         #region //按钮点击事件

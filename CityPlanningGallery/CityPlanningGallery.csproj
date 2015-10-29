@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="clsGISTools.cs" />
     <Compile Include="clsConfig.cs" />
+    <Compile Include="clsSQLServerConnection.cs" />
     <Compile Include="frmDocViewer.cs">
       <SubType>Form</SubType>
     </Compile>

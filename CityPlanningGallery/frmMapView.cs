@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
+using System.Data.SqlClient;
+
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geometry;
@@ -21,6 +23,10 @@ namespace CityPlanningGallery
         private frmMapTitleGallery galleryForm = null;
 
         private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
+        private string mapTitle = "";       //地图标题
+
+        //地图对应的数据表
+        private DataTable dt = new DataTable();
         
         public frmMapView(MainForm _rootForm, Form _frmGallery)
         {
@@ -35,6 +41,15 @@ namespace CityPlanningGallery
         private void frmMapView_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;            
+
+            //获取表数据
+            if (mapTitle != "")
+            {
+                SqlConnection conn = clsSQLServerConnection.GetSQLConnection();
+                dt = clsSQLServerConnection.GetDataByTableName(mapTitle);
+
+            }
+
         }
 
         #region //自动加载图例图层按钮
@@ -88,14 +103,14 @@ namespace CityPlanningGallery
                     return;
                 }
                 //设置地图标题
-                string title = System.IO.Path.GetFileNameWithoutExtension(mapPath);
-                this.lbl_MapTitle.Text = title;
+                mapTitle = System.IO.Path.GetFileNameWithoutExtension(mapPath);
+                this.lbl_MapTitle.Text = mapTitle;
                 //加载地图
                 this.axMapControl1.LoadMxFile(mapPath);
                 this.axMapControl1.Refresh();
                 //加载图例
                 string mapFolder = System.IO.Path.GetDirectoryName(mapPath);
-                string legendPath = clsConfig.GetLegendFolder(mapFolder) + "\\" + title;
+                string legendPath = clsConfig.GetLegendFolder(mapFolder) + "\\" + mapTitle;
                 if (Directory.Exists(legendPath))
                 {
                     this.ucLegend1.MapControl = this.axMapControl1;
@@ -107,7 +122,7 @@ namespace CityPlanningGallery
                     this.ucLegend1.Visible = false;
                 }
                 //加载缩略图
-                string picPath = clsConfig.GetThumbFolder(mapFolder) + "\\" + title + ".jpg";
+                string picPath = clsConfig.GetThumbFolder(mapFolder) + "\\" + mapTitle + ".jpg";
                 if (File.Exists(picPath))
                 {
                     this.panel_LeftTop.BackgroundImage = Image.FromFile(picPath);

@@ -31,6 +31,13 @@ namespace CityPlanningGallery
         private static string KeyPlanningDesc = "PlanningDescName";
         private static string KeyPlanningThematic = "PlanningThematicDocFolder";
 
+        //SQL Server
+        private static string SQLServerSection = "SQLServer";
+        private static string KeyServerName = "ServerName";
+        private static string KeyCatalogName = "CatalogName";
+        private static string KeyUserName = "UserName";
+        private static string KeyPassword = "Password";
+
         public static string IniFilePath
         {
             get { return clsConfig.iniFilePath; }
@@ -113,5 +120,24 @@ namespace CityPlanningGallery
             get { return PlanningDocFolder + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningThematic); }
         }
 
+        //SQLServer数据库
+        public static string DBServerName
+        {
+            get { return clsINIFile.IniReadValue(SQLServerSection,KeyServerName); }
+        }
+
+        public static string DbCatalogName
+        {
+            get { return clsINIFile.IniReadValue(SQLServerSection, KeyCatalogName); }
+        }
+        public static string DBUserName
+        {
+            get { return clsINIFile.IniReadValue(SQLServerSection,KeyUserName); }
+        }
+
+        public static string DBPassword
+        {
+            get { return clsINIFile.IniReadValue(SQLServerSection,KeyPassword); }
+        }
     }
 }
