@@ -49,24 +49,33 @@
             // 
             // flowLayoutPanel_Status
             // 
-            this.flowLayoutPanel_Status.Location = new System.Drawing.Point(80, 70);
+            this.flowLayoutPanel_Status.AutoScroll = true;
+            this.flowLayoutPanel_Status.Location = new System.Drawing.Point(20, 70);
             this.flowLayoutPanel_Status.Name = "flowLayoutPanel_Status";
-            this.flowLayoutPanel_Status.Size = new System.Drawing.Size(200, 480);
+            this.flowLayoutPanel_Status.Size = new System.Drawing.Size(260, 480);
             this.flowLayoutPanel_Status.TabIndex = 5;
+            this.flowLayoutPanel_Status.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
+            this.flowLayoutPanel_Status.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
             // 
             // flowLayoutPanel_Planning
             // 
-            this.flowLayoutPanel_Planning.Location = new System.Drawing.Point(330, 70);
+            this.flowLayoutPanel_Planning.AutoScroll = true;
+            this.flowLayoutPanel_Planning.Location = new System.Drawing.Point(300, 70);
             this.flowLayoutPanel_Planning.Name = "flowLayoutPanel_Planning";
-            this.flowLayoutPanel_Planning.Size = new System.Drawing.Size(200, 480);
+            this.flowLayoutPanel_Planning.Size = new System.Drawing.Size(260, 480);
             this.flowLayoutPanel_Planning.TabIndex = 6;
+            this.flowLayoutPanel_Planning.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
+            this.flowLayoutPanel_Planning.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
             // 
             // flowLayoutPanel_Analysis
             // 
+            this.flowLayoutPanel_Analysis.AutoScroll = true;
             this.flowLayoutPanel_Analysis.Location = new System.Drawing.Point(580, 70);
             this.flowLayoutPanel_Analysis.Name = "flowLayoutPanel_Analysis";
-            this.flowLayoutPanel_Analysis.Size = new System.Drawing.Size(200, 480);
+            this.flowLayoutPanel_Analysis.Size = new System.Drawing.Size(260, 480);
             this.flowLayoutPanel_Analysis.TabIndex = 7;
+            this.flowLayoutPanel_Analysis.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
+            this.flowLayoutPanel_Analysis.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
             // 
             // frmAtlasContents
             // 
@@ -80,7 +89,9 @@
             this.Controls.Add(this.lbl_Close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAtlasContents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAtlasContents";
+            this.Load += new System.EventHandler(this.frmAtlasContents_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
