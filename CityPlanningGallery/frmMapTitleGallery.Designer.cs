@@ -88,37 +88,37 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl4.Location = new System.Drawing.Point(307, 111);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(64, 21);
+            this.labelControl4.Size = new System.Drawing.Size(64, 20);
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "规划图集";
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl3.Location = new System.Drawing.Point(219, 111);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(64, 21);
+            this.labelControl3.Size = new System.Drawing.Size(64, 20);
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "专题报告";
             // 
             // labelControl2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl2.Location = new System.Drawing.Point(131, 111);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(64, 21);
+            this.labelControl2.Size = new System.Drawing.Size(64, 20);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "规划说明";
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl1.Location = new System.Drawing.Point(43, 111);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(64, 21);
+            this.labelControl1.Size = new System.Drawing.Size(64, 20);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "规划文本";
             // 
@@ -176,6 +176,7 @@
             // 
             // btn_Close
             // 
+            this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Close.Location = new System.Drawing.Point(797, 12);
@@ -189,6 +190,7 @@
             // 
             // btn_Return
             // 
+            this.btn_Return.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_left;
             this.btn_Return.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Return.Location = new System.Drawing.Point(750, 12);
