@@ -87,6 +87,7 @@ namespace CityPlanningGallery
             this.panel_MapChart.BringToFront();
 
             this.panel_MapDesc.Dock = DockStyle.Fill;
+            this.panel_MapDesc.BringToFront();
         }
         public void MapChartClick()
         {
@@ -99,6 +100,7 @@ namespace CityPlanningGallery
             this.panel_btn_FeatureInfo.Dock = DockStyle.Bottom;
 
             this.panel_MapChart.Dock = DockStyle.Fill;
+            this.panel_MapChart.BringToFront();
         }
         public void FeatureInfo()
         {
@@ -114,6 +116,7 @@ namespace CityPlanningGallery
             this.panel_btn_FeatureInfo.BringToFront();
 
             this.panel_FeatureInfo.Dock = DockStyle.Fill;
+            this.panel_FeatureInfo.BringToFront();
         }
         #endregion
 
@@ -128,20 +131,20 @@ namespace CityPlanningGallery
                 {
                     continue;
                 }
-                if (colName.Length > 15)
-                {
+                //if (colName.Length > 15)
+                //{
                     ucFeatureFieldItemLong ffil = new ucFeatureFieldItemLong();
                     ffil.Title = colName;
                     ffil.Value = value;
                     this.flowLayoutPanel1.Controls.Add(ffil);
-                }
-                else
-                {
-                    ucFeatureFieldItem ffi = new ucFeatureFieldItem();
-                    ffi.Title = colName;
-                    ffi.Value = value;
-                    this.flowLayoutPanel1.Controls.Add(ffi);
-                }
+                //}
+                //else
+                //{
+                //    ucFeatureFieldItem ffi = new ucFeatureFieldItem();
+                //    ffi.Title = colName;
+                //    ffi.Value = value;
+                //    this.flowLayoutPanel1.Controls.Add(ffi);
+                //}
             }
             this.flowLayoutPanel1.Refresh();
         }
