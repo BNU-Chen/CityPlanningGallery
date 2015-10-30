@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbl_Title = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Value = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_Value = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_Title
@@ -43,11 +43,13 @@
             // 
             // lbl_Value
             // 
-            this.lbl_Value.Location = new System.Drawing.Point(90, 30);
+            this.lbl_Value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Value.Location = new System.Drawing.Point(153, 23);
             this.lbl_Value.Name = "lbl_Value";
-            this.lbl_Value.Size = new System.Drawing.Size(70, 14);
-            this.lbl_Value.TabIndex = 0;
-            this.lbl_Value.Text = "labelControl1";
+            this.lbl_Value.Size = new System.Drawing.Size(100, 23);
+            this.lbl_Value.TabIndex = 2;
+            this.lbl_Value.Text = "label1";
+            this.lbl_Value.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ucFeatureFieldItemLong
             // 
@@ -57,7 +59,7 @@
             this.Controls.Add(this.lbl_Value);
             this.Controls.Add(this.lbl_Title);
             this.Name = "ucFeatureFieldItemLong";
-            this.Size = new System.Drawing.Size(280, 49);
+            this.Size = new System.Drawing.Size(260, 49);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,6 +68,6 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl lbl_Title;
-        private DevExpress.XtraEditors.LabelControl lbl_Value;
+        private System.Windows.Forms.Label lbl_Value;
     }
 }

@@ -57,7 +57,10 @@ namespace CityPlanningGallery
                 {
                     mapTitleWithoutIndex = names[1];
                 }
-                dt = clsSQLServerConnection.GetDataByTableName(mapTitleWithoutIndex);
+                if (dt.DataSet == null)
+                {
+                    dt = clsSQLServerConnection.GetDataByTableName(mapTitleWithoutIndex);
+                }
                 if (dt.DataSet != null && dt.DataSet.Tables.Count > 0 && dt.DataSet.Tables[0].Rows.Count > 0)
                 {
                     this.ucShowMapInfo1.ChartDataTable = dt;
