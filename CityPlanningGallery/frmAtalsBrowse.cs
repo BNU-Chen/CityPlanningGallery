@@ -97,5 +97,6 @@ namespace CityPlanningGallery
             this.WindowState = FormWindowState.Maximized;
         }
 
+
     }
 }
