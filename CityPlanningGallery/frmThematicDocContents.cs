@@ -34,8 +34,12 @@ namespace CityPlanningGallery
         }
 
         #region //为FlowLayoutPanel控件加载ucGalleryItem
-         public void SetFlowLayout(string path)
+        public void SetFlowLayout(string path)
         {
+            if (!Directory.Exists(path))
+            {
+                return;
+            }
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
             try
@@ -50,15 +54,15 @@ namespace CityPlanningGallery
                         if (ext.ToLower() != ".doc" && ext.ToLower() != ".docx")
                             continue;
                         string title = Path.GetFileNameWithoutExtension(file.FullName);
-                        
-                        ucGalleryItem gi = new ucGalleryItem();
-                        gi.Tag = file.FullName;
+
+                        ucGalleryItemDoc gi = new ucGalleryItemDoc();
                         gi.Title = title;
-                        gi.Size = new Size(this.flowLayoutPanel_ThematicDoc.Size.Width -20, gi.Size.Height);
-                        
-                        gi.delegateClick += new delegateClick(gi_Click);
-                        gi.delegateMouseEnter += new delegateMouseEnter(gi_MouseEnter);
-                        gi.delegateMouseLeave += new delegateMouseLeave(gi_MouseLeave);
+                        gi.HoverImagePath = clsConfig.GetThumbFolder(path) + "\\" + title + ".jpg"; 
+                        gi.Size = new Size(this.flowLayoutPanel_ThematicDoc.Size.Width - 20, gi.Size.Height);
+
+                        gi.delegateGalleryItemDocClick += new delegateGalleryItemDocClick(gi_Click);
+                        gi.delegateGalleryItemDocMouseEnter += new delegateGalleryItemDocMouseEnter(gi_MouseEnter);
+                        gi.delegateGalleryItemDocMouseLeave += new delegateGalleryItemDocMouseLeave(gi_MouseLeave);
 
                         this.flowLayoutPanel_ThematicDoc.Controls.Add(gi);
                     }
@@ -67,7 +71,7 @@ namespace CityPlanningGallery
             catch { }
         }
 
-        void gi_Click(ucGalleryItem ucgi)
+        void gi_Click(ucGalleryItemDoc ucgi)
         {
             frmDocViewer frmDoc = new frmDocViewer(this.parentForm);
             frmDoc.DocPath = ucgi.Tag.ToString();
@@ -75,14 +79,24 @@ namespace CityPlanningGallery
             frmDoc.Show();
         }
 
-        void gi_MouseEnter(ucGalleryItem ucgi)
+        void gi_MouseEnter(ucGalleryItemDoc ucgi)
         {
-            
+            if (ucgi != null)
+            {
+                if (!File.Exists(ucgi.HoverImagePath))
+                {
+                    return;
+                }
+                Image img = Image.FromFile(ucgi.HoverImagePath);
+                this.pic_PreView.BackgroundImage = img;
+                this.lbl_PreViewMapTitle.Text = ucgi.Title;
+            }
         }
 
-        void gi_MouseLeave(ucGalleryItem ucgi)
+        void gi_MouseLeave(ucGalleryItemDoc ucgi)
         {
-            
+            this.pic_PreView.BackgroundImage = null;
+            this.lbl_PreViewMapTitle.Text = "";
         }
         #endregion
 
@@ -141,7 +155,7 @@ namespace CityPlanningGallery
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("提示", "您确定要退出吗？", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("您确定要退出吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 Application.Exit();
             }

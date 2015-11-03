@@ -181,10 +181,14 @@ namespace CityPlanningGallery
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("您确定要退出吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
         #endregion
 
+        #region //规划文档
         private void pictureBox_Doc_Click(object sender, EventArgs e)
         {
             frmDocViewer frmDoc = new frmDocViewer(this);
@@ -214,5 +218,6 @@ namespace CityPlanningGallery
                 clsConfig.PlanningImageFolder + "\\规划图", clsConfig.PlanningImageFolder + "\\分析图", ".jpg");
             frmContents.Show();
         }
+        #endregion
     }
 }

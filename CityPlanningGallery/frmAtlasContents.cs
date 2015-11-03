@@ -159,7 +159,10 @@ namespace CityPlanningGallery
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("您确定要退出吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
         #endregion
 

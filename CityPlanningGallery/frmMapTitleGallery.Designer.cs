@@ -63,10 +63,10 @@
             // lbl_PreViewMapTitle
             // 
             this.lbl_PreViewMapTitle.Appearance.BackColor = System.Drawing.Color.White;
-            this.lbl_PreViewMapTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PreViewMapTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_PreViewMapTitle.Location = new System.Drawing.Point(551, 340);
             this.lbl_PreViewMapTitle.Name = "lbl_PreViewMapTitle";
-            this.lbl_PreViewMapTitle.Size = new System.Drawing.Size(0, 19);
+            this.lbl_PreViewMapTitle.Size = new System.Drawing.Size(0, 21);
             this.lbl_PreViewMapTitle.TabIndex = 2;
             // 
             // panel_PlanningDocs

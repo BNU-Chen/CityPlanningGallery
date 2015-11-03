@@ -31,16 +31,20 @@
             this.flowLayoutPanel_ThematicDoc = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.btn_Return = new System.Windows.Forms.PictureBox();
+            this.pic_PreView = new System.Windows.Forms.PictureBox();
+            this.lbl_PreViewMapTitle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PreView)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel_ThematicDoc
             // 
             this.flowLayoutPanel_ThematicDoc.AutoScroll = true;
-            this.flowLayoutPanel_ThematicDoc.Location = new System.Drawing.Point(200, 100);
+            this.flowLayoutPanel_ThematicDoc.Location = new System.Drawing.Point(40, 100);
             this.flowLayoutPanel_ThematicDoc.Name = "flowLayoutPanel_ThematicDoc";
-            this.flowLayoutPanel_ThematicDoc.Size = new System.Drawing.Size(480, 400);
+            this.flowLayoutPanel_ThematicDoc.Size = new System.Drawing.Size(340, 400);
             this.flowLayoutPanel_ThematicDoc.TabIndex = 5;
             this.flowLayoutPanel_ThematicDoc.MouseEnter += new System.EventHandler(this.flowLayoutPanel_MouseEnter);
             this.flowLayoutPanel_ThematicDoc.MouseLeave += new System.EventHandler(this.flowLayoutPanel_MouseLeave);
@@ -73,12 +77,44 @@
             this.btn_Return.MouseEnter += new System.EventHandler(this.btn_Return_MouseEnter);
             this.btn_Return.MouseLeave += new System.EventHandler(this.btn_Return_MouseLeave);
             // 
+            // pic_PreView
+            // 
+            this.pic_PreView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_PreView.Location = new System.Drawing.Point(489, 100);
+            this.pic_PreView.Name = "pic_PreView";
+            this.pic_PreView.Size = new System.Drawing.Size(267, 338);
+            this.pic_PreView.TabIndex = 8;
+            this.pic_PreView.TabStop = false;
+            // 
+            // lbl_PreViewMapTitle
+            // 
+            this.lbl_PreViewMapTitle.AutoSize = true;
+            this.lbl_PreViewMapTitle.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_PreViewMapTitle.Location = new System.Drawing.Point(525, 451);
+            this.lbl_PreViewMapTitle.Name = "lbl_PreViewMapTitle";
+            this.lbl_PreViewMapTitle.Size = new System.Drawing.Size(0, 20);
+            this.lbl_PreViewMapTitle.TabIndex = 9;
+            this.lbl_PreViewMapTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(40, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "专题报告";
+            // 
             // frmThematicDocContents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 600);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_PreViewMapTitle);
+            this.Controls.Add(this.pic_PreView);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Return);
             this.Controls.Add(this.flowLayoutPanel_ThematicDoc);
@@ -93,7 +129,9 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PreView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,5 +140,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_ThematicDoc;
         private System.Windows.Forms.PictureBox btn_Close;
         private System.Windows.Forms.PictureBox btn_Return;
+        private System.Windows.Forms.PictureBox pic_PreView;
+        private System.Windows.Forms.Label lbl_PreViewMapTitle;
+        private System.Windows.Forms.Label label1;
     }
 }

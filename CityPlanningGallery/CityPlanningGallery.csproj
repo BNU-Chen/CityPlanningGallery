@@ -171,6 +171,12 @@
     <Compile Include="ucFeatureFieldItemLong.Designer.cs">
       <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucGalleryItemDoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGalleryItemDoc.Designer.cs">
+      <DependentUpon>ucGalleryItemDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGalleryItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFeatureFieldItemLong.resx">
       <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucGalleryItemDoc.resx">
+      <DependentUpon>ucGalleryItemDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGalleryItem.resx">
       <DependentUpon>ucGalleryItem.cs</DependentUpon>
@@ -338,6 +347,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trans-plan-lg-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\现状图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Urban-Planning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
