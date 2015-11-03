@@ -292,8 +292,16 @@ namespace CityPlanningGallery
         //表格显示按钮点击事件
         private void btnTableShow_Click(object sender, EventArgs e)
         {
-            if (this.spreadsheetControl.Visible) this.spreadsheetControl.Visible = false;
-            else this.spreadsheetControl.Visible = true;
+            if (this.spreadsheetControl.Visible)
+            {
+                this.spreadsheetControl.Visible = false;
+                this.Refresh();
+            }
+            else
+            {
+                this.spreadsheetControl.Visible = true;
+                this.Refresh();
+            }
         }
         #endregion
     }

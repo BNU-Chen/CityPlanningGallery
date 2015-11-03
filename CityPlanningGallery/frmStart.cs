@@ -79,7 +79,7 @@ namespace CityPlanningGallery
 
         private void frmStart_Shown(object sender, EventArgs e)
         {
-            //System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(2000);
             timer1.Start();
         }
 
