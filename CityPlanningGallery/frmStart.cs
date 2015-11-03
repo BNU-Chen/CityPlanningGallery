@@ -15,8 +15,8 @@ namespace CityPlanningGallery
     {
         //渐变步长
         private double OPACITY_STEP1 = 0.03;
-        private double OPACITY_STEP2 = 0.07;
-        private double OPACITY_STEP3 = 0.1;
+        private double OPACITY_STEP2 = 0.05;
+        private double OPACITY_STEP3 = 0.08;
         //渐变等级，先慢，后快
         private double OPACITY_LEVEL1 = 0.3;
         private double OPACITY_LEVEL2 = 0.6;
@@ -32,12 +32,16 @@ namespace CityPlanningGallery
         {
             this.Refresh();
             mainFrm.Opacity = 0;
+            this.Opacity = 0;
             
         }
 
         private void frmStart_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.timer1.Stop();
+            if (this.timer1.Enabled)
+            {
+                this.timer1.Stop();
+            }
             //如果点击取消按钮，则mainFrm已经被释放
             if (mainFrm != null)
             {
@@ -53,21 +57,22 @@ namespace CityPlanningGallery
         {
             try
             {
-                if (this.Opacity >= OPACITY_LEVEL1)
+                if (this.Opacity > 1 - OPACITY_STEP1)
                 {
-                    this.Opacity -= OPACITY_STEP1;
+                    this.Opacity = 1;
+                    this.timer1.Stop();
                 }
-                else if (this.Opacity < OPACITY_LEVEL2 && this.Opacity >= OPACITY_LEVEL1 && this.Opacity >= OPACITY_STEP2)
+                if (this.Opacity >= OPACITY_LEVEL2)
                 {
-                    this.Opacity -= OPACITY_STEP2;
+                    this.Opacity += OPACITY_STEP1;
                 }
-                else if (this.Opacity < OPACITY_LEVEL1 && this.Opacity >= OPACITY_STEP3)
+                else if (this.Opacity < OPACITY_LEVEL2 && this.Opacity >= OPACITY_LEVEL1)
                 {
-                    this.Opacity -= OPACITY_STEP3;
+                    this.Opacity += OPACITY_STEP2;
                 }
-                else
+                else if (this.Opacity < OPACITY_LEVEL1)
                 {
-                    this.Close();
+                    this.Opacity += OPACITY_STEP3;
                 }
             }
             catch
@@ -79,8 +84,12 @@ namespace CityPlanningGallery
 
         private void frmStart_Shown(object sender, EventArgs e)
         {
-            System.Threading.Thread.Sleep(2000);
             timer1.Start();
+        }
+
+        private void frmStart_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

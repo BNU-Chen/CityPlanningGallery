@@ -49,6 +49,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStart_FormClosed);
             this.Load += new System.EventHandler(this.frmStart_Load);
             this.Shown += new System.EventHandler(this.frmStart_Shown);
+            this.Click += new System.EventHandler(this.frmStart_Click);
             this.ResumeLayout(false);
 
         }
