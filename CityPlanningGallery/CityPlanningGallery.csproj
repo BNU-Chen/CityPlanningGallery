@@ -171,12 +171,6 @@
     <Compile Include="ucFeatureFieldItemLong.Designer.cs">
       <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucFrmClose.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucFrmClose.Designer.cs">
-      <DependentUpon>ucFrmClose.cs</DependentUpon>
-    </Compile>
     <Compile Include="ucGalleryItemImg.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFeatureFieldItemLong.resx">
       <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ucFrmClose.resx">
-      <DependentUpon>ucFrmClose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGalleryItemImg.resx">
       <DependentUpon>ucGalleryItemImg.cs</DependentUpon>
