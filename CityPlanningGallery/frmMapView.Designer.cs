@@ -83,9 +83,9 @@
             this.btn_Home,
             this.btn_Return,
             this.btn_Close});
-            this.toolStrip1.Location = new System.Drawing.Point(711, 15);
+            this.toolStrip1.Location = new System.Drawing.Point(683, 15);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(231, 43);
+            this.toolStrip1.Size = new System.Drawing.Size(259, 43);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -94,7 +94,7 @@
             this.btn_Home.Image = global::CityPlanningGallery.Properties.Resources.home_black;
             this.btn_Home.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(73, 40);
+            this.btn_Home.Size = new System.Drawing.Size(72, 40);
             this.btn_Home.Text = "主页";
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
@@ -103,7 +103,7 @@
             this.btn_Return.Image = global::CityPlanningGallery.Properties.Resources.return_black;
             this.btn_Return.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Return.Name = "btn_Return";
-            this.btn_Return.Size = new System.Drawing.Size(73, 40);
+            this.btn_Return.Size = new System.Drawing.Size(72, 40);
             this.btn_Return.Text = "返回";
             this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);
             // 
@@ -112,7 +112,7 @@
             this.btn_Close.Image = global::CityPlanningGallery.Properties.Resources.close;
             this.btn_Close.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(73, 40);
+            this.btn_Close.Size = new System.Drawing.Size(72, 40);
             this.btn_Close.Text = "关闭";
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 

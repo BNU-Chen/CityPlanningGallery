@@ -57,10 +57,10 @@
             // 
             this.btn_Guihua.Appearance.BackColor = System.Drawing.Color.White;
             this.btn_Guihua.Appearance.Options.UseBackColor = true;
-            this.btn_Guihua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Guihua.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_Guihua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Guihua.Image = global::CityPlanningGallery.Properties.Resources.Urban_Planning;
+            this.btn_Guihua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Guihua.Location = new System.Drawing.Point(294, 200);
             this.btn_Guihua.Name = "btn_Guihua";
             this.btn_Guihua.Size = new System.Drawing.Size(220, 220);
@@ -113,11 +113,11 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
+            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Close.Location = new System.Drawing.Point(777, 25);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.btn_Close.Size = new System.Drawing.Size(35, 35);
             this.btn_Close.TabIndex = 7;
             this.btn_Close.TabStop = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);

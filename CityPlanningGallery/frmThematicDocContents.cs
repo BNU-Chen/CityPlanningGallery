@@ -59,6 +59,7 @@ namespace CityPlanningGallery
                         gi.Title = title;
                         gi.HoverImagePath = clsConfig.GetThumbFolder(path) + "\\" + title + ".jpg"; 
                         gi.Size = new Size(this.flowLayoutPanel_ThematicDoc.Size.Width - 20, gi.Size.Height);
+                        gi.DataPath = file.FullName;
 
                         gi.delegateGalleryItemDocClick += new delegateGalleryItemDocClick(gi_Click);
                         gi.delegateGalleryItemDocMouseEnter += new delegateGalleryItemDocMouseEnter(gi_MouseEnter);
@@ -73,8 +74,8 @@ namespace CityPlanningGallery
 
         void gi_Click(ucGalleryItemDoc ucgi)
         {
-            frmDocViewer frmDoc = new frmDocViewer(this.parentForm);
-            frmDoc.DocPath = ucgi.Tag.ToString();
+            frmDocViewer frmDoc = new frmDocViewer(this);
+            frmDoc.DocPath = ucgi.DataPath;
             this.Visible = false;
             frmDoc.Show();
         }

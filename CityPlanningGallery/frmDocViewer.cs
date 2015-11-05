@@ -14,12 +14,12 @@ namespace CityPlanningGallery
 {
     public partial class frmDocViewer : Form
     {
-        private frmMapTitleGallery frmMapGallery = null;
+        private Form form = null;
 
-        public frmDocViewer(frmMapTitleGallery _frmMapGallery)
+        public frmDocViewer(Form _frm)
         {
             InitializeComponent();
-            frmMapGallery = _frmMapGallery;
+            form = _frm;
         }
 
         private string docPath = "";
@@ -43,7 +43,7 @@ namespace CityPlanningGallery
         #region //关闭 及 返回 按钮
         private void btn_Return_Click(object sender, EventArgs e)
         {
-            frmMapGallery.Visible = true;
+            form.Visible = true;
             this.Close();
         }
 
@@ -102,7 +102,14 @@ namespace CityPlanningGallery
 
         private void Form_DoubleClick(object sender, EventArgs e)
         {
-
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
         #endregion
     }

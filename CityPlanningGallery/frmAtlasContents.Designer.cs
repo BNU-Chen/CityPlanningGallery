@@ -73,11 +73,11 @@
             // btn_Close
             // 
             this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
+            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Close.Location = new System.Drawing.Point(1058, 12);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.btn_Close.Size = new System.Drawing.Size(35, 35);
             this.btn_Close.TabIndex = 6;
             this.btn_Close.TabStop = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
@@ -87,11 +87,11 @@
             // btn_Return
             // 
             this.btn_Return.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_left;
+            this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_black;
             this.btn_Return.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Return.Location = new System.Drawing.Point(1022, 12);
+            this.btn_Return.Location = new System.Drawing.Point(1017, 12);
             this.btn_Return.Name = "btn_Return";
-            this.btn_Return.Size = new System.Drawing.Size(30, 30);
+            this.btn_Return.Size = new System.Drawing.Size(35, 35);
             this.btn_Return.TabIndex = 7;
             this.btn_Return.TabStop = false;
             this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);
