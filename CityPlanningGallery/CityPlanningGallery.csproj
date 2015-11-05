@@ -177,6 +177,12 @@
     <Compile Include="ucFrmClose.Designer.cs">
       <DependentUpon>ucFrmClose.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucGalleryItemImg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGalleryItemImg.Designer.cs">
+      <DependentUpon>ucGalleryItemImg.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucGalleryItemDoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFrmClose.resx">
       <DependentUpon>ucFrmClose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucGalleryItemImg.resx">
+      <DependentUpon>ucGalleryItemImg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucGalleryItemDoc.resx">
       <DependentUpon>ucGalleryItemDoc.cs</DependentUpon>

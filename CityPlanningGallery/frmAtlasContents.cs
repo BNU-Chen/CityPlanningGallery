@@ -63,15 +63,15 @@ namespace CityPlanningGallery
                         if (ext.ToLower() != fileExtension)
                             continue;
                         string title = Path.GetFileNameWithoutExtension(file.FullName);
-                        
-                        ucGalleryItem gi = new ucGalleryItem();
+
+                        ucGalleryItemImg gi = new ucGalleryItemImg();
                         gi.Tag = file.FullName;
                         gi.Title = title;
                         gi.Size = new Size(flowLayoutPanel.Size.Width-25, gi.Size.Height);
-                        
-                        gi.delegateClick += new delegateClick(gi_Click);
-                        gi.delegateMouseEnter += new delegateMouseEnter(gi_MouseEnter);
-                        gi.delegateMouseLeave += new delegateMouseLeave(gi_MouseLeave);
+
+                        gi.delegateGalleryItemImgClick += new delegateGalleryItemImgClick(gi_Click);
+                        gi.delegateGalleryItemImgMouseEnter += new delegateGalleryItemImgMouseEnter(gi_MouseEnter);
+                        gi.delegateGalleryItemImgMouseLeave += new delegateGalleryItemImgMouseLeave(gi_MouseLeave);
 
                         flowLayoutPanel.Controls.Add(gi);
                     }
@@ -80,14 +80,14 @@ namespace CityPlanningGallery
             catch { }
         }
 
-        void gi_Click(ucGalleryItem ucgi)
+        void gi_Click(ucGalleryItemImg ucgi)
         {
             frmAtalsBrowse frmBrowse = new frmAtalsBrowse(this);
             frmBrowse.ImageFilePath = ucgi.Tag.ToString();
             frmBrowse.Show();
         }
 
-        void gi_MouseEnter(ucGalleryItem ucgi)
+        void gi_MouseEnter(ucGalleryItemImg ucgi)
         {
             this.sToolTip = new SuperToolTip();
             Image img = Image.FromFile(ucgi.Tag.ToString());
@@ -98,7 +98,7 @@ namespace CityPlanningGallery
             ucgi.TitleLabel.SuperTip = this.sToolTip;
         }
 
-        void gi_MouseLeave(ucGalleryItem ucgi)
+        void gi_MouseLeave(ucGalleryItemImg ucgi)
         {
             ucgi.TitleLabel.SuperTip = null;
         }
