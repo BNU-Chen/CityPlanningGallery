@@ -53,6 +53,12 @@ namespace CityPlanningGallery
         #region //GalleryItem
         private void SetFlowLayout(string path)
         {
+            if (!Directory.Exists(path))
+            {
+                return;
+            }
+            this.flowLayoutPanel_GalleryItem.Controls.Clear();
+
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
             try

@@ -36,6 +36,12 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.ucGalleryItemImg1 = new CityPlanningGallery.ucGalleryItemImg();
+            this.ucGalleryItemImg2 = new CityPlanningGallery.ucGalleryItemImg();
+            this.ucGalleryItemImg3 = new CityPlanningGallery.ucGalleryItemImg();
+            this.flowLayoutPanel_Status.SuspendLayout();
+            this.flowLayoutPanel_Planning.SuspendLayout();
+            this.flowLayoutPanel_Analysis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +49,7 @@
             // flowLayoutPanel_Status
             // 
             this.flowLayoutPanel_Status.AutoScroll = true;
+            this.flowLayoutPanel_Status.Controls.Add(this.ucGalleryItemImg1);
             this.flowLayoutPanel_Status.Location = new System.Drawing.Point(42, 90);
             this.flowLayoutPanel_Status.Name = "flowLayoutPanel_Status";
             this.flowLayoutPanel_Status.Size = new System.Drawing.Size(325, 540);
@@ -53,6 +60,7 @@
             // flowLayoutPanel_Planning
             // 
             this.flowLayoutPanel_Planning.AutoScroll = true;
+            this.flowLayoutPanel_Planning.Controls.Add(this.ucGalleryItemImg2);
             this.flowLayoutPanel_Planning.Location = new System.Drawing.Point(384, 90);
             this.flowLayoutPanel_Planning.Name = "flowLayoutPanel_Planning";
             this.flowLayoutPanel_Planning.Size = new System.Drawing.Size(325, 540);
@@ -63,6 +71,7 @@
             // flowLayoutPanel_Analysis
             // 
             this.flowLayoutPanel_Analysis.AutoScroll = true;
+            this.flowLayoutPanel_Analysis.Controls.Add(this.ucGalleryItemImg3);
             this.flowLayoutPanel_Analysis.Location = new System.Drawing.Point(726, 90);
             this.flowLayoutPanel_Analysis.Name = "flowLayoutPanel_Analysis";
             this.flowLayoutPanel_Analysis.Size = new System.Drawing.Size(325, 540);
@@ -125,6 +134,39 @@
             this.labelControl3.TabIndex = 10;
             this.labelControl3.Text = "国土资源分析图";
             // 
+            // ucGalleryItemImg1
+            // 
+            this.ucGalleryItemImg1.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItemImg1.DataPath = "";
+            this.ucGalleryItemImg1.HoverImagePath = "";
+            this.ucGalleryItemImg1.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItemImg1.Name = "ucGalleryItemImg1";
+            this.ucGalleryItemImg1.Size = new System.Drawing.Size(330, 41);
+            this.ucGalleryItemImg1.TabIndex = 0;
+            this.ucGalleryItemImg1.Title = "未找到数据";
+            // 
+            // ucGalleryItemImg2
+            // 
+            this.ucGalleryItemImg2.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItemImg2.DataPath = "";
+            this.ucGalleryItemImg2.HoverImagePath = "";
+            this.ucGalleryItemImg2.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItemImg2.Name = "ucGalleryItemImg2";
+            this.ucGalleryItemImg2.Size = new System.Drawing.Size(330, 41);
+            this.ucGalleryItemImg2.TabIndex = 0;
+            this.ucGalleryItemImg2.Title = "未找到数据";
+            // 
+            // ucGalleryItemImg3
+            // 
+            this.ucGalleryItemImg3.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItemImg3.DataPath = "";
+            this.ucGalleryItemImg3.HoverImagePath = "";
+            this.ucGalleryItemImg3.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItemImg3.Name = "ucGalleryItemImg3";
+            this.ucGalleryItemImg3.Size = new System.Drawing.Size(330, 41);
+            this.ucGalleryItemImg3.TabIndex = 0;
+            this.ucGalleryItemImg3.Title = "未找到数据";
+            // 
             // frmAtlasContents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -148,6 +190,9 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
+            this.flowLayoutPanel_Status.ResumeLayout(false);
+            this.flowLayoutPanel_Planning.ResumeLayout(false);
+            this.flowLayoutPanel_Analysis.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).EndInit();
             this.ResumeLayout(false);
@@ -165,5 +210,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private ucGalleryItemImg ucGalleryItemImg1;
+        private ucGalleryItemImg ucGalleryItemImg2;
+        private ucGalleryItemImg ucGalleryItemImg3;
     }
 }

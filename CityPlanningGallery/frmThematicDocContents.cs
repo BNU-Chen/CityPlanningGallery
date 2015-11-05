@@ -40,6 +40,8 @@ namespace CityPlanningGallery
             {
                 return;
             }
+            this.flowLayoutPanel_ThematicDoc.Controls.Clear();
+
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
             try
