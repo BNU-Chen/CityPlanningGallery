@@ -63,10 +63,10 @@
             // lbl_PreViewMapTitle
             // 
             this.lbl_PreViewMapTitle.Appearance.BackColor = System.Drawing.Color.White;
-            this.lbl_PreViewMapTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PreViewMapTitle.Appearance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_PreViewMapTitle.Location = new System.Drawing.Point(551, 340);
             this.lbl_PreViewMapTitle.Name = "lbl_PreViewMapTitle";
-            this.lbl_PreViewMapTitle.Size = new System.Drawing.Size(0, 19);
+            this.lbl_PreViewMapTitle.Size = new System.Drawing.Size(0, 21);
             this.lbl_PreViewMapTitle.TabIndex = 2;
             // 
             // panel_PlanningDocs
@@ -177,11 +177,11 @@
             // btn_Close
             // 
             this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
+            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Close.Location = new System.Drawing.Point(797, 12);
+            this.btn_Close.Location = new System.Drawing.Point(792, 12);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.btn_Close.Size = new System.Drawing.Size(35, 35);
             this.btn_Close.TabIndex = 5;
             this.btn_Close.TabStop = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
@@ -191,11 +191,11 @@
             // btn_Return
             // 
             this.btn_Return.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_left;
+            this.btn_Return.BackgroundImage = global::CityPlanningGallery.Properties.Resources.return_black;
             this.btn_Return.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Return.Location = new System.Drawing.Point(750, 12);
+            this.btn_Return.Location = new System.Drawing.Point(748, 12);
             this.btn_Return.Name = "btn_Return";
-            this.btn_Return.Size = new System.Drawing.Size(30, 30);
+            this.btn_Return.Size = new System.Drawing.Size(35, 35);
             this.btn_Return.TabIndex = 5;
             this.btn_Return.TabStop = false;
             this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);

@@ -283,6 +283,16 @@ namespace CityPlanningGallery.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Urban_Planning {
+            get {
+                object obj = ResourceManager.GetObject("Urban-Planning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap zoomIn_32 {
             get {
                 object obj = ResourceManager.GetObject("zoomIn_32", resourceCulture);
@@ -316,6 +326,16 @@ namespace CityPlanningGallery.Properties {
         internal static System.Drawing.Bitmap 封面 {
             get {
                 object obj = ResourceManager.GetObject("封面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 现状图 {
+            get {
+                object obj = ResourceManager.GetObject("现状图", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

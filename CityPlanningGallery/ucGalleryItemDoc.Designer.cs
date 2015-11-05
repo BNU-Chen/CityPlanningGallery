@@ -1,6 +1,6 @@
 ﻿namespace CityPlanningGallery
 {
-    partial class ucGalleryItem
+    partial class ucGalleryItemDoc
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -42,7 +42,7 @@
             this.panel_BackColor.Controls.Add(this.lbl_Title);
             this.panel_BackColor.Location = new System.Drawing.Point(4, 4);
             this.panel_BackColor.Name = "panel_BackColor";
-            this.panel_BackColor.Size = new System.Drawing.Size(293, 34);
+            this.panel_BackColor.Size = new System.Drawing.Size(323, 34);
             this.panel_BackColor.TabIndex = 0;
             this.panel_BackColor.MouseEnter += new System.EventHandler(this.panel_BackColor_MouseEnter);
             this.panel_BackColor.MouseLeave += new System.EventHandler(this.panel_BackColor_MouseLeave);
@@ -59,14 +59,14 @@
             this.lbl_Title.MouseEnter += new System.EventHandler(this.panel_BackColor_MouseEnter);
             this.lbl_Title.MouseLeave += new System.EventHandler(this.panel_BackColor_MouseLeave);
             // 
-            // ucGalleryItem
+            // ucGalleryItemDoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel_BackColor);
-            this.Name = "ucGalleryItem";
-            this.Size = new System.Drawing.Size(300, 41);
+            this.Name = "ucGalleryItemDoc";
+            this.Size = new System.Drawing.Size(330, 41);
             this.Click += new System.EventHandler(this.ucGalleryItem_Click);
             this.MouseEnter += new System.EventHandler(this.ucGalleryItem_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ucGalleryItem_MouseLeave);

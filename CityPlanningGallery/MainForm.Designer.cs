@@ -43,7 +43,7 @@
             this.btn_Xianzhuang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_Xianzhuang.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_Xianzhuang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Xianzhuang.Image = global::CityPlanningGallery.Properties.Resources.home_xianzhuang;
+            this.btn_Xianzhuang.Image = global::CityPlanningGallery.Properties.Resources.现状图;
             this.btn_Xianzhuang.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Xianzhuang.Location = new System.Drawing.Point(36, 200);
             this.btn_Xianzhuang.Name = "btn_Xianzhuang";
@@ -57,10 +57,9 @@
             // 
             this.btn_Guihua.Appearance.BackColor = System.Drawing.Color.White;
             this.btn_Guihua.Appearance.Options.UseBackColor = true;
-            this.btn_Guihua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Guihua.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_Guihua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Guihua.Image = global::CityPlanningGallery.Properties.Resources.home_guihua;
+            this.btn_Guihua.Image = global::CityPlanningGallery.Properties.Resources.Urban_Planning;
             this.btn_Guihua.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn_Guihua.Location = new System.Drawing.Point(294, 200);
             this.btn_Guihua.Name = "btn_Guihua";
@@ -90,35 +89,35 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Location = new System.Drawing.Point(380, 444);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(42, 28);
+            this.labelControl1.Size = new System.Drawing.Size(54, 28);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "规划";
+            this.labelControl1.Text = "规  划";
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Location = new System.Drawing.Point(126, 444);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(42, 28);
+            this.labelControl2.Size = new System.Drawing.Size(54, 28);
             this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "现状";
+            this.labelControl2.Text = "现  状";
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(639, 444);
+            this.labelControl3.Location = new System.Drawing.Point(622, 444);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(42, 28);
+            this.labelControl3.Size = new System.Drawing.Size(54, 28);
             this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "分析";
+            this.labelControl3.Text = "分  析";
             // 
             // btn_Close
             // 
-            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close_icon;
+            this.btn_Close.BackgroundImage = global::CityPlanningGallery.Properties.Resources.close;
             this.btn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Close.Location = new System.Drawing.Point(777, 25);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(30, 30);
+            this.btn_Close.Size = new System.Drawing.Size(35, 35);
             this.btn_Close.TabIndex = 7;
             this.btn_Close.TabStop = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
