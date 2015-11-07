@@ -221,6 +221,15 @@ namespace CityPlanningGallery
             clsGISTools.FullExtend(this.axMapControl1);
         }
 
+        private void axMapControl1_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
+        {
+            int rightPanelChildCount = this.panel_RightHome.Controls.Count;
+            if (rightPanelChildCount == 2)
+            {
+
+            }
+        }
+        
         //获取要素属性
         private void GetFeatureInfo(string xzqmc)
         {
@@ -273,6 +282,11 @@ namespace CityPlanningGallery
                     tsbtn_AllLayer_Click();
                     break;
                 case "tsbtn_TripleMap":
+                    this.panel_RightInfo.Visible = !this.panel_RightInfo.Visible;
+                    if (!this.panel_RightInfo.Visible)
+                    {
+                        
+                    }
                     break;
             }
         }
@@ -337,6 +351,6 @@ namespace CityPlanningGallery
             catch { }
         }
         #endregion
-        
+
     }
 }

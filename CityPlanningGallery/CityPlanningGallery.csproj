@@ -220,6 +220,12 @@
     <Compile Include="frmThematicDocContents.Designer.cs">
       <DependentUpon>frmThematicDocContents.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucTripleMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTripleMap.Designer.cs">
+      <DependentUpon>ucTripleMap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDocViewer.resx">
       <DependentUpon>frmDocViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThematicDocContents.resx">
       <DependentUpon>frmThematicDocContents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTripleMap.resx">
+      <DependentUpon>ucTripleMap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

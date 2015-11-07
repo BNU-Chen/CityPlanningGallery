@@ -33,9 +33,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
             this.toolStrip_MapTool = new System.Windows.Forms.ToolStrip();
-            this.panel_Right = new System.Windows.Forms.Panel();
-            this.panel_LeftFull = new System.Windows.Forms.Panel();
-            this.panel_LeftTop = new System.Windows.Forms.Panel();
             this.lbl_MapTitle = new DevExpress.XtraEditors.LabelControl();
             this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -48,15 +45,20 @@
             this.tsbtn_AutoPlayLegend = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_CtrlLegendLayer = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_TripleMap = new System.Windows.Forms.ToolStripButton();
-            this.ucLegend1 = new CityPlanningGallery.ucLegend();
+            this.panel_RightHome = new System.Windows.Forms.Panel();
+            this.panel_RightInfo = new System.Windows.Forms.Panel();
+            this.panel_LeftFull = new System.Windows.Forms.Panel();
+            this.panel_LeftTop = new System.Windows.Forms.Panel();
             this.ucShowMapInfo1 = new CityPlanningGallery.ucShowMapInfo();
+            this.ucLegend1 = new CityPlanningGallery.ucLegend();
             this.panel_BackColor.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             this.toolStrip_MapTool.SuspendLayout();
-            this.panel_Right.SuspendLayout();
-            this.panel_LeftFull.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
+            this.panel_RightHome.SuspendLayout();
+            this.panel_RightInfo.SuspendLayout();
+            this.panel_LeftFull.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_BackColor
@@ -65,11 +67,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_BackColor.BackColor = System.Drawing.Color.DarkKhaki;
+            this.panel_BackColor.Controls.Add(this.panel_RightHome);
             this.panel_BackColor.Controls.Add(this.toolStrip1);
             this.panel_BackColor.Controls.Add(this.ucLegend1);
             this.panel_BackColor.Controls.Add(this.axLicenseControl1);
             this.panel_BackColor.Controls.Add(this.toolStrip_MapTool);
-            this.panel_BackColor.Controls.Add(this.panel_Right);
             this.panel_BackColor.Controls.Add(this.lbl_MapTitle);
             this.panel_BackColor.Controls.Add(this.axMapControl1);
             this.panel_BackColor.Location = new System.Drawing.Point(12, 26);
@@ -124,36 +126,6 @@
             this.toolStrip_MapTool.Text = "toolStrip1";
             this.toolStrip_MapTool.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_MapTool_ItemClicked);
             // 
-            // panel_Right
-            // 
-            this.panel_Right.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_Right.BackColor = System.Drawing.Color.White;
-            this.panel_Right.Controls.Add(this.panel_LeftFull);
-            this.panel_Right.Controls.Add(this.panel_LeftTop);
-            this.panel_Right.Location = new System.Drawing.Point(657, 61);
-            this.panel_Right.Name = "panel_Right";
-            this.panel_Right.Size = new System.Drawing.Size(285, 575);
-            this.panel_Right.TabIndex = 2;
-            // 
-            // panel_LeftFull
-            // 
-            this.panel_LeftFull.Controls.Add(this.ucShowMapInfo1);
-            this.panel_LeftFull.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_LeftFull.Location = new System.Drawing.Point(0, 173);
-            this.panel_LeftFull.Name = "panel_LeftFull";
-            this.panel_LeftFull.Size = new System.Drawing.Size(285, 402);
-            this.panel_LeftFull.TabIndex = 8;
-            // 
-            // panel_LeftTop
-            // 
-            this.panel_LeftTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel_LeftTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_LeftTop.Location = new System.Drawing.Point(0, 0);
-            this.panel_LeftTop.Name = "panel_LeftTop";
-            this.panel_LeftTop.Size = new System.Drawing.Size(285, 173);
-            this.panel_LeftTop.TabIndex = 7;
-            // 
             // lbl_MapTitle
             // 
             this.lbl_MapTitle.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -177,6 +149,7 @@
             this.axMapControl1.OnMouseDown += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseDownEventHandler(this.axMapControl1_OnMouseDown);
             this.axMapControl1.OnMouseUp += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseUpEventHandler(this.axMapControl1_OnMouseUp);
             this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
+            this.axMapControl1.OnExtentUpdated += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(this.axMapControl1_OnExtentUpdated);
             this.axMapControl1.Resize += new System.EventHandler(this.axMapControl1_Resize);
             // 
             // toolStripSeparator1
@@ -262,6 +235,53 @@
             this.tsbtn_TripleMap.Size = new System.Drawing.Size(92, 36);
             this.tsbtn_TripleMap.Text = "多图对比";
             // 
+            // panel_RightHome
+            // 
+            this.panel_RightHome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_RightHome.Controls.Add(this.panel_RightInfo);
+            this.panel_RightHome.Location = new System.Drawing.Point(657, 61);
+            this.panel_RightHome.Name = "panel_RightHome";
+            this.panel_RightHome.Size = new System.Drawing.Size(285, 575);
+            this.panel_RightHome.TabIndex = 10;
+            // 
+            // panel_RightInfo
+            // 
+            this.panel_RightInfo.BackColor = System.Drawing.Color.White;
+            this.panel_RightInfo.Controls.Add(this.panel_LeftFull);
+            this.panel_RightInfo.Controls.Add(this.panel_LeftTop);
+            this.panel_RightInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_RightInfo.Location = new System.Drawing.Point(0, 0);
+            this.panel_RightInfo.Name = "panel_RightInfo";
+            this.panel_RightInfo.Size = new System.Drawing.Size(285, 575);
+            this.panel_RightInfo.TabIndex = 3;
+            // 
+            // panel_LeftFull
+            // 
+            this.panel_LeftFull.Controls.Add(this.ucShowMapInfo1);
+            this.panel_LeftFull.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_LeftFull.Location = new System.Drawing.Point(0, 173);
+            this.panel_LeftFull.Name = "panel_LeftFull";
+            this.panel_LeftFull.Size = new System.Drawing.Size(285, 402);
+            this.panel_LeftFull.TabIndex = 8;
+            // 
+            // panel_LeftTop
+            // 
+            this.panel_LeftTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel_LeftTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_LeftTop.Location = new System.Drawing.Point(0, 0);
+            this.panel_LeftTop.Name = "panel_LeftTop";
+            this.panel_LeftTop.Size = new System.Drawing.Size(285, 173);
+            this.panel_LeftTop.TabIndex = 7;
+            // 
+            // ucShowMapInfo1
+            // 
+            this.ucShowMapInfo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucShowMapInfo1.Location = new System.Drawing.Point(0, 0);
+            this.ucShowMapInfo1.Name = "ucShowMapInfo1";
+            this.ucShowMapInfo1.Size = new System.Drawing.Size(285, 402);
+            this.ucShowMapInfo1.TabIndex = 0;
+            // 
             // ucLegend1
             // 
             this.ucLegend1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -271,14 +291,6 @@
             this.ucLegend1.Name = "ucLegend1";
             this.ucLegend1.Size = new System.Drawing.Size(200, 240);
             this.ucLegend1.TabIndex = 7;
-            // 
-            // ucShowMapInfo1
-            // 
-            this.ucShowMapInfo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucShowMapInfo1.Location = new System.Drawing.Point(0, 0);
-            this.ucShowMapInfo1.Name = "ucShowMapInfo1";
-            this.ucShowMapInfo1.Size = new System.Drawing.Size(285, 402);
-            this.ucShowMapInfo1.TabIndex = 0;
             // 
             // frmMapView
             // 
@@ -303,9 +315,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             this.toolStrip_MapTool.ResumeLayout(false);
             this.toolStrip_MapTool.PerformLayout();
-            this.panel_Right.ResumeLayout(false);
-            this.panel_LeftFull.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
+            this.panel_RightHome.ResumeLayout(false);
+            this.panel_RightInfo.ResumeLayout(false);
+            this.panel_LeftFull.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -314,24 +327,25 @@
 
         private System.Windows.Forms.Panel panel_BackColor;
         private DevExpress.XtraEditors.LabelControl lbl_MapTitle;
-        private System.Windows.Forms.Panel panel_Right;
         private System.Windows.Forms.ToolStrip toolStrip_MapTool;
         private System.Windows.Forms.ToolStripButton tsbtn_ZoomIn;
         private System.Windows.Forms.ToolStripButton tsbtn_ZoomOut;
         private System.Windows.Forms.ToolStripButton tsbtn_FullExtent;
         private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private ucLegend ucLegend1;
-        private System.Windows.Forms.Panel panel_LeftTop;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btn_Home;
         private System.Windows.Forms.ToolStripButton btn_Return;
         private System.Windows.Forms.ToolStripButton btn_Close;
-        private System.Windows.Forms.Panel panel_LeftFull;
-        private ucShowMapInfo ucShowMapInfo1;
         private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
         private System.Windows.Forms.ToolStripButton tsbtn_AutoPlayLegend;
         private System.Windows.Forms.ToolStripButton tsbtn_CtrlLegendLayer;
         private System.Windows.Forms.ToolStripButton tsbtn_TripleMap;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Panel panel_RightHome;
+        private System.Windows.Forms.Panel panel_RightInfo;
+        private System.Windows.Forms.Panel panel_LeftFull;
+        private ucShowMapInfo ucShowMapInfo1;
+        private System.Windows.Forms.Panel panel_LeftTop;
     }
 }
