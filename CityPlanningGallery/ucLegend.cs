@@ -47,20 +47,6 @@ namespace CityPlanningGallery
             }
         }
 
-        public ToolStripButton AutoPlayeButton
-        {
-            get
-            {
-                return this.tsbtn_AutoPlay;
-            }
-        }
-        public ToolStripButton CheckLegendButton
-        {
-            get
-            {
-                return this.tsbtn_AllLayer;
-            }
-        }
         public FlowLayoutPanel FlowLayoutLegend
         {
             get
@@ -217,30 +203,6 @@ namespace CityPlanningGallery
             }
         }
 
-        private void tsbtn_AutoPlay_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void tsbtn_AllLayer_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (this.tsbtn_AllLayer.Text == "整体浏览")
-                {
-                    this.tsbtn_AllLayer.Text = "局部浏览";
-                    this.tsbtn_AllLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.unCheck_icon);
-                    ShowLegendLayers(true);
-                }
-                else
-                {
-                    this.tsbtn_AllLayer.Text = "整体浏览";
-                    this.tsbtn_AllLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.select_all);
-                    ShowLegendLayers(false);
-                }
-            }
-            catch { }
-        }
         //是否显示所有图例图层
         public void ShowLegendLayers(bool layerVisible)
         {            

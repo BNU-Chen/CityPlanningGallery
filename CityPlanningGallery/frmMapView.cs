@@ -36,9 +36,9 @@ namespace CityPlanningGallery
             galleryForm = (frmMapTitleGallery)_frmGallery;
             galleryForm.Visible = false;
 
-            this.ucLegend1.AutoPlayeButton.Click += AutoPlayeButton_Click;
             clsGISTools.FullExtend(this.axMapControl1);
         }
+        #region //预加载
         private void frmMapView_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -66,42 +66,6 @@ namespace CityPlanningGallery
                     this.ucShowMapInfo1.ChartDataTable = dt;
                 }
             }
-        }
-
-        #region //自动加载图例图层按钮
-        void AutoPlayeButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.ucLegend1.ShowLegendLayers(false);
-
-                if (this.ucLegend1.FlowLayoutLegend.Controls.Count > 0)
-                {
-                    foreach (Control ctrl in this.ucLegend1.FlowLayoutLegend.Controls)
-                    {
-                        if (ctrl is PictureBox)
-                        {
-                            PictureBox pic = (PictureBox)ctrl;
-                            int index = Convert.ToInt16(pic.Tag);
-                            if (index < 0)
-                            {
-                                continue;
-                            }
-                            this.Refresh();
-                            this.axMapControl1.ActiveView.Refresh();
-
-                            System.Threading.Thread.Sleep(AutoPlayInterval);
-
-                            pic.BackColor = Color.LightGray;
-                            ILayer layer = this.axMapControl1.ActiveView.FocusMap.get_Layer(index);
-                            layer.Visible = true;
-                        }
-                    }
-                    this.Refresh();
-                    this.axMapControl1.ActiveView.Refresh();
-                }
-            }
-            catch { }
         }
         #endregion
 
@@ -257,8 +221,6 @@ namespace CityPlanningGallery
             clsGISTools.FullExtend(this.axMapControl1);
         }
 
-        #endregion
-
         //获取要素属性
         private void GetFeatureInfo(string xzqmc)
         {
@@ -287,8 +249,8 @@ namespace CityPlanningGallery
                 }
             }
         }
-
-
+        #endregion
+                
         #region //地图工具按钮事件
         private void toolStrip_MapTool_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -304,11 +266,77 @@ namespace CityPlanningGallery
                 case "tsbtn_FullExtent":
                     clsGISTools.FullExtend(this.axMapControl1);
                     break;
+                case "tsbtn_AutoPlayLegend":
+                    AutoPlayeButton_Click();
+                    break;
+                case "tsbtn_CtrlLegendLayer":
+                    tsbtn_AllLayer_Click();
+                    break;
+                case "tsbtn_TripleMap":
+                    break;
             }
         }
+ 
+        //自动播放图例
+        void AutoPlayeButton_Click()
+        {
+            try
+            {
+                this.ucLegend1.ShowLegendLayers(false);
+
+                if (this.ucLegend1.FlowLayoutLegend.Controls.Count > 0)
+                {
+                    foreach (Control ctrl in this.ucLegend1.FlowLayoutLegend.Controls)
+                    {
+                        if (ctrl is PictureBox)
+                        {
+                            PictureBox pic = (PictureBox)ctrl;
+                            int index = Convert.ToInt16(pic.Tag);
+                            if (index < 0)
+                            {
+                                continue;
+                            }
+                            this.Refresh();
+                            this.axMapControl1.ActiveView.Refresh();
+
+                            System.Threading.Thread.Sleep(AutoPlayInterval);
+
+                            pic.BackColor = Color.LightGray;
+                            ILayer layer = this.axMapControl1.ActiveView.FocusMap.get_Layer(index);
+                            layer.Visible = true;
+                        }
+                    }
+                    this.Refresh();
+                    this.axMapControl1.ActiveView.Refresh();
+
+                    //处理按钮
+                    this.tsbtn_CtrlLegendLayer.Text = "局部浏览";
+                    this.tsbtn_CtrlLegendLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.unCheck_icon);
+                }
+            }
+            catch { }
+        }
+        //图例图层控制 - 整体浏览和局部浏览
+        private void tsbtn_AllLayer_Click()
+        {
+            try
+            {
+                if (this.tsbtn_CtrlLegendLayer.Text == "整体浏览")
+                {
+                    this.tsbtn_CtrlLegendLayer.Text = "局部浏览";
+                    this.tsbtn_CtrlLegendLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.unCheck_icon);
+                    this.ucLegend1.ShowLegendLayers(true);
+                }
+                else
+                {
+                    this.tsbtn_CtrlLegendLayer.Text = "整体浏览";
+                    this.tsbtn_CtrlLegendLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.select_all);
+                    this.ucLegend1.ShowLegendLayers(false);
+                }
+            }
+            catch { }
+        }
         #endregion
-
-
-
+        
     }
 }

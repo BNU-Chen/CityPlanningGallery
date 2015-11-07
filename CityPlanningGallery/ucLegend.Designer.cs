@@ -28,49 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbtn_AutoPlay = new System.Windows.Forms.ToolStripButton();
-            this.tsbtn_AllLayer = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel_Legend = new System.Windows.Forms.FlowLayoutPanel();
-            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.White;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbtn_AutoPlay,
-            this.tsbtn_AllLayer});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 211);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(198, 27);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbtn_AutoPlay
-            // 
-            this.tsbtn_AutoPlay.Image = global::CityPlanningGallery.Properties.Resources.Pulse_icon;
-            this.tsbtn_AutoPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_AutoPlay.Name = "tsbtn_AutoPlay";
-            this.tsbtn_AutoPlay.Size = new System.Drawing.Size(80, 24);
-            this.tsbtn_AutoPlay.Text = "动态浏览";
-            this.tsbtn_AutoPlay.Click += new System.EventHandler(this.tsbtn_AutoPlay_Click);
-            // 
-            // tsbtn_AllLayer
-            // 
-            this.tsbtn_AllLayer.Image = global::CityPlanningGallery.Properties.Resources.select_all;
-            this.tsbtn_AllLayer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_AllLayer.Name = "tsbtn_AllLayer";
-            this.tsbtn_AllLayer.Size = new System.Drawing.Size(80, 24);
-            this.tsbtn_AllLayer.Text = "整体浏览";
-            this.tsbtn_AllLayer.Click += new System.EventHandler(this.tsbtn_AllLayer_Click);
             // 
             // panel1
             // 
@@ -97,7 +61,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(198, 184);
+            this.panel2.Size = new System.Drawing.Size(198, 211);
             this.panel2.TabIndex = 2;
             // 
             // flowLayoutPanel_Legend
@@ -106,7 +70,7 @@
             this.flowLayoutPanel_Legend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Legend.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel_Legend.Name = "flowLayoutPanel_Legend";
-            this.flowLayoutPanel_Legend.Size = new System.Drawing.Size(198, 184);
+            this.flowLayoutPanel_Legend.Size = new System.Drawing.Size(198, 211);
             this.flowLayoutPanel_Legend.TabIndex = 0;
             // 
             // ucLegend
@@ -116,24 +80,17 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
             this.Name = "ucLegend";
             this.Size = new System.Drawing.Size(198, 238);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbtn_AllLayer;
-        private System.Windows.Forms.ToolStripButton tsbtn_AutoPlay;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Legend;
