@@ -43,14 +43,13 @@ namespace CityPlanningGallery
         {
             this.WindowState = FormWindowState.Maximized;
 
-            clsGISTools.SelectFeature(this.axMapControl1);  //默认为选择要素
-
-            this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
+            getMapRelatedData();
+            //this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
         }
 
-        void MapChartButton_Click(object sender, EventArgs e)
-        {
-            //获取表数据
+        //获取表数据
+        void getMapRelatedData()
+        {            
             if (mapTitle != "")
             {
                 string[] names = mapTitle.Split(' ');
@@ -223,8 +222,11 @@ namespace CityPlanningGallery
         private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
             if (e.button == 1)
-            {
-                GetFeatureInfo();
+            {                
+                string xzqmc = clsGISHandler.GetXMQMC(this.axMapControl1, e);
+                if(xzqmc!=""){
+                    GetFeatureInfo(xzqmc);
+                }
             }
             else if (e.button == 4)
             {
@@ -258,33 +260,29 @@ namespace CityPlanningGallery
         #endregion
 
         //获取要素属性
-        private void GetFeatureInfo()
+        private void GetFeatureInfo(string xzqmc)
         {
-            int featureCount = this.axMapControl1.Map.SelectionCount;
-                    if (featureCount > 0)
-                    {
-                        DataTable dt = clsGISHandler.GetFirstSelectionFeatureAttr(this.axMapControl1);
-                        if (dt.Rows.Count == 0)
-                        {
-                            return;
-                        }
-                        Control control = (Control)sender;
-                        System.Drawing.Point pt = control.PointToScreen(new System.Drawing.Point(e.x, e.y));
-
-            string cityName = "沈阳市";
-            this.ucShowMapInfo1.FeatureInfo();      //切换到字段属性展示
-            if (dt.DataSet != null && dt.DataSet.Tables.Count > 0 && dt.DataSet.Tables[0].Rows.Count > 0)
+            if (dt.Rows.Count == 0)
             {
-                foreach (DataRow row in dt.DataSet.Tables[0].Rows)
+                return;
+            }
+            this.ucShowMapInfo1.FeatureInfo();      //切换到字段属性展示
+
+            if (xzqmc != "")
+            {
+                if (dt.Rows.Count > 0)
                 {
-                    string areaName = row["区域"].ToString();
-                    if (areaName == cityName)
+                    foreach (DataRow row in dt.Rows)
                     {
-                        this.ucShowMapInfo1.SetFlowLayoutItems(dt.DataSet.Tables[0].Columns,row.ItemArray);
-                    }
-                    else
-                    {
-                        continue;
+                        string cityName = row["区域"].ToString();
+                        if (xzqmc == cityName)
+                        {
+                            this.ucShowMapInfo1.SetFlowLayoutItems(dt.DataSet.Tables[0].Columns, row.ItemArray);
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                 }
             }

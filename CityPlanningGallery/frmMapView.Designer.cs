@@ -83,9 +83,9 @@
             this.btn_Home,
             this.btn_Return,
             this.btn_Close});
-            this.toolStrip1.Location = new System.Drawing.Point(683, 15);
+            this.toolStrip1.Location = new System.Drawing.Point(714, 15);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(259, 43);
+            this.toolStrip1.Size = new System.Drawing.Size(228, 43);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -276,7 +276,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel_BackColor;
-        private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
         private DevExpress.XtraEditors.LabelControl lbl_MapTitle;
         private System.Windows.Forms.Panel panel_Right;
         private System.Windows.Forms.ToolStrip toolStrip_MapTool;
@@ -292,5 +291,6 @@
         private System.Windows.Forms.ToolStripButton btn_Close;
         private System.Windows.Forms.Panel panel_LeftFull;
         private ucShowMapInfo ucShowMapInfo1;
+        private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
     }
 }

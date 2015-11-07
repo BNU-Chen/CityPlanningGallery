@@ -131,20 +131,20 @@ namespace CityPlanningGallery
                 {
                     continue;
                 }
-                //if (colName.Length > 15)
-                //{
+                if (i % 2 == 0)
+                {
                     ucFeatureFieldItemLong ffil = new ucFeatureFieldItemLong();
                     ffil.Title = colName;
                     ffil.Value = value;
                     this.flowLayoutPanel1.Controls.Add(ffil);
-                //}
-                //else
-                //{
-                //    ucFeatureFieldItem ffi = new ucFeatureFieldItem();
-                //    ffi.Title = colName;
-                //    ffi.Value = value;
-                //    this.flowLayoutPanel1.Controls.Add(ffi);
-                //}
+                }
+                else
+                {
+                    ucFeatureFieldItemNormal ffin = new ucFeatureFieldItemNormal();
+                    ffin.Title = colName;
+                    ffin.Value = value;
+                    this.flowLayoutPanel1.Controls.Add(ffin);
+                }
             }
             this.flowLayoutPanel1.Refresh();
         }

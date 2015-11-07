@@ -66,13 +66,13 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.DataSourcesRaster, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Display, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Geometry, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86">
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -105,7 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsGISHandle.cs" />
+    <Compile Include="clsGISHandler.cs" />
     <Compile Include="clsGISTools.cs" />
     <Compile Include="clsConfig.cs" />
     <Compile Include="clsSQLServerConnection.cs" />
@@ -171,6 +171,12 @@
     </Compile>
     <Compile Include="ucFeatureFieldItem.Designer.cs">
       <DependentUpon>ucFeatureFieldItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucFeatureFieldItemNormal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFeatureFieldItemNormal.Designer.cs">
+      <DependentUpon>ucFeatureFieldItemNormal.cs</DependentUpon>
     </Compile>
     <Compile Include="ucFeatureFieldItemLong.cs">
       <SubType>UserControl</SubType>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFeatureFieldItem.resx">
       <DependentUpon>ucFeatureFieldItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFeatureFieldItemNormal.resx">
+      <DependentUpon>ucFeatureFieldItemNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucFeatureFieldItemLong.resx">
       <DependentUpon>ucFeatureFieldItemLong.cs</DependentUpon>

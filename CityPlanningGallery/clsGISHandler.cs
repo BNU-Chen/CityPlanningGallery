@@ -13,10 +13,11 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Display;
 using ESRI.ArcGIS.Geometry;
+using ESRI.ArcGIS.esriSystem;
 
 namespace CityPlanningGallery
 {
-    public class clsGISHandle
+    public class clsGISHandler
     {
         //定义栅格打开函数
         public static void OpenRaster(string rasterFileName, AxMapControl _MapControl)
@@ -195,7 +196,7 @@ namespace CityPlanningGallery
                     IField field = fields.get_Field(i);
                     string aliasName = field.AliasName;
                     //string name = GISConfig.ConvertFieldName(aliasName);
-                    if (aliasName == "")
+                    if (aliasName != "XZQMC")
                     {
                         continue;
                     }
@@ -249,6 +250,57 @@ namespace CityPlanningGallery
                 dt = GetFeatureAttr(pFeature);
             }
             return dt;
+        }
+
+        public static string GetXMQMC(AxMapControl _mapControl, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            string xzqmc = "";
+            try
+            {
+
+                if (_mapControl.Map.LayerCount == 0)
+                {
+                    return xzqmc;
+                }
+                IIdentify pIdentify = _mapControl.Map.get_Layer(0) as IIdentify; //通过图层获取 IIdentify 实例
+                IPoint pPoint = new ESRI.ArcGIS.Geometry.Point(); //新建点来选择
+                IArray pIDArray;
+                IIdentifyObj pIdObj;
+                pPoint.PutCoords(e.mapX, e.mapY);      //定义点
+                int delta = 500;
+                IEnvelope envelope = new EnvelopeClass();
+                envelope.XMin = e.mapX - delta;
+                envelope.XMax = e.mapX + delta;
+                envelope.YMin = e.mapY - delta;
+                envelope.YMax = e.mapY + delta;
+                IGeometry geo = envelope as IGeometry;
+                IZAware zAware = geo as IZAware;
+                zAware.ZAware = true;
+
+                pIDArray = pIdentify.Identify(geo);       //通过点获取数组，用点一般只能选择一个元素
+                if (pIDArray != null)
+                {
+                    //取得要素
+                    pIdObj = pIDArray.get_Element(0) as IIdentifyObj;       //取得要素                
+                    pIdObj.Flash(_mapControl.ActiveView.ScreenDisplay);     //闪烁效果
+                    IRowIdentifyObject rowIdentify = pIdObj as IRowIdentifyObject;
+                    IFeature feature = rowIdentify.Row as IFeature;
+                    if (feature != null)
+                    {
+                        IFields fields = feature.Fields;
+                        int xmqmcFieldIndex = fields.FindField("XZQMC");
+                        xzqmc = Convert.ToString(feature.get_Value(xmqmcFieldIndex));
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("Nothing!");
+                }
+            }
+            catch
+            {
+            }
+            return xzqmc;
         }
         
     }
