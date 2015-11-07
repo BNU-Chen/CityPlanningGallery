@@ -55,12 +55,12 @@
             this.chartControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chartControl.Location = new System.Drawing.Point(0, 35);
+            this.chartControl.Location = new System.Drawing.Point(2, 37);
             this.chartControl.Name = "chartControl";
             this.chartControl.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             sideBySideBarSeriesLabel1.LineVisible = true;
             this.chartControl.SeriesTemplate.Label = sideBySideBarSeriesLabel1;
-            this.chartControl.Size = new System.Drawing.Size(298, 278);
+            this.chartControl.Size = new System.Drawing.Size(293, 234);
             this.chartControl.TabIndex = 13;
             // 
             // spreadsheetControl
@@ -68,7 +68,7 @@
             this.spreadsheetControl.AllowDrop = true;
             this.spreadsheetControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.spreadsheetControl.Location = new System.Drawing.Point(0, 319);
+            this.spreadsheetControl.Location = new System.Drawing.Point(2, 275);
             this.spreadsheetControl.Name = "spreadsheetControl";
             this.spreadsheetControl.Options.Export.Csv.Culture = new System.Globalization.CultureInfo("");
             this.spreadsheetControl.Options.Export.Txt.Culture = new System.Globalization.CultureInfo("");
@@ -76,7 +76,7 @@
             this.spreadsheetControl.Options.Import.Csv.Culture = new System.Globalization.CultureInfo("");
             this.spreadsheetControl.Options.Import.ThrowExceptionOnInvalidDocument = false;
             this.spreadsheetControl.Options.Import.Txt.Culture = new System.Globalization.CultureInfo("");
-            this.spreadsheetControl.Size = new System.Drawing.Size(298, 279);
+            this.spreadsheetControl.Size = new System.Drawing.Size(293, 220);
             this.spreadsheetControl.TabIndex = 14;
             this.spreadsheetControl.Text = "spreadsheetControl1";
             // 
@@ -177,7 +177,7 @@
             this.Controls.Add(this.spreadsheetControl);
             this.Controls.Add(this.chartControl);
             this.Name = "ucChartTableShow";
-            this.Size = new System.Drawing.Size(298, 598);
+            this.Size = new System.Drawing.Size(298, 498);
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icChartTypeImage)).EndInit();

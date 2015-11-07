@@ -130,10 +130,17 @@ namespace CityPlanningGallery
         {
             Series series = ser;
             series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
+            PiePointOptions piePointOptions = (PiePointOptions)(series.Label.PointOptions);
             if (this.checkPercentShow.Checked)
-                series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
+            {
+                piePointOptions.PercentOptions.ValueAsPercent = true;
+                piePointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
+            }
             else
-                series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Scientific;
+            {
+                piePointOptions.PercentOptions.ValueAsPercent = false;
+                piePointOptions.ValueNumericOptions.Format = NumericFormat.General;
+            }
             series.Label.PointOptions.ValueNumericOptions.Precision = 0;
             ((PieSeriesLabel)series.Label).ResolveOverlappingMode = ResolveOverlappingMode.Default;
         }
