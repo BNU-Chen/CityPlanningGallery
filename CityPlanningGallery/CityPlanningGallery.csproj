@@ -172,6 +172,12 @@
     <Compile Include="ucFeatureFieldItem.Designer.cs">
       <DependentUpon>ucFeatureFieldItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucFeatureFieldItemSpecial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFeatureFieldItemSpecial.Designer.cs">
+      <DependentUpon>ucFeatureFieldItemSpecial.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucFeatureFieldItemNormal.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFeatureFieldItem.resx">
       <DependentUpon>ucFeatureFieldItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucFeatureFieldItemSpecial.resx">
+      <DependentUpon>ucFeatureFieldItemSpecial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucFeatureFieldItemNormal.resx">
       <DependentUpon>ucFeatureFieldItemNormal.cs</DependentUpon>

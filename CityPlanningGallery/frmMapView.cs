@@ -46,12 +46,53 @@ namespace CityPlanningGallery
         {
             this.WindowState = FormWindowState.Maximized;
 
-            getMapRelatedData();
-            //this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
+            getMapRelatedData();    //读取地图相关数据
+            SetMapDescription();    //读取地图介绍    
+
+            this.ucShowMapInfo1.FeatureInfoButton.Click += FeatureInfoButton_Click;
         }
 
+        private void SetMapDescription()
+        {
+            if (mapTitle != "")
+            {
+                string mapFolder = System.IO.Path.GetDirectoryName(mapPath);
+                string mapDescPath = clsConfig.GetMapDescription(mapFolder) + "\\" + mapTitle + ".txt";
+                if (File.Exists(mapDescPath))
+                {
+                    System.IO.StreamReader st =null;
+                    try
+                    {
+                        st = new System.IO.StreamReader(mapDescPath, System.Text.Encoding.Default);
+                        string text = st.ReadToEnd();
+                        //string text = System.IO.File.ReadAllText(mapDescPath, Encoding.ASCII);
+                        if (text != "")
+                        {
+                            this.ucShowMapInfo1.MapDescStr = text;
+                        }
+                        else
+                        {
+                            this.ucShowMapInfo1.MapDescStr = mapTitle;
+                        }
+                    }
+                    catch { }
+                    finally
+                    {
+                        if (st != null)
+                        {
+                            st.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    this.ucShowMapInfo1.MapDescStr = mapTitle;
+                }
+            }
+        }
+        
         //获取表数据
-        void getMapRelatedData()
+        private void getMapRelatedData()
         {            
             if (mapTitle != "")
             {
@@ -112,7 +153,6 @@ namespace CityPlanningGallery
                 }
             }
         }
-
         #endregion
         
         #region //关闭按钮
@@ -260,6 +300,11 @@ namespace CityPlanningGallery
                 }
             }
         }
+
+        void FeatureInfoButton_Click(object sender, EventArgs e)
+        {
+            GetFeatureInfo("沈阳市");
+        }
         #endregion
                 
         #region //地图工具按钮事件
@@ -293,8 +338,10 @@ namespace CityPlanningGallery
                             m_ucTripleMap.Dock = DockStyle.Fill;
                             m_ucTripleMap.Map1Path = clsConfig.RootDataPath+ clsConfig.TripleMap1;
                             m_ucTripleMap.Map2Path = clsConfig.RootDataPath + clsConfig.TripleMap2;
+                            m_ucTripleMap.MapExtent = this.axMapControl1.ActiveView.Extent;
                             //m_ucTripleMap.mapExtentChange += new delegateExtentChange(OnExtentChange);
                             this.panel_RightHome.Controls.Add(m_ucTripleMap);
+                            this.panel_RightHome.Refresh();
                         }
                         else
                         {
