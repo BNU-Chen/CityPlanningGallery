@@ -47,7 +47,9 @@ namespace CityPlanningGallery
             this.WindowState = FormWindowState.Maximized;
 
             getMapRelatedData();    //读取地图相关数据
-            SetMapDescription();    //读取地图介绍            
+            SetMapDescription();    //读取地图介绍    
+
+            this.ucShowMapInfo1.FeatureInfoButton.Click += FeatureInfoButton_Click;
         }
 
         private void SetMapDescription()
@@ -298,6 +300,11 @@ namespace CityPlanningGallery
                 }
             }
         }
+
+        void FeatureInfoButton_Click(object sender, EventArgs e)
+        {
+            GetFeatureInfo("沈阳市");
+        }
         #endregion
                 
         #region //地图工具按钮事件
@@ -331,8 +338,10 @@ namespace CityPlanningGallery
                             m_ucTripleMap.Dock = DockStyle.Fill;
                             m_ucTripleMap.Map1Path = clsConfig.RootDataPath+ clsConfig.TripleMap1;
                             m_ucTripleMap.Map2Path = clsConfig.RootDataPath + clsConfig.TripleMap2;
+                            m_ucTripleMap.MapExtent = this.axMapControl1.ActiveView.Extent;
                             //m_ucTripleMap.mapExtentChange += new delegateExtentChange(OnExtentChange);
                             this.panel_RightHome.Controls.Add(m_ucTripleMap);
+                            this.panel_RightHome.Refresh();
                         }
                         else
                         {

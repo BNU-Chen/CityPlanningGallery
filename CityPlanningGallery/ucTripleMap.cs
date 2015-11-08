@@ -29,6 +29,8 @@ namespace CityPlanningGallery
         private void ucTripleMap_SizeChanged(object sender, EventArgs e)
         {
             this.axMapControl1.Height = this.Height / 2;
+            this.axMapControl1.ActiveView.Refresh();
+            this.axMapControl2.ActiveView.Refresh();
         }
 
         #region //封装字段
@@ -44,9 +46,12 @@ namespace CityPlanningGallery
             {
                 extent = value;
                 this.axMapControl1.ActiveView.Extent = extent;
-                this.axMapControl1.ActiveView.Refresh();
                 this.axMapControl2.ActiveView.Extent = extent;
+
+                this.axMapControl1.ActiveView.Refresh();
                 this.axMapControl2.ActiveView.Refresh();
+
+                this.Refresh();
             }
         }
 
@@ -60,6 +65,7 @@ namespace CityPlanningGallery
                     return;
                 }
                 this.axMapControl1.LoadMxFile(path);
+                this.axMapControl1.ActiveView.Refresh();
             }
         }
                 
@@ -73,6 +79,7 @@ namespace CityPlanningGallery
                     return;
                 }
                 this.axMapControl2.LoadMxFile(path);
+                this.axMapControl2.ActiveView.Refresh();
             }
         }
         #endregion
