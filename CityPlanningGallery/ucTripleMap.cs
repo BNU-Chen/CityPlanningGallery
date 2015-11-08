@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Geometry;
 
@@ -24,6 +26,13 @@ namespace CityPlanningGallery
             InitializeComponent();
         }
 
+        private void ucTripleMap_SizeChanged(object sender, EventArgs e)
+        {
+            this.axMapControl1.Height = this.Height / 2;
+        }
+
+        #region //封装字段
+        //
         private IEnvelope extent;
         public IEnvelope MapExtent
         {
@@ -35,15 +44,39 @@ namespace CityPlanningGallery
             {
                 extent = value;
                 this.axMapControl1.ActiveView.Extent = extent;
+                this.axMapControl1.ActiveView.Refresh();
                 this.axMapControl2.ActiveView.Extent = extent;
+                this.axMapControl2.ActiveView.Refresh();
             }
         }
 
-        private void ucTripleMap_SizeChanged(object sender, EventArgs e)
+        public string Map1Path
         {
-            this.axMapControl1.Height = this.Height / 2;
+            set
+            {
+                string path = value;
+                if (!File.Exists(path) && System.IO.Path.GetExtension(path)==".mxd")
+                {
+                    return;
+                }
+                this.axMapControl1.LoadMxFile(path);
+            }
         }
-
+                
+        public string Map2Path
+        {
+            set
+            {
+                string path = value;
+                if (!File.Exists(path) && System.IO.Path.GetExtension(path) == ".mxd")
+                {
+                    return;
+                }
+                this.axMapControl2.LoadMxFile(path);
+            }
+        }
+        #endregion
+        
         #region //MapControl事件
         private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
@@ -77,15 +110,16 @@ namespace CityPlanningGallery
                 mapControl.ActiveView.Refresh();
             }
         }
-        #endregion
 
         private void axMapControl1_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
         {
-            AxMapControl mapControl = (AxMapControl)sender;
+            //AxMapControl mapControl = (AxMapControl)sender;
 
-            extent = mapControl.ActiveView.Extent;
-            MapExtent = extent;
-            mapExtentChange(extent);            
+            //extent = mapControl.ActiveView.Extent;
+            //MapExtent = extent;
+            //mapExtentChange(extent);            
         }
+        #endregion
+
     }
 }

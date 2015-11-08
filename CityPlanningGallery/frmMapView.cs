@@ -21,10 +21,12 @@ namespace CityPlanningGallery
     {
         private MainForm rootForm = null;
         private frmMapTitleGallery galleryForm = null;
+        private ucTripleMap m_ucTripleMap = null;   //三图对比控件
 
         private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
         private string mapTitle = "";       //地图标题
         private string mapTitleWithoutIndex = "";   //没有序号的地图标题
+
 
         //地图对应的数据表
         private DataTable dt = new DataTable();
@@ -38,6 +40,7 @@ namespace CityPlanningGallery
 
             clsGISTools.FullExtend(this.axMapControl1);
         }
+
         #region //预加载
         private void frmMapView_Load(object sender, EventArgs e)
         {
@@ -223,10 +226,9 @@ namespace CityPlanningGallery
 
         private void axMapControl1_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
         {
-            int rightPanelChildCount = this.panel_RightHome.Controls.Count;
-            if (rightPanelChildCount == 2)
+            if (m_ucTripleMap != null && m_ucTripleMap.Visible)
             {
-
+                m_ucTripleMap.MapExtent = this.axMapControl1.ActiveView.Extent;
             }
         }
         
@@ -285,10 +287,35 @@ namespace CityPlanningGallery
                     this.panel_RightInfo.Visible = !this.panel_RightInfo.Visible;
                     if (!this.panel_RightInfo.Visible)
                     {
-                        
+                        if (m_ucTripleMap == null)
+                        {
+                            m_ucTripleMap = new ucTripleMap();
+                            m_ucTripleMap.Dock = DockStyle.Fill;
+                            m_ucTripleMap.Map1Path = clsConfig.RootDataPath+ clsConfig.TripleMap1;
+                            m_ucTripleMap.Map2Path = clsConfig.RootDataPath + clsConfig.TripleMap2;
+                            //m_ucTripleMap.mapExtentChange += new delegateExtentChange(OnExtentChange);
+                            this.panel_RightHome.Controls.Add(m_ucTripleMap);
+                        }
+                        else
+                        {
+                            m_ucTripleMap.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        if (m_ucTripleMap != null)
+                        {
+                            m_ucTripleMap.Visible = false;
+                        }
                     }
                     break;
             }
+        }
+
+        //extent改变
+        private void OnExtentChange(IEnvelope extent)
+        {
+            this.axMapControl1.ActiveView.Extent = extent;
         }
  
         //自动播放图例
