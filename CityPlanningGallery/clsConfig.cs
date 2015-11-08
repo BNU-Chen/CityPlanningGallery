@@ -38,6 +38,10 @@ namespace CityPlanningGallery
         private static string KeyUserName = "UserName";
         private static string KeyPassword = "Password";
 
+        //三图对比设置
+        private static string KeyTripleMap1 = "TripleMap1";
+        private static string KeyTripleMap2 = "TripleMap2";
+
         public static string IniFilePath
         {
             get { return clsConfig.iniFilePath; }
@@ -120,6 +124,16 @@ namespace CityPlanningGallery
             get { return PlanningDocFolder + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningThematic); }
         }
 
+        //三图对比设置----------------------
+        public static string TripleMap1
+        {
+            get { return clsINIFile.IniReadValue(DataSection, KeyTripleMap1); }
+        }
+        public static string TripleMap2
+        {
+            get { return clsINIFile.IniReadValue(DataSection, KeyTripleMap2); }
+        }
+
         //SQLServer数据库
         public static string DBServerName
         {
@@ -139,5 +153,6 @@ namespace CityPlanningGallery
         {
             get { return clsINIFile.IniReadValue(SQLServerSection,KeyPassword); }
         }
+
     }
 }

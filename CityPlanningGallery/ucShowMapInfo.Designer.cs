@@ -36,11 +36,11 @@
             this.panel_btn_FeatureInfo = new System.Windows.Forms.Panel();
             this.btn_FeatureInfo = new DevExpress.XtraEditors.SimpleButton();
             this.panel_MapChart = new System.Windows.Forms.Panel();
+            this.ucChartTableShow1 = new CityPlanningGallery.ucChartTableShow();
             this.panel_MapDesc = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel_btn_MapChart = new System.Windows.Forms.Panel();
             this.btn_MapChart = new DevExpress.XtraEditors.SimpleButton();
-            this.ucChartTableShow1 = new CityPlanningGallery.ucChartTableShow();
             this.panel_FeatureInfo.SuspendLayout();
             this.panel_btn_MapDesc.SuspendLayout();
             this.panel_btn_FeatureInfo.SuspendLayout();
@@ -107,7 +107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_FeatureInfo.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_FeatureInfo.Appearance.Options.UseFont = true;
-            this.btn_FeatureInfo.Location = new System.Drawing.Point(14, 5);
+            this.btn_FeatureInfo.Location = new System.Drawing.Point(19, 5);
             this.btn_FeatureInfo.Name = "btn_FeatureInfo";
             this.btn_FeatureInfo.Size = new System.Drawing.Size(222, 25);
             this.btn_FeatureInfo.TabIndex = 1;
@@ -124,6 +124,16 @@
             this.panel_MapChart.Name = "panel_MapChart";
             this.panel_MapChart.Size = new System.Drawing.Size(259, 122);
             this.panel_MapChart.TabIndex = 1;
+            // 
+            // ucChartTableShow1
+            // 
+            this.ucChartTableShow1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucChartTableShow1.DataSource = null;
+            this.ucChartTableShow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucChartTableShow1.Location = new System.Drawing.Point(0, 0);
+            this.ucChartTableShow1.Name = "ucChartTableShow1";
+            this.ucChartTableShow1.Size = new System.Drawing.Size(259, 122);
+            this.ucChartTableShow1.TabIndex = 0;
             // 
             // panel_MapDesc
             // 
@@ -162,22 +172,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_MapChart.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_MapChart.Appearance.Options.UseFont = true;
-            this.btn_MapChart.Location = new System.Drawing.Point(14, 3);
+            this.btn_MapChart.Location = new System.Drawing.Point(19, 3);
             this.btn_MapChart.Name = "btn_MapChart";
             this.btn_MapChart.Size = new System.Drawing.Size(222, 25);
             this.btn_MapChart.TabIndex = 1;
             this.btn_MapChart.Text = "统计信息";
             this.btn_MapChart.Click += new System.EventHandler(this.btn_MapChart_Click);
-            // 
-            // ucChartTableShow1
-            // 
-            this.ucChartTableShow1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucChartTableShow1.DataSource = null;
-            this.ucChartTableShow1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucChartTableShow1.Location = new System.Drawing.Point(0, 0);
-            this.ucChartTableShow1.Name = "ucChartTableShow1";
-            this.ucChartTableShow1.Size = new System.Drawing.Size(259, 122);
-            this.ucChartTableShow1.TabIndex = 0;
             // 
             // ucShowMapInfo
             // 

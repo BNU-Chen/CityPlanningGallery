@@ -53,9 +53,9 @@
             this.lbl_Title.Appearance.ForeColor = System.Drawing.Color.White;
             this.lbl_Title.Location = new System.Drawing.Point(18, 6);
             this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(32, 21);
+            this.lbl_Title.Size = new System.Drawing.Size(80, 21);
             this.lbl_Title.TabIndex = 1;
-            this.lbl_Title.Text = "asdf";
+            this.lbl_Title.Text = "未找到数据";
             this.lbl_Title.MouseEnter += new System.EventHandler(this.panel_BackColor_MouseEnter);
             this.lbl_Title.MouseLeave += new System.EventHandler(this.panel_BackColor_MouseLeave);
             // 

@@ -34,6 +34,8 @@
             this.pic_PreView = new System.Windows.Forms.PictureBox();
             this.lbl_PreViewMapTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ucGalleryItemDoc1 = new CityPlanningGallery.ucGalleryItemDoc();
+            this.flowLayoutPanel_ThematicDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PreView)).BeginInit();
@@ -42,6 +44,7 @@
             // flowLayoutPanel_ThematicDoc
             // 
             this.flowLayoutPanel_ThematicDoc.AutoScroll = true;
+            this.flowLayoutPanel_ThematicDoc.Controls.Add(this.ucGalleryItemDoc1);
             this.flowLayoutPanel_ThematicDoc.Location = new System.Drawing.Point(40, 100);
             this.flowLayoutPanel_ThematicDoc.Name = "flowLayoutPanel_ThematicDoc";
             this.flowLayoutPanel_ThematicDoc.Size = new System.Drawing.Size(340, 400);
@@ -106,6 +109,17 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "专题报告";
             // 
+            // ucGalleryItemDoc1
+            // 
+            this.ucGalleryItemDoc1.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItemDoc1.DataPath = "";
+            this.ucGalleryItemDoc1.HoverImagePath = "";
+            this.ucGalleryItemDoc1.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItemDoc1.Name = "ucGalleryItemDoc1";
+            this.ucGalleryItemDoc1.Size = new System.Drawing.Size(330, 41);
+            this.ucGalleryItemDoc1.TabIndex = 0;
+            this.ucGalleryItemDoc1.Title = "asdf";
+            // 
             // frmThematicDocContents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -127,6 +141,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
+            this.flowLayoutPanel_ThematicDoc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Return)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PreView)).EndInit();
@@ -143,5 +158,6 @@
         private System.Windows.Forms.PictureBox pic_PreView;
         private System.Windows.Forms.Label lbl_PreViewMapTitle;
         private System.Windows.Forms.Label label1;
+        private ucGalleryItemDoc ucGalleryItemDoc1;
     }
 }

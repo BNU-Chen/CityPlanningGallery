@@ -21,10 +21,12 @@ namespace CityPlanningGallery
     {
         private MainForm rootForm = null;
         private frmMapTitleGallery galleryForm = null;
+        private ucTripleMap m_ucTripleMap = null;   //三图对比控件
 
         private int AutoPlayInterval = 1000;    //图层自动浏览时间间隔
         private string mapTitle = "";       //地图标题
         private string mapTitleWithoutIndex = "";   //没有序号的地图标题
+
 
         //地图对应的数据表
         private DataTable dt = new DataTable();
@@ -36,20 +38,21 @@ namespace CityPlanningGallery
             galleryForm = (frmMapTitleGallery)_frmGallery;
             galleryForm.Visible = false;
 
-            this.ucLegend1.AutoPlayeButton.Click += AutoPlayeButton_Click;
             clsGISTools.FullExtend(this.axMapControl1);
         }
+
+        #region //预加载
         private void frmMapView_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;            
+            this.WindowState = FormWindowState.Maximized;
 
-            
-            this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
+            getMapRelatedData();
+            //this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
         }
 
-        void MapChartButton_Click(object sender, EventArgs e)
-        {
-            //获取表数据
+        //获取表数据
+        void getMapRelatedData()
+        {            
             if (mapTitle != "")
             {
                 string[] names = mapTitle.Split(' ');
@@ -66,42 +69,6 @@ namespace CityPlanningGallery
                     this.ucShowMapInfo1.ChartDataTable = dt;
                 }
             }
-        }
-
-        #region //自动加载图例图层按钮
-        void AutoPlayeButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.ucLegend1.ShowLegendLayers(false);
-
-                if (this.ucLegend1.FlowLayoutLegend.Controls.Count > 0)
-                {
-                    foreach (Control ctrl in this.ucLegend1.FlowLayoutLegend.Controls)
-                    {
-                        if (ctrl is PictureBox)
-                        {
-                            PictureBox pic = (PictureBox)ctrl;
-                            int index = Convert.ToInt16(pic.Tag);
-                            if (index < 0)
-                            {
-                                continue;
-                            }
-                            this.Refresh();
-                            this.axMapControl1.ActiveView.Refresh();
-
-                            System.Threading.Thread.Sleep(AutoPlayInterval);
-
-                            pic.BackColor = Color.LightGray;
-                            ILayer layer = this.axMapControl1.ActiveView.FocusMap.get_Layer(index);
-                            layer.Visible = true;
-                        }
-                    }
-                    this.Refresh();
-                    this.axMapControl1.ActiveView.Refresh();
-                }
-            }
-            catch { }
         }
         #endregion
 
@@ -222,8 +189,11 @@ namespace CityPlanningGallery
         private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
             if (e.button == 1)
-            {
-                GetFeatureInfo(e.mapX, e.mapY);
+            {                
+                string xzqmc = clsGISHandler.GetXMQMC(this.axMapControl1, e);
+                if(xzqmc!=""){
+                    GetFeatureInfo(xzqmc);
+                }
             }
             else if (e.button == 4)
             {
@@ -254,31 +224,44 @@ namespace CityPlanningGallery
             clsGISTools.FullExtend(this.axMapControl1);
         }
 
-        #endregion
-
-        //获取要素属性
-        private void GetFeatureInfo(double x, double y)
+        private void axMapControl1_OnExtentUpdated(object sender, IMapControlEvents2_OnExtentUpdatedEvent e)
         {
-            string cityName = "沈阳市";
-            this.ucShowMapInfo1.FeatureInfo();      //切换到字段属性展示
-            if (dt.DataSet != null && dt.DataSet.Tables.Count > 0 && dt.DataSet.Tables[0].Rows.Count > 0)
+            if (m_ucTripleMap != null && m_ucTripleMap.Visible)
             {
-                foreach (DataRow row in dt.DataSet.Tables[0].Rows)
+                m_ucTripleMap.MapExtent = this.axMapControl1.ActiveView.Extent;
+            }
+        }
+        
+        //获取要素属性
+        private void GetFeatureInfo(string xzqmc)
+        {
+            if (dt.Rows.Count == 0)
+            {
+                return;
+            }
+            this.ucShowMapInfo1.FeatureInfo();      //切换到字段属性展示
+
+            if (xzqmc != "")
+            {
+                if (dt.Rows.Count > 0)
                 {
-                    string areaName = row["区域"].ToString();
-                    if (areaName == cityName)
+                    foreach (DataRow row in dt.Rows)
                     {
-                        this.ucShowMapInfo1.SetFlowLayoutItems(dt.DataSet.Tables[0].Columns,row.ItemArray);
-                    }
-                    else
-                    {
-                        continue;
+                        string cityName = row["区域"].ToString();
+                        if (xzqmc == cityName)
+                        {
+                            this.ucShowMapInfo1.SetFlowLayoutItems(dt.DataSet.Tables[0].Columns, row.ItemArray);
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                 }
             }
         }
-
-
+        #endregion
+                
         #region //地图工具按钮事件
         private void toolStrip_MapTool_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -294,11 +277,107 @@ namespace CityPlanningGallery
                 case "tsbtn_FullExtent":
                     clsGISTools.FullExtend(this.axMapControl1);
                     break;
+                case "tsbtn_AutoPlayLegend":
+                    AutoPlayeButton_Click();
+                    break;
+                case "tsbtn_CtrlLegendLayer":
+                    tsbtn_AllLayer_Click();
+                    break;
+                case "tsbtn_TripleMap":
+                    this.panel_RightInfo.Visible = !this.panel_RightInfo.Visible;
+                    if (!this.panel_RightInfo.Visible)
+                    {
+                        if (m_ucTripleMap == null)
+                        {
+                            m_ucTripleMap = new ucTripleMap();
+                            m_ucTripleMap.Dock = DockStyle.Fill;
+                            m_ucTripleMap.Map1Path = clsConfig.RootDataPath+ clsConfig.TripleMap1;
+                            m_ucTripleMap.Map2Path = clsConfig.RootDataPath + clsConfig.TripleMap2;
+                            //m_ucTripleMap.mapExtentChange += new delegateExtentChange(OnExtentChange);
+                            this.panel_RightHome.Controls.Add(m_ucTripleMap);
+                        }
+                        else
+                        {
+                            m_ucTripleMap.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        if (m_ucTripleMap != null)
+                        {
+                            m_ucTripleMap.Visible = false;
+                        }
+                    }
+                    break;
             }
         }
+
+        //extent改变
+        private void OnExtentChange(IEnvelope extent)
+        {
+            this.axMapControl1.ActiveView.Extent = extent;
+        }
+ 
+        //自动播放图例
+        void AutoPlayeButton_Click()
+        {
+            try
+            {
+                this.ucLegend1.ShowLegendLayers(false);
+
+                if (this.ucLegend1.FlowLayoutLegend.Controls.Count > 0)
+                {
+                    foreach (Control ctrl in this.ucLegend1.FlowLayoutLegend.Controls)
+                    {
+                        if (ctrl is PictureBox)
+                        {
+                            PictureBox pic = (PictureBox)ctrl;
+                            int index = Convert.ToInt16(pic.Tag);
+                            if (index < 0)
+                            {
+                                continue;
+                            }
+                            this.Refresh();
+                            this.axMapControl1.ActiveView.Refresh();
+
+                            System.Threading.Thread.Sleep(AutoPlayInterval);
+
+                            pic.BackColor = Color.LightGray;
+                            ILayer layer = this.axMapControl1.ActiveView.FocusMap.get_Layer(index);
+                            layer.Visible = true;
+                        }
+                    }
+                    this.Refresh();
+                    this.axMapControl1.ActiveView.Refresh();
+
+                    //处理按钮
+                    this.tsbtn_CtrlLegendLayer.Text = "局部浏览";
+                    this.tsbtn_CtrlLegendLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.unCheck_icon);
+                }
+            }
+            catch { }
+        }
+        //图例图层控制 - 整体浏览和局部浏览
+        private void tsbtn_AllLayer_Click()
+        {
+            try
+            {
+                if (this.tsbtn_CtrlLegendLayer.Text == "整体浏览")
+                {
+                    this.tsbtn_CtrlLegendLayer.Text = "局部浏览";
+                    this.tsbtn_CtrlLegendLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.unCheck_icon);
+                    this.ucLegend1.ShowLegendLayers(true);
+                }
+                else
+                {
+                    this.tsbtn_CtrlLegendLayer.Text = "整体浏览";
+                    this.tsbtn_CtrlLegendLayer.Image = new Bitmap(CityPlanningGallery.Properties.Resources.select_all);
+                    this.ucLegend1.ShowLegendLayers(false);
+                }
+            }
+            catch { }
+        }
         #endregion
-
-
 
     }
 }

@@ -25,6 +25,7 @@ namespace CityPlanningGallery
             parentForm.Visible = false;
         }
 
+        #region //封装字段
         public string DataPath
         {
             set
@@ -49,10 +50,17 @@ namespace CityPlanningGallery
                 this.panel_PlanningDocs.Visible = value;
             }
         }
+        #endregion
 
         #region //GalleryItem
         private void SetFlowLayout(string path)
         {
+            if (!Directory.Exists(path))
+            {
+                return;
+            }
+            this.flowLayoutPanel_GalleryItem.Controls.Clear();
+
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
             try

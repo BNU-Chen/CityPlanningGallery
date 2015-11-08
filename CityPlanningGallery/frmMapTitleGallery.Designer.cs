@@ -42,6 +42,8 @@
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.btn_Return = new System.Windows.Forms.PictureBox();
             this.pic_PreView = new System.Windows.Forms.PictureBox();
+            this.ucGalleryItem1 = new CityPlanningGallery.ucGalleryItem();
+            this.flowLayoutPanel_GalleryItem.SuspendLayout();
             this.panel_PlanningDocs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Thematic)).BeginInit();
@@ -55,6 +57,7 @@
             // flowLayoutPanel_GalleryItem
             // 
             this.flowLayoutPanel_GalleryItem.AutoScroll = true;
+            this.flowLayoutPanel_GalleryItem.Controls.Add(this.ucGalleryItem1);
             this.flowLayoutPanel_GalleryItem.Location = new System.Drawing.Point(47, 54);
             this.flowLayoutPanel_GalleryItem.Name = "flowLayoutPanel_GalleryItem";
             this.flowLayoutPanel_GalleryItem.Size = new System.Drawing.Size(340, 500);
@@ -211,6 +214,17 @@
             this.pic_PreView.TabIndex = 1;
             this.pic_PreView.TabStop = false;
             // 
+            // ucGalleryItem1
+            // 
+            this.ucGalleryItem1.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItem1.DataPath = "";
+            this.ucGalleryItem1.HoverImagePath = "";
+            this.ucGalleryItem1.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItem1.Name = "ucGalleryItem1";
+            this.ucGalleryItem1.Size = new System.Drawing.Size(300, 41);
+            this.ucGalleryItem1.TabIndex = 0;
+            this.ucGalleryItem1.Title = "未找到数据";
+            // 
             // frmMapTitleGallery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -230,6 +244,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
+            this.flowLayoutPanel_GalleryItem.ResumeLayout(false);
             this.panel_PlanningDocs.ResumeLayout(false);
             this.panel_PlanningDocs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Images)).EndInit();
@@ -260,5 +275,6 @@
         private System.Windows.Forms.PictureBox pictureBox_Images;
         private System.Windows.Forms.PictureBox pictureBox_Thematic;
         private System.Windows.Forms.PictureBox pictureBox_Desc;
+        private ucGalleryItem ucGalleryItem1;
     }
 }
