@@ -46,12 +46,51 @@ namespace CityPlanningGallery
         {
             this.WindowState = FormWindowState.Maximized;
 
-            getMapRelatedData();
-            //this.ucShowMapInfo1.MapChartButton.Click += MapChartButton_Click;
+            getMapRelatedData();    //读取地图相关数据
+            SetMapDescription();    //读取地图介绍            
         }
 
+        private void SetMapDescription()
+        {
+            if (mapTitle != "")
+            {
+                string mapFolder = System.IO.Path.GetDirectoryName(mapPath);
+                string mapDescPath = clsConfig.GetMapDescription(mapFolder) + "\\" + mapTitle + ".txt";
+                if (File.Exists(mapDescPath))
+                {
+                    System.IO.StreamReader st =null;
+                    try
+                    {
+                        st = new System.IO.StreamReader(mapDescPath, System.Text.Encoding.Default);
+                        string text = st.ReadToEnd();
+                        //string text = System.IO.File.ReadAllText(mapDescPath, Encoding.ASCII);
+                        if (text != "")
+                        {
+                            this.ucShowMapInfo1.MapDescStr = text;
+                        }
+                        else
+                        {
+                            this.ucShowMapInfo1.MapDescStr = mapTitle;
+                        }
+                    }
+                    catch { }
+                    finally
+                    {
+                        if (st != null)
+                        {
+                            st.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    this.ucShowMapInfo1.MapDescStr = mapTitle;
+                }
+            }
+        }
+        
         //获取表数据
-        void getMapRelatedData()
+        private void getMapRelatedData()
         {            
             if (mapTitle != "")
             {
@@ -112,7 +151,6 @@ namespace CityPlanningGallery
                 }
             }
         }
-
         #endregion
         
         #region //关闭按钮

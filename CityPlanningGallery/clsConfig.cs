@@ -20,11 +20,13 @@ namespace CityPlanningGallery
         private static string KeyPlanningImageFolderName = "PlanningImageFolderName";
         private static string KeyPlanningMapFolderName = "PlanningMapFolderName";
 
-        private static string KeyMapGuihuaName = "MapGuihuaName";
-        private static string KeyMapXianzhuangName = "MapXianzhuangName";
-        private static string KeyMapFenxiName = "MapFenxiName";
-        private static string KeyThumbName = "ThumbName";
-        private static string KeyLegendName = "LegendName";
+        private static string KeyMapGuihuaName = "MapGuihuaName";       //规划
+        private static string KeyMapXianzhuangName = "MapXianzhuangName";   //现状
+        private static string KeyMapFenxiName = "MapFenxiName";         //分析
+
+        private static string KeyThumbName = "ThumbName";       //缩略图
+        private static string KeyLegendName = "LegendName";     //图例
+        private static string KeyMapDescription = "MapDescription";    //地图介绍
 
         //规划文档
         private static string KeyPlanningDoc = "PlanningDocName";
@@ -86,7 +88,6 @@ namespace CityPlanningGallery
             get { return RootDataPath + "\\" + clsINIFile.IniReadValue(DataSection, KeyPlanningMapFolderName) + "\\" + clsINIFile.IniReadValue(DataSection, KeyMapFenxiName); }
         }
         //缩略图-------------------
-        //规划
         public static string GetThumbFolder(string path)
         {
             string thumbPath = "";
@@ -97,7 +98,6 @@ namespace CityPlanningGallery
             return thumbPath;
         }
         //图例-------------------
-        //规划
         public static string GetLegendFolder(string path)
         {
             string LegendPath = "";
@@ -106,6 +106,16 @@ namespace CityPlanningGallery
                 LegendPath = path + "\\" + clsINIFile.IniReadValue(DataSection, KeyLegendName);
             }
             return LegendPath;
+        }
+        //地图介绍-----------------
+        public static string GetMapDescription(string path)
+        {
+            string mapDesc = "";
+            if (Directory.Exists(path))
+            {
+                mapDesc = path + "\\" + clsINIFile.IniReadValue(DataSection, KeyMapDescription);
+            }
+            return mapDesc;
         }
 
         //规划文档----------------------------------------
