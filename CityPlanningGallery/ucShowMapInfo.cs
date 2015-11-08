@@ -120,6 +120,7 @@ namespace CityPlanningGallery
         }
         #endregion
 
+        #region //设置要素属性信息
         public void SetFlowLayoutItems(DataColumnCollection cols, object[] rowValues)
         {
             this.flowLayoutPanel1.Controls.Clear();
@@ -131,7 +132,14 @@ namespace CityPlanningGallery
                 {
                     continue;
                 }
-                if (i % 2 == 0)
+                if (i == 0)
+                {
+                    ucFeatureFieldItemSpecial ffis = new ucFeatureFieldItemSpecial();
+                    ffis.Title = colName;
+                    ffis.Value = value;
+                    this.flowLayoutPanel1.Controls.Add(ffis);
+                }
+                else if (i % 2 == 0)
                 {
                     ucFeatureFieldItemLong ffil = new ucFeatureFieldItemLong();
                     ffil.Title = colName;
@@ -148,5 +156,7 @@ namespace CityPlanningGallery
             }
             this.flowLayoutPanel1.Refresh();
         }
+        #endregion
+
     }
 }
