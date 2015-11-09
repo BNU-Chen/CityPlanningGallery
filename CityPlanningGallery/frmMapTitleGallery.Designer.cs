@@ -42,6 +42,7 @@
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.btn_Return = new System.Windows.Forms.PictureBox();
             this.pic_PreView = new System.Windows.Forms.PictureBox();
+            this.lbl_Title = new System.Windows.Forms.Label();
             this.ucGalleryItem1 = new CityPlanningGallery.ucGalleryItem();
             this.flowLayoutPanel_GalleryItem.SuspendLayout();
             this.panel_PlanningDocs.SuspendLayout();
@@ -214,6 +215,16 @@
             this.pic_PreView.TabIndex = 1;
             this.pic_PreView.TabStop = false;
             // 
+            // lbl_Title
+            // 
+            this.lbl_Title.AutoSize = true;
+            this.lbl_Title.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_Title.Location = new System.Drawing.Point(59, 22);
+            this.lbl_Title.Name = "lbl_Title";
+            this.lbl_Title.Size = new System.Drawing.Size(88, 25);
+            this.lbl_Title.TabIndex = 7;
+            this.lbl_Title.Text = "专题地图";
+            // 
             // ucGalleryItem1
             // 
             this.ucGalleryItem1.BackColor = System.Drawing.Color.White;
@@ -231,6 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 600);
+            this.Controls.Add(this.lbl_Title);
             this.Controls.Add(this.panel_PlanningDocs);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Return);
@@ -276,5 +288,6 @@
         private System.Windows.Forms.PictureBox pictureBox_Thematic;
         private System.Windows.Forms.PictureBox pictureBox_Desc;
         private ucGalleryItem ucGalleryItem1;
+        private System.Windows.Forms.Label lbl_Title;
     }
 }

@@ -50,6 +50,14 @@ namespace CityPlanningGallery
                 this.panel_PlanningDocs.Visible = value;
             }
         }
+
+        public string GalleryTitle
+        {
+            set
+            {
+                this.lbl_Title.Text = value;
+            }
+        }
         #endregion
 
         #region //GalleryItem
