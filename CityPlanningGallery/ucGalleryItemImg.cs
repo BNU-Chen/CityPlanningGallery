@@ -26,7 +26,7 @@ namespace CityPlanningGallery
         public ucGalleryItemImg()
         {
             InitializeComponent();
-            this.panel_BackColor.BackColor = Color.FromArgb(56, 113, 106);
+            this.panel_BackColor.BackColor = Color.FromArgb(80, 203, 188);
 
             this.lbl_Title.Click += ucGalleryItem_Click;
             this.lbl_Title.MouseEnter += ucGalleryItem_MouseEnter;
@@ -35,7 +35,6 @@ namespace CityPlanningGallery
             this.panel_BackColor.Click += ucGalleryItem_Click;
             this.panel_BackColor.MouseEnter += ucGalleryItem_MouseEnter;
             this.panel_BackColor.MouseLeave += ucGalleryItem_MouseLeave;
-
         }
 
         #region //封装字段

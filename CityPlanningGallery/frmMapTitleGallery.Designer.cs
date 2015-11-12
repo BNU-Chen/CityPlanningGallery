@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel_GalleryItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.ucGalleryItem1 = new CityPlanningGallery.ucGalleryItem();
             this.lbl_PreViewMapTitle = new DevExpress.XtraEditors.LabelControl();
             this.panel_PlanningDocs = new System.Windows.Forms.Panel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -43,7 +44,6 @@
             this.btn_Return = new System.Windows.Forms.PictureBox();
             this.pic_PreView = new System.Windows.Forms.PictureBox();
             this.lbl_Title = new System.Windows.Forms.Label();
-            this.ucGalleryItem1 = new CityPlanningGallery.ucGalleryItem();
             this.flowLayoutPanel_GalleryItem.SuspendLayout();
             this.panel_PlanningDocs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Images)).BeginInit();
@@ -63,6 +63,18 @@
             this.flowLayoutPanel_GalleryItem.Name = "flowLayoutPanel_GalleryItem";
             this.flowLayoutPanel_GalleryItem.Size = new System.Drawing.Size(340, 500);
             this.flowLayoutPanel_GalleryItem.TabIndex = 0;
+            // 
+            // ucGalleryItem1
+            // 
+            this.ucGalleryItem1.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ucGalleryItem1.DataPath = "";
+            this.ucGalleryItem1.HoverImagePath = "";
+            this.ucGalleryItem1.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItem1.Name = "ucGalleryItem1";
+            this.ucGalleryItem1.Size = new System.Drawing.Size(300, 41);
+            this.ucGalleryItem1.TabIndex = 0;
+            this.ucGalleryItem1.Title = "未找到数据";
             // 
             // lbl_PreViewMapTitle
             // 
@@ -209,11 +221,13 @@
             // pic_PreView
             // 
             this.pic_PreView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_PreView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_PreView.Location = new System.Drawing.Point(427, 54);
             this.pic_PreView.Name = "pic_PreView";
             this.pic_PreView.Size = new System.Drawing.Size(400, 273);
             this.pic_PreView.TabIndex = 1;
             this.pic_PreView.TabStop = false;
+            this.pic_PreView.Click += new System.EventHandler(this.pic_PreView_Click);
             // 
             // lbl_Title
             // 
@@ -224,17 +238,6 @@
             this.lbl_Title.Size = new System.Drawing.Size(88, 25);
             this.lbl_Title.TabIndex = 7;
             this.lbl_Title.Text = "专题地图";
-            // 
-            // ucGalleryItem1
-            // 
-            this.ucGalleryItem1.BackColor = System.Drawing.Color.White;
-            this.ucGalleryItem1.DataPath = "";
-            this.ucGalleryItem1.HoverImagePath = "";
-            this.ucGalleryItem1.Location = new System.Drawing.Point(3, 3);
-            this.ucGalleryItem1.Name = "ucGalleryItem1";
-            this.ucGalleryItem1.Size = new System.Drawing.Size(300, 41);
-            this.ucGalleryItem1.TabIndex = 0;
-            this.ucGalleryItem1.Title = "未找到数据";
             // 
             // frmMapTitleGallery
             // 

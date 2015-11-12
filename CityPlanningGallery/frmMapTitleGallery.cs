@@ -124,13 +124,14 @@ namespace CityPlanningGallery
                 Image img = Image.FromFile(ucgi.HoverImagePath);
                 this.pic_PreView.BackgroundImage = img;
                 this.lbl_PreViewMapTitle.Text = ucgi.Title;
+                this.pic_PreView.Tag = ucgi.DataPath;
             }
         }
 
         void gi_MouseLeave(ucGalleryItem ucgi)
         {
-            this.pic_PreView.BackgroundImage = null;
-            this.lbl_PreViewMapTitle.Text = "";
+            //this.pic_PreView.BackgroundImage = null;
+            //this.lbl_PreViewMapTitle.Text = "";
         }
 
         void FlowLayoutMouseWheel_MouseWheel(object sender, MouseEventArgs e)
@@ -235,5 +236,17 @@ namespace CityPlanningGallery
             frmContents.Show();
         }
         #endregion
+
+        private void pic_PreView_Click(object sender, EventArgs e)
+        {
+            PictureBox picBox = (PictureBox)sender;
+            string path = Convert.ToString(picBox.Tag);
+            if (File.Exists(path))
+            {
+                frmMapView frmMap = new frmMapView(parentForm, this);
+                frmMap.MapPath = path;
+                frmMap.Show();
+            }
+        }
     }
 }

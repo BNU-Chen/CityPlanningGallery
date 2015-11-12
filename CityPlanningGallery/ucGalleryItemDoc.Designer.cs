@@ -65,6 +65,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel_BackColor);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ucGalleryItemDoc";
             this.Size = new System.Drawing.Size(330, 41);
             this.Click += new System.EventHandler(this.ucGalleryItem_Click);
