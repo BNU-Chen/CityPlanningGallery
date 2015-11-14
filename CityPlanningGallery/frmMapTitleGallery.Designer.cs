@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel_GalleryItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.ucGalleryItem1 = new CityPlanningGallery.ucGalleryItem();
             this.lbl_PreViewMapTitle = new DevExpress.XtraEditors.LabelControl();
             this.panel_PlanningDocs = new System.Windows.Forms.Panel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -42,7 +43,7 @@
             this.btn_Close = new System.Windows.Forms.PictureBox();
             this.btn_Return = new System.Windows.Forms.PictureBox();
             this.pic_PreView = new System.Windows.Forms.PictureBox();
-            this.ucGalleryItem1 = new CityPlanningGallery.ucGalleryItem();
+            this.lbl_Title = new System.Windows.Forms.Label();
             this.flowLayoutPanel_GalleryItem.SuspendLayout();
             this.panel_PlanningDocs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Images)).BeginInit();
@@ -62,6 +63,18 @@
             this.flowLayoutPanel_GalleryItem.Name = "flowLayoutPanel_GalleryItem";
             this.flowLayoutPanel_GalleryItem.Size = new System.Drawing.Size(340, 500);
             this.flowLayoutPanel_GalleryItem.TabIndex = 0;
+            // 
+            // ucGalleryItem1
+            // 
+            this.ucGalleryItem1.BackColor = System.Drawing.Color.White;
+            this.ucGalleryItem1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ucGalleryItem1.DataPath = "";
+            this.ucGalleryItem1.HoverImagePath = "";
+            this.ucGalleryItem1.Location = new System.Drawing.Point(3, 3);
+            this.ucGalleryItem1.Name = "ucGalleryItem1";
+            this.ucGalleryItem1.Size = new System.Drawing.Size(300, 41);
+            this.ucGalleryItem1.TabIndex = 0;
+            this.ucGalleryItem1.Title = "未找到数据";
             // 
             // lbl_PreViewMapTitle
             // 
@@ -208,22 +221,23 @@
             // pic_PreView
             // 
             this.pic_PreView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_PreView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_PreView.Location = new System.Drawing.Point(427, 54);
             this.pic_PreView.Name = "pic_PreView";
             this.pic_PreView.Size = new System.Drawing.Size(400, 273);
             this.pic_PreView.TabIndex = 1;
             this.pic_PreView.TabStop = false;
+            this.pic_PreView.Click += new System.EventHandler(this.pic_PreView_Click);
             // 
-            // ucGalleryItem1
+            // lbl_Title
             // 
-            this.ucGalleryItem1.BackColor = System.Drawing.Color.White;
-            this.ucGalleryItem1.DataPath = "";
-            this.ucGalleryItem1.HoverImagePath = "";
-            this.ucGalleryItem1.Location = new System.Drawing.Point(3, 3);
-            this.ucGalleryItem1.Name = "ucGalleryItem1";
-            this.ucGalleryItem1.Size = new System.Drawing.Size(300, 41);
-            this.ucGalleryItem1.TabIndex = 0;
-            this.ucGalleryItem1.Title = "未找到数据";
+            this.lbl_Title.AutoSize = true;
+            this.lbl_Title.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_Title.Location = new System.Drawing.Point(59, 22);
+            this.lbl_Title.Name = "lbl_Title";
+            this.lbl_Title.Size = new System.Drawing.Size(88, 25);
+            this.lbl_Title.TabIndex = 7;
+            this.lbl_Title.Text = "专题地图";
             // 
             // frmMapTitleGallery
             // 
@@ -231,6 +245,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(861, 600);
+            this.Controls.Add(this.lbl_Title);
             this.Controls.Add(this.panel_PlanningDocs);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Return);
@@ -276,5 +291,6 @@
         private System.Windows.Forms.PictureBox pictureBox_Thematic;
         private System.Windows.Forms.PictureBox pictureBox_Desc;
         private ucGalleryItem ucGalleryItem1;
+        private System.Windows.Forms.Label lbl_Title;
     }
 }

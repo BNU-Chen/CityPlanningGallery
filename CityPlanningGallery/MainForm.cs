@@ -54,6 +54,7 @@ namespace CityPlanningGallery
         {
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
             frmGallery.DataPath = clsConfig.PlanningMapXianzhuangFolder;
+            frmGallery.GalleryTitle = "现 状 图";
             frmGallery.Show();
         }
 
@@ -62,6 +63,7 @@ namespace CityPlanningGallery
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
             frmGallery.DataPath = clsConfig.PlanningMapGuihuaFolder;
             frmGallery.IsShowPlanningDocs = true;
+            frmGallery.GalleryTitle = "规 划 图";
             frmGallery.Show();
         }
 
@@ -69,6 +71,7 @@ namespace CityPlanningGallery
         {
             frmMapTitleGallery frmGallery = new frmMapTitleGallery(this);
             frmGallery.DataPath = clsConfig.PlanningMapFenxiFolder;
+            frmGallery.GalleryTitle = "分 析 图";
             frmGallery.Show();
         }
         private void btn_Xianzhuang_MouseEnter(object sender, EventArgs e)
