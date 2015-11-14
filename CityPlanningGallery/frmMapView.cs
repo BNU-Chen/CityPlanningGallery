@@ -103,7 +103,8 @@ namespace CityPlanningGallery
                 }
                 if (dt.DataSet == null)
                 {
-                    dt = clsSQLServerConnection.GetDataByTableName(mapTitleWithoutIndex);
+                    //dt = clsSQLServerConnection.GetDataByTableName(mapTitleWithoutIndex);
+                    dt = clsAccessDatabase.GetDataByTableName(mapTitleWithoutIndex);
                 }
                 if (dt.DataSet != null && dt.DataSet.Tables.Count > 0 && dt.DataSet.Tables[0].Rows.Count > 0)
                 {

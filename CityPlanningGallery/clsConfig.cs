@@ -39,6 +39,8 @@ namespace CityPlanningGallery
         private static string KeyCatalogName = "CatalogName";
         private static string KeyUserName = "UserName";
         private static string KeyPassword = "Password";
+        private static string KeyAccessDB = "MDBPath";
+
 
         //三图对比设置
         private static string KeyTripleMap1 = "TripleMap1";
@@ -163,6 +165,9 @@ namespace CityPlanningGallery
         {
             get { return clsINIFile.IniReadValue(SQLServerSection,KeyPassword); }
         }
-
+        public static string AccessDatabasePath
+        {
+            get { return clsINIFile.IniReadValue(SQLServerSection, KeyAccessDB); }
+        }
     }
 }

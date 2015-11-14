@@ -105,6 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAccessDatabase.cs" />
     <Compile Include="clsGISHandler.cs" />
     <Compile Include="clsGISTools.cs" />
     <Compile Include="clsConfig.cs" />
