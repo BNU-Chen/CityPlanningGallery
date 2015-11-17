@@ -26,7 +26,7 @@ namespace CityPlanningGallery
         public ucGalleryItemImg()
         {
             InitializeComponent();
-            this.panel_BackColor.BackColor = Color.FromArgb(80, 203, 188);
+            this.panel_BackColor.BackColor = Color.FromArgb(42, 89, 58);
 
             this.lbl_Title.Click += ucGalleryItem_Click;
             this.lbl_Title.MouseEnter += ucGalleryItem_MouseEnter;
@@ -77,12 +77,12 @@ namespace CityPlanningGallery
 
         private void panel_BackColor_MouseEnter(object sender, EventArgs e)
         {
-            this.panel_BackColor.BackColor = Color.FromArgb(114,192,182);
+            this.panel_BackColor.BackColor = Color.FromArgb(111, 149, 124);
         }
 
         private void panel_BackColor_MouseLeave(object sender, EventArgs e)
         {
-            this.panel_BackColor.BackColor = Color.FromArgb(80,203,188);
+            this.panel_BackColor.BackColor = Color.FromArgb(42, 89, 58);
         }
 
         private void ucGalleryItem_Click(object sender, EventArgs e)

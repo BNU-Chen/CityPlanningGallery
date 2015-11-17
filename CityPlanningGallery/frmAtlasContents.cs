@@ -49,6 +49,10 @@ namespace CityPlanningGallery
         #region //为FlowLayoutPanel控件加载ucGalleryItem
         private void SetFlowLayout(string path, FlowLayoutPanel flowLayoutPanel, string fileExtension)
         {
+            if (!Directory.Exists(path))
+            {
+                return;
+            }
             DirectoryInfo di = new DirectoryInfo(path);
             FileSystemInfo[] files = di.GetFileSystemInfos();
             try
